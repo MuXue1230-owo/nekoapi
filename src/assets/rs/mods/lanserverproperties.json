@@ -1,0 +1,20 @@
+﻿{
+  "lanserverproperties.options.online_mode": "在线模式",
+  "lanserverproperties.options.online_mode.on": "在线模式: 打开",
+  "lanserverproperties.options.online_mode.on.message": "打开在线模式就只有用微软帐户登录的人加入喵。",
+  "lanserverproperties.options.online_mode.off.vanilla": "在线模式: 关掉",
+  "lanserverproperties.options.online_mode.off.vanilla.message": "关掉在线模式就能让不是正版的人进来了喵。",
+  "lanserverproperties.options.online_mode.off.fixed": "离线模式+UUID修复",
+  "lanserverproperties.options.online_mode.off.fixed.message": "这个模式能让任何人加入，而且给用正版的人保留UUID喵。它可以用来从在线模式把存档迁移到离线模式喵。",
+  "lanserverproperties.options.preference_enabled": "自动读取保存的配置喵",
+  "lanserverproperties.options.preference_enabled.message": "打开这个页面就读取保存的配置，只在服务器还没开放的时候生效喵。开放后这个页面就显示实际配置了喵。",
+  "lanserverproperties.button.lan_server_options": "局域网服务器配置",
+  "lanserverproperties.button.preference_load": "从保存的配置里读取喵",
+  "lanserverproperties.button.preference_save": "保存配置喵",
+  "lanserverproperties.gui.pvp_allowed": "允许打架",
+  "lanserverproperties.gui.port_listening": "已开端口喵:",
+  "lanserverproperties.gui.port": "监听端口喵:",
+  "lanserverproperties.gui.max_player": "最大玩家数喵:",
+  "lanserverproperties.gui.always_offline": "强制离线模式的玩家名列表喵",
+  "lanserverproperties.gui.always_offline.message": "用空格分隔喵。只在用“离线模式+UUID修复模式”的时候有效喵。有离线玩家和正版玩家名字冲突时，可以把离线玩家名字放到这里喵。"
+}

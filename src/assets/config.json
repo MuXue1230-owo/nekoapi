@@ -1,0 +1,1043 @@
+{
+	"meta": {
+		"qqGroupUrl": "https://qm.qq.com/q/AntBtGj33i",
+		"pendingBuildNote": {
+			"zh-CN": "",
+			"zh-Neko": ""
+		}
+	},
+	"platforms": [
+		{
+			"id": "java",
+			"icon": "java",
+			"label": {
+				"zh-CN": "Java",
+				"zh-Neko": "爪哇版喵"
+			},
+			"categories": [
+				{
+					"id": "version",
+					"icon": "version",
+					"label": {
+						"zh-CN": "游戏版本",
+						"zh-Neko": "游戏版本喵"
+					},
+					"description": {
+						"zh-CN": "在此处选择你需要安装本包的游戏版本。",
+						"zh-Neko": "主人在这里选择需要安装猫猫包的游戏版本喵。"
+					},
+					"helper": {
+						"zh-CN": "目前最低支持为1.12.2，并且暂时无法支持自定义。",
+						"zh-Neko": "目前猫猫包最低只有1.12.2喵，而且还没办法自定义喵……"
+					},
+					"selection": "single",
+					"visibleInSimple": true,
+					"items": [
+						{
+							"id": "java-1-21",
+							"label": {
+								"zh-CN": "1.21~1.21.11",
+								"zh-Neko": "1.21~1.21.11 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.x",
+								"zh-Neko": "1.21.x"
+							},
+							"description": {
+								"zh-CN": "这个版本的包体永远是最新的，并且会拥有最好的支持。如果你发现其他版本出现异常，切换到这个版本或许就正常了。",
+								"zh-Neko": "这个版本的猫猫包是最棒的那一个喵！如果主人在使用其他版本的猫猫包时发现了问题，可以试试切换到这个版本喵！"
+							},
+							"defaultSelected": true
+						},
+						{
+							"id": "java-1-20",
+							"label": {
+								"zh-CN": "1.20~1.20.6",
+								"zh-Neko": "1.20~1.20.6 喵"
+							},
+							"summary": {
+								"zh-CN": "1.20.x",
+								"zh-Neko": "1.20.x"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							}
+						},
+						{
+							"id": "java-1-19",
+							"label": {
+								"zh-CN": "1.19~1.19.4",
+								"zh-Neko": "1.19~1.19.4 喵"
+							},
+							"summary": {
+								"zh-CN": "1.19.x",
+								"zh-Neko": "1.19.x"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							}
+						},
+						{
+							"id": "java-1-15-1-18",
+							"label": {
+								"zh-CN": "1.15~1.18.2",
+								"zh-Neko": "1.15~1.18.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.15.x~1.18.x",
+								"zh-Neko": "1.15.x~1.18.x"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							}
+						},
+						{
+							"id": "java-1-14",
+							"label": {
+								"zh-CN": "1.14~1.14.4",
+								"zh-Neko": "1.14~1.14.4 喵"
+							},
+							"summary": {
+								"zh-CN": "1.14.x",
+								"zh-Neko": "1.14.x"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"legacyOnlyPackage": true
+						},
+						{
+							"id": "java-1-13",
+							"label": {
+								"zh-CN": "1.13~1.13.2",
+								"zh-Neko": "1.13~1.13.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.13.x",
+								"zh-Neko": "1.13.x"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"legacyOnlyPackage": true
+						},
+						{
+							"id": "java-1-12-2",
+							"label": {
+								"zh-CN": "1.12.2",
+								"zh-Neko": "1.12.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.12.2",
+								"zh-Neko": "1.12.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"legacyOnlyPackage": true
+						}
+					]
+				},
+				{
+					"id": "preset",
+					"icon": "preset",
+					"label": {
+						"zh-CN": "预设",
+						"zh-Neko": "预设喵"
+					},
+					"description": {
+						"zh-CN": "我们根据需求准备的几个预设，如果你不知道怎么设置，可以在这里选择。",
+						"zh-Neko": "为主人准备的几个预设，主人可以直接使用的喵。"
+					},
+					"selection": "single",
+					"visibleInSimple": true,
+					"disabledInLegacy": true,
+					"items": [
+						{
+							"id": "preset-standard",
+							"label": {
+								"zh-CN": "标准包",
+								"zh-Neko": "标准包喵"
+							},
+							"summary": {
+								"zh-CN": "标准",
+								"zh-Neko": "标准"
+							},
+							"description": {
+								"zh-CN": "是我们主要维护的几个选项，适合大多数使用场景。",
+								"zh-Neko": "走主线内容喵，适合大多数使用场景喵。"
+							},
+							"presetSelection": {
+								"categories": {
+									"version": {
+										"selected": ["java-1-21"]
+									},
+									"vanilla": {
+										"selected": ["vanilla-core", "vanilla-enchantments"]
+									},
+									"mods": {
+										"selected": ["mods-base-pack"],
+										"children": {
+											"mods-base-pack": ["appleskin", "cherishedworlds", "flashback", "languagereload", "lanserverproperties", "mcwifipnp", "menulogue", "modmenu", "neo_language_reload", "nochatreports", "ponder", "sodium"]
+										}
+									},
+									"expansion": {
+										"selected": ["expansion-kaomoji"]
+									},
+									"unfinished": {
+										"selected": []
+									}
+								},
+								"toggles": {
+									"add-language": false,
+									"shuffle-text": false
+								}
+							},
+							"defaultSelected": true
+						},
+						{
+							"id": "preset-lite",
+							"label": {
+								"zh-CN": "轻量包",
+								"zh-Neko": "轻量包喵"
+							},
+							"summary": {
+								"zh-CN": "轻量",
+								"zh-Neko": "轻量喵"
+							},
+							"description": {
+								"zh-CN": "少一点花活，偏保守。",
+								"zh-Neko": "少一点花活喵，偏保守一点喵。"
+							},
+							"presetSelection": {
+								"categories": {
+									"version": {
+										"selected": ["java-1-21"]
+									},
+									"vanilla": {
+										"selected": ["vanilla-core"]
+									},
+									"mods": {
+										"selected": ["mods-base-pack"],
+										"children": {
+											"mods-base-pack": ["appleskin", "cherishedworlds", "languagereload", "lanserverproperties", "mcwifipnp", "menulogue", "modmenu", "nochatreports", "sodium"]
+										}
+									},
+									"expansion": {
+										"selected": []
+									},
+									"unfinished": {
+										"selected": []
+									}
+								},
+								"toggles": {
+									"add-language": false,
+									"shuffle-text": false
+								}
+							}
+						},
+						{
+							"id": "preset-chaos",
+							"label": {
+								"zh-CN": "整活包",
+								"zh-Neko": "整活包喵"
+							},
+							"summary": {
+								"zh-CN": "整活",
+								"zh-Neko": "整活喵"
+							},
+							"description": {
+								"zh-CN": "更多替换内容和额外模块，适合先做效果展示。",
+								"zh-Neko": "会带上更多替换内容和额外模块喵，适合先做效果展示喵。"
+							},
+							"presetSelection": {
+								"categories": {
+									"version": {
+										"selected": ["java-1-21"]
+									},
+									"vanilla": {
+										"selected": ["vanilla-core", "vanilla-craftmine", "vanilla-enchantments"]
+									},
+									"mods": {
+										"selected": ["mods-base-pack", "mods-experimental"],
+										"children": {
+											"mods-base-pack": ["appleskin", "cherishedworlds", "flashback", "languagereload", "lanserverproperties", "mcwifipnp", "menulogue", "modmenu", "neo_language_reload", "nochatreports", "ponder", "sodium"],
+											"mods-experimental": ["ae2", "botania", "create", "emi", "farmer's delight", "item_descriptions", "Meowcraft Transit Railway", "worldedit"]
+										}
+									},
+									"expansion": {
+										"selected": [
+											"expansion-end-poem"
+										],
+										"children": {
+											"expansion-end-poem": [
+												"credits.json",
+												"end.txt"
+											]
+										}
+									},
+									"unfinished": {
+										"selected": ["unfinished-review", "unfinished-progress"]
+									}
+								},
+								"toggles": {
+									"add-language": true,
+									"shuffle-text": true
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": "vanilla",
+					"icon": "vanilla",
+					"label": {
+						"zh-CN": "原版内容",
+						"zh-Neko": "原版内容喵"
+					},
+					"description": {
+						"zh-CN": "原版向的替换和补充内容，支持带子选项的模块。",
+						"zh-Neko": "原版向的替换和补充内容喵，支持带子选项的模块喵。"
+					},
+					"selection": "multiple",
+					"visibleInSimple": true,
+					"disabledInLegacy": true,
+					"items": [
+						{
+							"id": "vanilla-core",
+							"label": {
+								"zh-CN": "原版基础内容",
+								"zh-Neko": "原版基础内容喵"
+							},
+							"summary": {
+								"zh-CN": "原版基础",
+								"zh-Neko": "原版基础喵"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"defaultSelected": true
+						},
+						{
+							"id": "vanilla-craftmine",
+							"label": {
+								"zh-CN": "25w14craftmine",
+								"zh-Neko": "25w14craftmine 喵"
+							},
+							"summary": {
+								"zh-CN": "craftmine",
+								"zh-Neko": "craftmine 喵"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							}
+						},
+						{
+							"id": "vanilla-enchantments",
+							"label": {
+								"zh-CN": "附魔名称",
+								"zh-Neko": "附魔名称喵"
+							},
+							"summary": {
+								"zh-CN": "附魔名",
+								"zh-Neko": "附魔名喵"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							}
+						}
+					]
+				},
+				{
+					"id": "mods",
+					"icon": "mods",
+					"label": {
+						"zh-CN": "mod 内容",
+						"zh-Neko": "mod 内容喵"
+					},
+					"description": {
+						"zh-CN": "",
+						"zh-Neko": ""
+					},
+					"selection": "multiple",
+					"visibleInSimple": false,
+					"disabledInLegacy": true,
+					"items": [
+						{
+							"id": "mods-base-pack",
+							"label": {
+								"zh-CN": "基础 mod 包",
+								"zh-Neko": "基础 mod 包喵"
+							},
+							"summary": {
+								"zh-CN": "基础 mod",
+								"zh-Neko": "基础 mod 喵"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"children": [
+								{
+									"id": "appleskin",
+									"label": {
+										"zh-CN": "苹果皮",
+										"zh-Neko": "苹果皮喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "cherishedworlds",
+									"label": {
+										"zh-CN": "存档置顶",
+										"zh-Neko": "存档置顶喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "flashback",
+									"label": {
+										"zh-CN": "FlashBack",
+										"zh-Neko": "FlashBack 喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "languagereload",
+									"label": {
+										"zh-CN": "LanguageReload",
+										"zh-Neko": "LanguageReload 喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "lanserverproperties",
+									"label": {
+										"zh-CN": "自定义局域网联机",
+										"zh-Neko": "自定义局域网联机喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "mcwifipnp",
+									"label": {
+										"zh-CN": "更高级的联机设置",
+										"zh-Neko": "更高级的联机设置喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "menulogue",
+									"label": {
+										"zh-CN": "Menulogue",
+										"zh-Neko": "Menulogue 喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "modmenu",
+									"label": {
+										"zh-CN": "模组菜单",
+										"zh-Neko": "模组菜单喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "neo_language_reload",
+									"label": {
+										"zh-CN": "NeoLanguageReload",
+										"zh-Neko": "NeoLanguageReload喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "nochatreports",
+									"label": {
+										"zh-CN": "禁用聊天举报",
+										"zh-Neko": "禁用聊天举报喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "ponder",
+									"label": {
+										"zh-CN": "思索",
+										"zh-Neko": "思索喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "sodium",
+									"label": {
+										"zh-CN": "Sodium",
+										"zh-Neko": "Sodium 喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": true
+								}
+							],
+							"childSelection": "multiple",
+							"defaultSelected": true
+						},
+						{
+							"id": "mods-experimental",
+							"label": {
+								"zh-CN": "大型模组翻译",
+								"zh-Neko": "大型模组翻译"
+							},
+							"summary": {
+								"zh-CN": "大型模组",
+								"zh-Neko": "大型模组喵"
+							},
+							"description": {
+								"zh-CN": "会保持持续更新，请及时下载最新构建版本。",
+								"zh-Neko": "我们会一直更新这块内容喵，主人要用的话，要及时更新哟喵~"
+							},
+							"children": [
+								{
+									"id": "ae2",
+									"label": {
+										"zh-CN": "应用能源2",
+										"zh-Neko": "应用能源2喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": false
+								},
+								{
+									"id": "botania",
+									"label": {
+										"zh-CN": "植物魔法",
+										"zh-Neko": "植物魔法喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": false
+								},
+								{
+									"id": "create",
+									"label": {
+										"zh-CN": "机械动力",
+										"zh-Neko": "机械动力喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": false
+								},
+								{
+									"id": "emi",
+									"label": {
+										"zh-CN": "EMI",
+										"zh-Neko": "EMI 喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": false
+								},
+								{
+									"id": "farmersdelight",
+									"label": {
+										"zh-CN": "农夫乐事",
+										"zh-Neko": "农夫乐事喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": false
+								},
+								{
+									"id": "item_descriptions",
+									"label": {
+										"zh-CN": "物品描述",
+										"zh-Neko": "物品描述喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": false
+								},
+								{
+									"id": "mtr",
+									"label": {
+										"zh-CN": "我的世界铁路",
+										"zh-Neko": "我的世界铁路喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": false
+								},
+								{
+									"id": "worldedit",
+									"label": {
+										"zh-CN": "创世神",
+										"zh-Neko": "创世神喵"
+									},
+									"description": {
+										"zh-CN": "",
+										"zh-Neko": ""
+									},
+									"defaultSelected": false
+								}
+							],
+							"childSelection": "multiple"
+						}
+					]
+				},
+				{
+					"id": "expansion",
+					"icon": "expansion",
+					"label": {
+						"zh-CN": "扩展内容",
+						"zh-Neko": "扩展内容喵"
+					},
+					"description": {
+						"zh-CN": "把颜文字包、皮肤替换和额外整活内容放到这里。",
+						"zh-Neko": "把颜文字包、皮肤替换和额外整活内容都放到这里喵。"
+					},
+					"selection": "multiple",
+					"visibleInSimple": true,
+					"disabledInLegacy": true,
+					"items": [
+						{
+							"id": "expansion-end-poem",
+							"label": {
+								"zh-CN": "终末之诗",
+								"zh-Neko": "终末之诗喵"
+							},
+							"summary": {
+								"zh-CN": "终末之诗",
+								"zh-Neko": "终末之诗喵"
+							},
+							"description": {
+								"zh-CN": "支持分别点选 credits、诗和 BGM。",
+								"zh-Neko": "可以分别点 credits、诗和 BGM 喵。"
+							},
+							"children": [
+								{
+									"id": "credits.json",
+									"label": {
+										"zh-CN": "credits",
+										"zh-Neko": "credits 喵"
+									},
+									"description": {
+										"zh-CN": "结尾署名与演职信息。",
+										"zh-Neko": "结尾署名和演职信息喵。"
+									},
+									"defaultSelected": true
+								},
+								{
+									"id": "end.txt",
+									"label": {
+										"zh-CN": "诗",
+										"zh-Neko": "诗喵"
+									},
+									"description": {
+										"zh-CN": "终末之诗正文。",
+										"zh-Neko": "终末之诗正文喵。"
+									},
+									"defaultSelected": true
+								}
+							],
+							"childSelection": "multiple"
+						}
+					]
+				},
+				{
+					"id": "unfinished",
+					"icon": "unfinished",
+					"label": {
+						"zh-CN": "未完成内容",
+						"zh-Neko": "未完成内容喵"
+					},
+					"description": {
+						"zh-CN": "",
+						"zh-Neko": ""
+					},
+					"selection": "multiple",
+					"visibleInSimple": true,
+					"disabledInLegacy": true,
+					"items": [
+						{
+							"id": "unfinished-review",
+							"label": {
+								"zh-CN": "未检查",
+								"zh-Neko": "未检查喵"
+							},
+							"summary": {
+								"zh-CN": "未检查",
+								"zh-Neko": "未检查喵"
+							},
+							"description": {
+								"zh-CN": "内容已基本完成，但还没逐项检查。",
+								"zh-Neko": "内容已经快做完了喵，但还没逐项检查喵。"
+							}
+						},
+						{
+							"id": "unfinished-progress",
+							"label": {
+								"zh-CN": "未完成",
+								"zh-Neko": "未完成喵"
+							},
+							"summary": {
+								"zh-CN": "未完成",
+								"zh-Neko": "未完成喵"
+							},
+							"description": {
+								"zh-CN": "内容方向明确，但还没做完。",
+								"zh-Neko": "内容方向已经明确了喵，但还没有做完喵。"
+							}
+						},
+						{
+							"id": "unfinished-abandoned",
+							"label": {
+								"zh-CN": "弃置",
+								"zh-Neko": "弃置喵"
+							},
+							"summary": {
+								"zh-CN": "弃置",
+								"zh-Neko": "弃置喵"
+							},
+							"description": {
+								"zh-CN": "后面可能会彻底删除的项。",
+								"zh-Neko": "后面可能会彻底删掉的喵。"
+							}
+						}
+					]
+				}
+			],
+			"toggles": [
+				{
+					"id": "shuffle-text",
+					"icon": "shuffle",
+					"label": {
+						"zh-CN": "打乱所有文本",
+						"zh-Neko": "打乱所有文本喵"
+					},
+					"description": {
+						"zh-CN": "整活！",
+						"zh-Neko": "整活喵！"
+					},
+					"disabledInLegacy": true,
+					"visibleInSimple": true
+				}
+			]
+		},
+		{
+			"id": "bedrock",
+			"icon": "bedrock",
+			"label": {
+				"zh-CN": "基岩版",
+				"zh-Neko": "猫抓版喵"
+			},
+			"categories": [
+				{
+					"id": "version",
+					"icon": "version",
+					"label": {
+						"zh-CN": "游戏版本",
+						"zh-Neko": "游戏版本喵"
+					},
+					"description": {
+						"zh-CN": "基岩版的资源资源暂未准备完毕，敬请期待！",
+						"zh-Neko": "为猫抓版提供的资源还没有做完喵，主人先等等叭喵！"
+					},
+					"selection": "single",
+					"visibleInSimple": true,
+					"items": [
+						{
+							"id": "bedrock-latest",
+							"label": {
+								"zh-CN": "Latest",
+								"zh-Neko": "最新版喵"
+							},
+							"summary": {
+								"zh-CN": "Latest",
+								"zh-Neko": "最新版喵"
+							},
+							"description": {
+								"zh-CN": "基岩版最新版本的资源包。",
+								"zh-Neko": "基岩版最新版本的资源包喵。"
+							},
+							"defaultSelected": true
+						},
+						{
+							"id": "bedrock-snapshot",
+							"label": {
+								"zh-CN": "快照版",
+								"zh-Neko": "快照版喵"
+							},
+							"summary": {
+								"zh-CN": "快照版",
+								"zh-Neko": "快照版喵"
+							},
+							"description": {
+								"zh-CN": "基岩版最新快照版本的资源包。",
+								"zh-Neko": "基岩版最新快照版本的资源包。"
+							}
+						}
+					]
+				},
+				{
+					"id": "preset",
+					"icon": "preset",
+					"label": {
+						"zh-CN": "预设",
+						"zh-Neko": "预设喵"
+					},
+					"description": {
+						"zh-CN": "因为资源较少，所以暂时只有一个预设。",
+						"zh-Neko": "因为资源较少，所以暂时只有一个预设喵。"
+					},
+					"selection": "single",
+					"visibleInSimple": false,
+					"items": [
+						{
+							"id": "bedrock-standard",
+							"label": {
+								"zh-CN": "标准包",
+								"zh-Neko": "标准包喵"
+							},
+							"summary": {
+								"zh-CN": "标准",
+								"zh-Neko": "标准喵"
+							},
+							"description": {
+								"zh-CN": "包含目前所有内容。",
+								"zh-Neko": "唯一的预设喵，能加的都加了喵。"
+							},
+							"presetSelection": {
+								"categories": {
+									"version": {
+										"selected": ["bedrock-latest"]
+									},
+									"vanilla": {
+										"selected": []
+									},
+									"mods": {
+										"selected": []
+									},
+									"expansion": {
+										"selected": []
+									},
+									"unfinished": {
+										"selected": []
+									}
+								},
+								"toggles": {
+									"add-language": false,
+									"shuffle-text": false
+								}
+							},
+							"defaultSelected": true
+						}
+					]
+				},
+				{
+					"id": "vanilla",
+					"icon": "vanilla",
+					"label": {
+						"zh-CN": "原版内容",
+						"zh-Neko": "原版内容喵"
+					},
+					"description": {
+						"zh-CN": "基岩版原版内容。",
+						"zh-Neko": "基岩版原版内容喵。"
+					},
+					"selection": "multiple",
+					"visibleInSimple": true,
+					"items": [
+					]
+				},
+				{
+					"id": "mods",
+					"icon": "mods",
+					"label": {
+						"zh-CN": "mod 内容",
+						"zh-Neko": "mod 内容喵"
+					},
+					"description": {
+						"zh-CN": "暂时未接入任何内容。",
+						"zh-Neko": "这里啥也木有喵。"
+					},
+					"selection": "multiple",
+					"visibleInSimple": false,
+					"items": [
+					]
+				},
+				{
+					"id": "expansion",
+					"icon": "expansion",
+					"label": {
+						"zh-CN": "扩展内容",
+						"zh-Neko": "扩展内容喵"
+					},
+					"description": {
+						"zh-CN": "这是一些额外的皮肤、文本包等内容。",
+						"zh-Neko": "这是一些为主人额外准备的皮肤、文本包之类的东西哦喵。"
+					},
+					"selection": "multiple",
+					"visibleInSimple": true,
+					"items": [
+					]
+				},
+				{
+					"id": "unfinished",
+					"icon": "unfinished",
+					"label": {
+						"zh-CN": "未完成内容",
+						"zh-Neko": "未完成内容喵"
+					},
+					"description": {
+						"zh-CN": "与 Java 版保持同样的状态分类。",
+						"zh-Neko": "和 Java 版保持一样的状态分类喵。"
+					},
+					"selection": "multiple",
+					"visibleInSimple": true,
+					"items": [
+						{
+							"id": "bedrock-review",
+							"label": {
+								"zh-CN": "未检查",
+								"zh-Neko": "未检查喵"
+							},
+							"summary": {
+								"zh-CN": "未检查",
+								"zh-Neko": "未检查喵"
+							},
+							"description": {
+								"zh-CN": "暂时未接入任何内容。",
+								"zh-Neko": "这里啥也木有喵。"
+							}
+						},
+						{
+							"id": "bedrock-progress",
+							"label": {
+								"zh-CN": "未完成",
+								"zh-Neko": "未完成喵"
+							},
+							"summary": {
+								"zh-CN": "未完成",
+								"zh-Neko": "未完成喵"
+							},
+							"description": {
+								"zh-CN": "暂时未接入任何内容。",
+								"zh-Neko": "这里啥也木有喵。"
+							}
+						},
+						{
+							"id": "bedrock-abandoned",
+							"label": {
+								"zh-CN": "弃置",
+								"zh-Neko": "弃置喵"
+							},
+							"summary": {
+								"zh-CN": "弃置",
+								"zh-Neko": "弃置喵"
+							},
+							"description": {
+								"zh-CN": "暂时未接入任何内容。",
+								"zh-Neko": "这里啥也木有喵。"
+							}
+						}
+					]
+				}
+			],
+			"toggles": [
+				{
+					"id": "add-language",
+					"icon": "language",
+					"label": {
+						"zh-CN": "添加新语言",
+						"zh-Neko": "添加新语言喵"
+					},
+					"description": {
+						"zh-CN": "暂时未接入任何内容。",
+						"zh-Neko": "这里啥也木有喵。"
+					},
+					"visibleInSimple": false
+				},
+				{
+					"id": "shuffle-text",
+					"icon": "shuffle",
+					"label": {
+						"zh-CN": "打乱所有文本",
+						"zh-Neko": "打乱所有文本喵"
+					},
+					"description": {
+						"zh-CN": "暂时未接入任何内容。",
+						"zh-Neko": "这里啥也木有喵。"
+					},
+					"visibleInSimple": true
+				}
+			]
+		}
+	]
+}

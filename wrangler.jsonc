@@ -1,6 +1,19 @@
 {
   "name": "api",
   "main": "src/worker.js",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "find_additional_modules": true,
+  "preserve_file_names": true,
+  "base_dir": "src",
+  "rules": [
+    {
+      "type": "Data",
+      "globs": ["assets/rs/*.zip", "assets/rs/**/*.png", "assets/rs/**/*.json", "assets/rs/**/*.mcmeta"],
+      "fallthrough": false
+    }
+  ],
   "workers_dev": true,
   "preview_urls": false,
   "compatibility_date": "2026-03-21",

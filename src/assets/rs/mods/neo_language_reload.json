@@ -1,0 +1,17 @@
+﻿{
+  "language.default.tooltip": "原味Minecraft",
+  "options.languagereload.title": "Language Reload选项",
+  "options.languagereload.multilingualItemSearch": "多语言搜索",
+  "options.languagereload.multilingualItemSearch.tooltip": "启用在创造物品栏和配方书的所选语言搜索。",
+  "options.languagereload.removableDefaultLanguage": "默认语言",
+  "options.languagereload.removableDefaultLanguage.removable": "可移除",
+  "options.languagereload.removableDefaultLanguage.removable.tooltip": "允许取消选择“English (US)”。可能有助于调试。",
+  "options.languagereload.removableDefaultLanguage.fixed": "固定",
+  "options.languagereload.removableDefaultLanguage.fixed.tooltip": "防止取消选择“English (US)”。",
+  "debug.reload_languages.help": "F3 + J = 重新加载语言喵（按住Shift可以切换语言喵）",
+  "debug.reload_languages.message": "语言文件重新加载了喵～",
+  "debug.reload_languages.switch.success": "语言设置成%s了喵～",
+  "debug.reload_languages.switch.failure": "无法循环切换语言，请在设置中切换至其他语言后重试。切换语言失败了喵...在设置里先切换成别的语言再试试喵？",
+  "modmenu.summaryTranslation.languagereload": "缩短加载时间并添加语言回退功能。",
+  "modmenu.descriptionTranslation.languagereload": "加快语言切换速度，在语言菜单中引入搜索框和多选，使物品搜索支持多语言，添加调试功能，用Shift + F3 + J来循环切换语言，用F3 + J来重新加载。"
+}

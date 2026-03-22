@@ -1,0 +1,8 @@
+本资源包基于 CC BY-NC 4.0 协议发布。
+© 2025 Rainwhisper, XiaoshiTwinkling
+
+你可以自由使用、修改，并将其包含在任何项目中（包括收费整合包或服务器），
+但禁止单独售卖本语言包或其修改版本。
+
+推荐在说明文件或项目页面注明原作者及 Modrinth 链接（https://modrinth.com/project/YzCQisiC），
+但这并非强制要求。

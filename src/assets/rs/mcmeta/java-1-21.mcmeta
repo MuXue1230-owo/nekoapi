@@ -1,0 +1,9 @@
+﻿{
+  "pack": {
+    "description": "让你的mc变得更可爱喵！\n作者：XiaoshiTwinkling & 望霂",
+    "pack_format": 71,
+    "supported_formats": [34, 75],
+    "min_format": 4,
+    "max_format": [75, 0]
+  }
+}
