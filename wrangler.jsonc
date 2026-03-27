@@ -4,6 +4,20 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "BUILD_ARCHIVES",
+        "class_name": "BuildArchiveStore"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["BuildArchiveStore"]
+    }
+  ],
   "find_additional_modules": true,
   "preserve_file_names": true,
   "base_dir": "src",
