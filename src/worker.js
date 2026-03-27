@@ -35,14 +35,6 @@ const buildArchiveTtlMs = 60 * 60 * 1000;
 const buildBooleanFields = ["new_lang", "random"];
 const allowedBuildTypes = ["java", "bedrock"];
 
-// 类别到 rs 目录的映射
-const categoryToRsDir = {
-  "original": "original",
-  "vanilla": "original",
-  "mods": "mods",
-  "extension": "extension"
-};
-
 function jsonResponse(data, status = 200) {
 	const headers = new Headers(corsHeaders);
 	return Response.json(data, {
@@ -210,6 +202,17 @@ function copyDirectoryRecursive(sourceDir, targetDir) {
   }
 }
 
+/**
+ * 安全写入文件（自动创建父目录）
+ */
+function safeWriteFileSync(filePath, content) {
+  const dir = dirname(filePath);
+  if (!existsSync(dir)) {
+    mkdirSync(dir, { recursive: true });
+  }
+  writeFileSync(filePath, content);
+}
+
 function listMcmetaTemplates() {
   if (!existsSync(bundledMcmetaRoot)) {
     return [];
@@ -327,12 +330,195 @@ function collectFilesRecursively(rootDir, currentDir = rootDir) {
 }
 
 /**
+ * 从 config.json 获取指定类别的模块文件列表
+ * @param {string} category - 类别名称（vanilla/mods/expansion/unfinished）
+ * @param {string[]} moduleIds - 模块 ID 列表
+ * @param {string} version - 游戏版本
+ * @returns {Object} 包含 mergedFiles 和 errors 的对象
+ */
+function getModuleFilesFromConfig(category, moduleIds, version) {
+  const issues = [];
+  const mergedFilesMap = new Map(); // key: targetPath, value: MergedFile
+  const rsBasePath = `rs/${category}`;
+
+  /**
+   * 在 config 中递归查找模块
+   */
+  function findModuleInItems(items, moduleId) {
+    for (const item of items) {
+      if (item.id === moduleId) {
+        return item;
+      }
+      if (item.children && Array.isArray(item.children)) {
+        const found = findModuleInItems(item.children, moduleId);
+        if (found) return found;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * 获取模块的文件列表（包括差分文件）
+   */
+  function getModuleFiles(module, ver) {
+    const files = [...(module.files || [])];
+
+    // 检查是否有差分配置
+    if (module.differ && module.differ[ver]) {
+      const differFiles = module.differ[ver].files || [];
+      differFiles.forEach(f => {
+        files.push({
+          ...f,
+          isDiffer: true,
+          differType: f.type || 'merge'
+        });
+      });
+    }
+
+    return files;
+  }
+
+  // 处理每个模块
+  for (const moduleId of moduleIds) {
+    const module = findModuleInConfig(config, moduleId);
+
+    if (!module) {
+      issues.push({
+        moduleId,
+        message: `Module not found: ${moduleId}`
+      });
+      continue;
+    }
+
+    const files = getModuleFiles(module, version);
+
+    for (const file of files) {
+      const targetPath = file.path;
+      const sourcePath = `${rsBasePath}/${file.name}`;
+
+      if (!mergedFilesMap.has(targetPath)) {
+        mergedFilesMap.set(targetPath, {
+          targetPath,
+          content: {},
+          sourcePaths: [],
+          mergedFrom: [],
+          isMerged: false,
+          differType: null
+        });
+      }
+
+      const mergedFile = mergedFilesMap.get(targetPath);
+      mergedFile.sourcePaths.push(sourcePath);
+      mergedFile.mergedFrom.push(moduleId);
+
+      if (file.isDiffer) {
+        mergedFile.differType = file.differType;
+      }
+    }
+  }
+
+  // 转换为数组并读取文件内容
+  const mergedFiles = [];
+  for (const [, fileData] of mergedFilesMap) {
+    const fileContent = {};
+    let hasError = false;
+
+    for (const sourcePath of fileData.sourcePaths) {
+      try {
+        if (existsSync(sourcePath)) {
+          const rawText = readFileSync(sourcePath, "utf8").replace(/^\uFEFF/, "");
+          const jsonContent = JSON.parse(rawText);
+          mergeJson(fileContent, jsonContent, fileData.differType);
+        }
+      } catch (err) {
+        issues.push({
+          moduleId: fileData.mergedFrom.find(id => id),
+          path: sourcePath,
+          message: `Failed to read/parse file: ${err.message}`
+        });
+        hasError = true;
+      }
+    }
+
+    if (!hasError) {
+      mergedFiles.push({
+        targetPath: fileData.targetPath,
+        content: fileContent,
+        sourcePath: fileData.sourcePaths.length === 1 ? fileData.sourcePaths[0] : undefined,
+        mergedFrom: fileData.mergedFrom
+      });
+    }
+  }
+
+  if (issues.length > 0) {
+    return {
+      ok: false,
+      errors: issues
+    };
+  }
+
+  return {
+    ok: true,
+    mergedFiles
+  };
+}
+
+/**
+ * 在 config 中递归查找模块
+ */
+function findModuleInConfig(config, moduleId) {
+  for (const platform of config.platforms || []) {
+    for (const category of platform.categories || []) {
+      const found = findModuleInItems(category.items || [], moduleId);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+
+/**
+ * 在 items 列表中递归查找模块
+ */
+function findModuleInItems(items, moduleId) {
+  for (const item of items) {
+    if (item.id === moduleId) {
+      return item;
+    }
+    if (item.children && Array.isArray(item.children)) {
+      const found = findModuleInItems(item.children, moduleId);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+
+/**
+ * 合并 JSON 对象
+ */
+function mergeJson(target, source, differType = 'merge') {
+  if (differType === 'override') {
+    Object.assign(target, source);
+  } else {
+    for (const [key, value] of Object.entries(source)) {
+      if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
+        if (!(key in target)) {
+          target[key] = {};
+        }
+        mergeJson(target[key], value, differType);
+      } else {
+        target[key] = value;
+      }
+    }
+  }
+}
+
+/**
  * 创建构建工作区（新版本：基于 categories 结构）
- * @param {Object} buildRequest - 构建请求对象
+ * @param {Object} buildData - 构建请求数据
  * @returns {Object} 工作区对象或错误响应
  */
-function createBuildWorkspace(buildRequest) {
-  const { type, version, categories } = buildRequest.data;
+function createBuildWorkspace(buildData) {
+  const { type, version, categories } = buildData;
 
   // 1. 验证基础资源
   if (!existsSync(bundledBaseRoot) || !statSync(bundledBaseRoot).isDirectory()) {
@@ -364,7 +550,7 @@ function createBuildWorkspace(buildRequest) {
   const tempDir = join("/tmp", `build-${crypto.randomUUID()}`);
   mkdirSync(tempDir, { recursive: true });
   copyDirectoryRecursive(bundledBaseRoot, tempDir);
-  writeFileSync(join(tempDir, "pack.mcmeta"), readFileSync(mcmetaTemplate.sourcePath));
+  safeWriteFileSync(join(tempDir, "pack.mcmeta"), readFileSync(mcmetaTemplate.sourcePath));
 
   // 4. 收集工作区信息
   const workspaceInfo = {
@@ -392,7 +578,7 @@ function createBuildWorkspace(buildRequest) {
     };
 
     // 根据类别处理文件
-    if (category === "original" || category === "vanilla") {
+    if (category === "vanilla") {
       // 合并所有 JSON 文件到 zh_cn.json
       const mergedLang = {};
       const zhCnModules = [];
@@ -405,7 +591,7 @@ function createBuildWorkspace(buildRequest) {
       }
 
       const zhCnPath = join(tempDir, "assets", "minecraft", "lang", "zh_cn.json");
-      writeFileSync(zhCnPath, JSON.stringify(mergedLang, null, 2));
+      safeWriteFileSync(zhCnPath, JSON.stringify(mergedLang, null, 2));
 
       workspaceInfo.zhCnPath = zhCnPath;
       workspaceInfo.zhCnEntries = Object.keys(mergedLang).length;
@@ -420,12 +606,10 @@ function createBuildWorkspace(buildRequest) {
         const namespace = match[1];
         const targetPath = join(tempDir, "assets", namespace, "lang", "zh_cn.json");
 
-        mkdirSync(join(tempDir, "assets", namespace, "lang"), { recursive: true });
-
         if (file.content) {
-          writeFileSync(targetPath, JSON.stringify(file.content, null, 2));
+          safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
         } else if (file.sourcePath && existsSync(file.sourcePath)) {
-          writeFileSync(targetPath, readFileSync(file.sourcePath));
+          safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
         }
 
         if (!workspaceInfo.modules[category].namespaces) {
@@ -442,12 +626,11 @@ function createBuildWorkspace(buildRequest) {
       // 处理扩展文件
       for (const file of result.mergedFiles) {
         const targetPath = join(tempDir, file.targetPath);
-        mkdirSync(dirname(targetPath), { recursive: true });
 
         if (file.content) {
-          writeFileSync(targetPath, JSON.stringify(file.content, null, 2));
+          safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
         } else if (file.sourcePath && existsSync(file.sourcePath)) {
-          writeFileSync(targetPath, readFileSync(file.sourcePath));
+          safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
         }
       }
     }
@@ -473,12 +656,12 @@ function createBuildWorkspace(buildRequest) {
   };
 }
 
-function isLegacyDirectDownloadRequest(buildRequest) {
-  return buildRequest.type === "java" && buildRequest.version === legacyDirectDownload.version;
+function isLegacyDirectDownloadRequest(buildData) {
+  return buildData.type === "java" && buildData.version === legacyDirectDownload.version;
 }
 
-function isBuildTypeReady(buildRequest) {
-  return buildRequest.type === "java";
+function isBuildTypeReady(buildData) {
+  return buildData.type === "java";
 }
 
 function handleDirectDownload(pathname) {
