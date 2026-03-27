@@ -21,10 +21,6 @@ const corsHeaders = {
 const bundledAssetsRoot = "/bundle/assets/rs";
 const bundledBaseRoot = join(bundledAssetsRoot, "base");
 const bundledMcmetaRoot = join(bundledAssetsRoot, "mcmeta");
-const bundledOriginalRoot = join(bundledAssetsRoot, "original");
-const bundledDiffersRoot = join(bundledAssetsRoot, "differs");
-const bundledExtensionRoot = join(bundledAssetsRoot, "extension");
-const bundledModsRoot = join(bundledAssetsRoot, "mods");
 const legacyDirectDownload = {
   version: "java-1-12-2",
   pathname: "/download/java-1-12-2-direct",
@@ -36,7 +32,6 @@ const buildArchiveStorageBinding = "BUILD_ARCHIVES";
 const buildArchiveChunkSize = 1024 * 1024;
 const buildArchiveStorageBatchSize = 128;
 const buildArchiveTtlMs = 60 * 60 * 1000;
-const buildArrayFields = ["original", "mod", "unfinished"];
 const buildBooleanFields = ["new_lang", "random"];
 const allowedBuildTypes = ["java", "bedrock"];
 
@@ -49,10 +44,11 @@ const categoryToRsDir = {
 };
 
 function jsonResponse(data, status = 200) {
-  return Response.json(data, {
-    status,
-    headers: corsHeaders,
-  });
+	const headers = new Headers(corsHeaders);
+	return Response.json(data, {
+		status,
+		headers,
+	});
 }
 
 function errorResponse(status, code, message, extra = {}) {
@@ -802,12 +798,17 @@ export class BuildArchiveStore extends DurableObject {
 }
 
 function handleOptions(pathname) {
-  if (
-    pathname !== "/config.json" &&
-    pathname !== "/build" &&
-    pathname !== legacyDirectDownload.pathname &&
-    !pathname.startsWith("/download/")
-  ) {
+  const allowedPaths = [
+    "/config.json",
+    "/build",
+    legacyDirectDownload.pathname,
+  ];
+
+  const isAllowed =
+    allowedPaths.includes(pathname) ||
+    pathname.startsWith("/download/");
+
+  if (!isAllowed) {
     return new Response(null, {
       status: 404,
       headers: corsHeaders,
@@ -816,7 +817,10 @@ function handleOptions(pathname) {
 
   return new Response(null, {
     status: 200,
-    headers: corsHeaders,
+    headers: {
+      ...corsHeaders,
+      "Access-Control-Max-Age": "86400",
+    },
   });
 }
 
