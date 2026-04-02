@@ -955,8 +955,7 @@
                                     },
                                     "vanilla": {
                                         "selected": [
-                                            "vanilla-core",
-                                            "vanilla-enchantments"
+                                            "vanilla-core"
                                         ]
                                     },
                                     "mods": {
@@ -1077,8 +1076,7 @@
                                     "vanilla": {
                                         "selected": [
                                             "vanilla-core",
-                                            "vanilla-craftmine",
-                                            "vanilla-enchantments"
+                                            "vanilla-craftmine"
                                         ]
                                     },
                                     "mods": {
@@ -1102,33 +1100,59 @@
                                                 "sodium"
                                             ],
                                             "mods-experimental": [
-                                                "ae2",
-                                                "botania",
-                                                "create",
-                                                "emi",
-                                                "farmersdelight",
-                                                "item_descriptions",
-                                                "mtr",
-                                                "worldedit"
+                                                "create"
                                             ]
                                         }
                                     },
                                     "expansion": {
                                         "selected": [
-                                            "expansion-end-poem"
+                                            "expansion-enchantments",
+                                            "expansion-kaomoji",
+                                            "expansion-transform",
+                                            "expansion-title",
+                                            "expansion-no-h",
+                                            "expansion-other-text",
+                                            "expansion-easter-egg"
                                         ],
                                         "children": {
-                                            "expansion-end-poem": [
+                                            "expansion-transform": [
+                                                "chatmeow",
+                                                "replace-player-skin-modern",
+                                                "player2cat",
+                                                "player2cat-plus"
+                                            ],
+                                            "expansion-other-text": [
                                                 "credits",
-                                                "poem"
+                                                "end-poem-text",
+                                                "end-music",
+                                                "splashes"
+                                            ],
+                                            "expansion-easter-egg": [
+                                                "cloud-new"
                                             ]
                                         }
                                     },
                                     "unfinished": {
                                         "selected": [
                                             "unfinished-review",
-                                            "unfinished-progress"
-                                        ]
+                                            "unfinished-progress",
+                                            "unfinished-abandoned"
+                                        ],
+                                        "children": {
+                                            "unfinished-review": [
+                                                "mtr"
+                                            ],
+                                            "unfinished-progress": [
+                                                "ae2",
+                                                "emi",
+                                                "farmersdelight"
+                                            ],
+                                            "unfinished-abandoned": [
+                                                "botania",
+                                                "item_descriptions",
+                                                "worldedit"
+                                            ]
+                                        }
                                     }
                                 },
                                 "toggles": {
@@ -1216,27 +1240,6 @@
                                     "path": "assets/minecraft/lang/zh_cn.json"
                                 }
                             ]
-                        },
-                        {
-                            "id": "vanilla-enchantments",
-                            "label": {
-                                "zh-CN": "附魔名称",
-                                "zh-Neko": "附魔名称喵"
-                            },
-                            "summary": {
-                                "zh-CN": "附魔名",
-                                "zh-Neko": "附魔名喵"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            },
-                            "files": [
-                                {
-                                    "name": "vanilla-enchantments.json",
-                                    "path": "assets/minecraft/lang/zh_cn.json"
-                                }
-                            ]
                         }
                     ]
                 },
@@ -1277,8 +1280,8 @@
                                         "zh-Neko": "苹果皮喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：appleskin",
+                                        "zh-Neko": "命名空间：appleskin"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1295,8 +1298,8 @@
                                         "zh-Neko": "存档置顶喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：cherishedworlds",
+                                        "zh-Neko": "命名空间：cherishedworlds"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1313,8 +1316,8 @@
                                         "zh-Neko": "FlashBack 喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：flashback",
+                                        "zh-Neko": "命名空间：flashback"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1331,8 +1334,8 @@
                                         "zh-Neko": "LanguageReload 喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：languagereload",
+                                        "zh-Neko": "命名空间：languagereload"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1349,8 +1352,8 @@
                                         "zh-Neko": "自定义局域网联机喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：lanserverproperties",
+                                        "zh-Neko": "命名空间：lanserverproperties"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1367,8 +1370,8 @@
                                         "zh-Neko": "更高级的联机设置喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：mcwifipnp",
+                                        "zh-Neko": "命名空间：mcwifipnp"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1385,8 +1388,8 @@
                                         "zh-Neko": "Menulogue 喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：menulogue",
+                                        "zh-Neko": "命名空间：menulogue"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1403,8 +1406,8 @@
                                         "zh-Neko": "模组菜单喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：modmenu",
+                                        "zh-Neko": "命名空间：modmenu"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1421,8 +1424,8 @@
                                         "zh-Neko": "NeoLanguageReload喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：neo_language_reload",
+                                        "zh-Neko": "命名空间：neo_language_reload"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1439,8 +1442,8 @@
                                         "zh-Neko": "禁用聊天举报喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：nochatreports",
+                                        "zh-Neko": "命名空间：nochatreports"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1457,8 +1460,8 @@
                                         "zh-Neko": "思索喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：ponder",
+                                        "zh-Neko": "命名空间：ponder"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1475,8 +1478,8 @@
                                         "zh-Neko": "Sodium 喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：sodium",
+                                        "zh-Neko": "命名空间：sodium"
                                     },
                                     "defaultSelected": true,
                                     "files": [
@@ -1506,146 +1509,20 @@
                             },
                             "children": [
                                 {
-                                    "id": "ae2",
-                                    "label": {
-                                        "zh-CN": "应用能源2",
-                                        "zh-Neko": "应用能源2喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "ae2.json",
-                                            "path": "assets/ae2/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "botania",
-                                    "label": {
-                                        "zh-CN": "植物魔法",
-                                        "zh-Neko": "植物魔法喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "botania.json",
-                                            "path": "assets/botania/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
                                     "id": "create",
                                     "label": {
                                         "zh-CN": "机械动力",
                                         "zh-Neko": "机械动力喵"
                                     },
                                     "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
+                                        "zh-CN": "命名空间：create",
+                                        "zh-Neko": "命名空间：create"
                                     },
                                     "defaultSelected": true,
                                     "files": [
                                         {
                                             "name": "create.json",
                                             "path": "assets/create/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "emi",
-                                    "label": {
-                                        "zh-CN": "EMI",
-                                        "zh-Neko": "EMI 喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "emi.json",
-                                            "path": "assets/emi/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "farmersdelight",
-                                    "label": {
-                                        "zh-CN": "农夫乐事",
-                                        "zh-Neko": "农夫乐事喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "farmersdelight.json",
-                                            "path": "assets/farmersdelight/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "item_descriptions",
-                                    "label": {
-                                        "zh-CN": "物品描述",
-                                        "zh-Neko": "物品描述喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "item_descriptions.json",
-                                            "path": "assets/item_descriptions/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "mtr",
-                                    "label": {
-                                        "zh-CN": "我的世界铁路",
-                                        "zh-Neko": "我的世界铁路喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "mtr.json",
-                                            "path": "assets/mtr/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "worldedit",
-                                    "label": {
-                                        "zh-CN": "创世神",
-                                        "zh-Neko": "创世神喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "",
-                                        "zh-Neko": ""
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "worldedit.json",
-                                            "path": "assets/worldedit/lang/zh_cn.json"
                                         }
                                     ]
                                 }
@@ -1670,89 +1547,543 @@
                     "disabledInLegacy": true,
                     "items": [
                         {
-                            "id": "expansion-end-poem",
+                            "id": "expansion-enchantments",
                             "label": {
-                                "zh-CN": "终末之诗",
-                                "zh-Neko": "终末之诗喵"
+                                "zh-CN": "附魔名",
+                                "zh-Neko": "附魔名喵"
                             },
                             "summary": {
-                                "zh-CN": "终末之诗",
-                                "zh-Neko": "终末之诗喵"
+                                "zh-CN": "附魔名",
+                                "zh-Neko": "附魔名喵"
                             },
                             "description": {
-                                "zh-CN": "这里可以选择 credits 和诗。",
-                                "zh-Neko": "这里可以选择 credits 和诗喵~"
+                                "zh-CN": "覆盖原版附魔名称文本。",
+                                "zh-Neko": "覆盖原版附魔名称文本喵。"
+                            },
+                            "files": [
+                                {
+                                    "name": "enchantment/zh_cn.json",
+                                    "path": "assets/minecraft/lang/zh_cn.json"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "expansion-kaomoji",
+                            "label": {
+                                "zh-CN": "颜文字",
+                                "zh-Neko": "颜文字喵"
+                            },
+                            "summary": {
+                                "zh-CN": "颜文字",
+                                "zh-Neko": "颜文字喵"
+                            },
+                            "description": {
+                                "zh-CN": "建议开启 Unicode 强制字体或使用现代字体以获得最佳显示效果。",
+                                "zh-Neko": "建议开启 Unicode 强制字体或使用现代字体，显示效果会更好喵。"
+                            },
+                            "files": [
+                                {
+                                    "name": "kaomoji/zh_cn.json",
+                                    "path": "assets/minecraft/lang/zh_cn.json"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "expansion-transform",
+                            "label": {
+                                "zh-CN": "给我变！",
+                                "zh-Neko": "给我变喵！"
+                            },
+                            "summary": {
+                                "zh-CN": "给我变",
+                                "zh-Neko": "给我变喵"
+                            },
+                            "description": {
+                                "zh-CN": "聊天结尾、皮肤与玩家文本替换。",
+                                "zh-Neko": "聊天结尾、皮肤和玩家文本替换喵。"
                             },
                             "children": [
                                 {
-                                    "id": "credits",
+                                    "id": "chatmeow",
                                     "label": {
-                                        "zh-CN": "credits",
-                                        "zh-Neko": "credits 喵"
+                                        "zh-CN": "聊天结尾喵",
+                                        "zh-Neko": "聊天结尾喵"
                                     },
                                     "description": {
-                                        "zh-CN": "结尾署名与演职信息。",
-                                        "zh-Neko": "结尾署名和演职信息喵。"
+                                        "zh-CN": "将聊天结尾统一替换为喵。",
+                                        "zh-Neko": "将聊天结尾替换成喵喵喵。"
                                     },
-                                    "defaultSelected": true,
                                     "files": [
                                         {
-                                            "name": "credits.json",
-                                            "path": "assets/minecraft/texts/credits.json"
+                                            "name": "chatmeow/zh_cn.json",
+                                            "path": "assets/minecraft/lang/zh_cn.json"
                                         }
-                                    ],
-									"version_only": [
-										"java-1-18",
-										"java-1-18-1",
-										"java-1-18-2",
-										"java-1-19",
-										"java-1-19-1",
-										"java-1-19-2",
-										"java-1-19-3",
-										"java-1-19-4",
-										"java-1-20",
-										"java-1-20-1",
-										"java-1-20-2",
-										"java-1-20-3",
-										"java-1-20-4",
-										"java-1-20-5",
-										"java-1-20-6",
-										"java-1-21",
-										"java-1-21-1",
-										"java-1-21-2",
-										"java-1-21-3",
-										"java-1-21-4",
-										"java-1-21-5",
-										"java-1-21-6",
-										"java-1-21-7",
-										"java-1-21-8",
-										"java-1-21-9",
-										"java-1-21-10",
-										"java-1-21-11",
-										"java-26-1",
-										"java-26-1-1"
-									]
+                                    ]
                                 },
                                 {
-                                    "id": "poem",
+                                    "id": "replace-player-skin-modern",
                                     "label": {
-                                        "zh-CN": "诗",
-                                        "zh-Neko": "诗喵"
+                                        "zh-CN": "替换史蒂夫（1.19.3+）",
+                                        "zh-Neko": "替换史蒂夫（1.19.3+）喵"
                                     },
                                     "description": {
-                                        "zh-CN": "终末之诗正文。",
-                                        "zh-Neko": "终末之诗正文喵。"
+                                        "zh-CN": "替换 slim/wide 玩家皮肤。",
+                                        "zh-Neko": "替换 slim/wide 玩家皮肤喵。"
                                     },
-                                    "defaultSelected": true,
                                     "files": [
                                         {
-                                            "name": "end.txt",
-                                            "path": "assets/minecraft/texts/end.txt"
+                                            "name": "skin_slim/alex.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/alex.png"
+                                        },
+                                        {
+                                            "name": "skin_slim/ari.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/ari.png"
+                                        },
+                                        {
+                                            "name": "skin_slim/efe.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/efe.png"
+                                        },
+                                        {
+                                            "name": "skin_slim/kai.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/kai.png"
+                                        },
+                                        {
+                                            "name": "skin_slim/makena.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/makena.png"
+                                        },
+                                        {
+                                            "name": "skin_slim/noor.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/noor.png"
+                                        },
+                                        {
+                                            "name": "skin_slim/steve.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/steve.png"
+                                        },
+                                        {
+                                            "name": "skin_slim/sunny.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/sunny.png"
+                                        },
+                                        {
+                                            "name": "skin_slim/zuri.png",
+                                            "path": "assets/minecraft/textures/entity/player/slim/zuri.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/alex.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/alex.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/ari.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/ari.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/efe.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/efe.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/kai.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/kai.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/makena.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/makena.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/noor.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/noor.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/steve.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/steve.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/sunny.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/sunny.png"
+                                        },
+                                        {
+                                            "name": "skin_wide/zuri.png",
+                                            "path": "assets/minecraft/textures/entity/player/wide/zuri.png"
+                                        }
+                                    ],
+                                    "version_only": [
+                                        "java-26-1-1",
+                                        "java-26-1",
+                                        "java-1-21-11",
+                                        "java-1-21-10",
+                                        "java-1-21-9",
+                                        "java-1-21-8",
+                                        "java-1-21-7",
+                                        "java-1-21-6",
+                                        "java-1-21-5",
+                                        "java-1-21-4",
+                                        "java-1-21-3",
+                                        "java-1-21-2",
+                                        "java-1-21-1",
+                                        "java-1-21",
+                                        "java-1-20-6",
+                                        "java-1-20-5",
+                                        "java-1-20-4",
+                                        "java-1-20-3",
+                                        "java-1-20-2",
+                                        "java-1-20-1",
+                                        "java-1-20",
+                                        "java-1-19-4",
+                                        "java-1-19-3"
+                                    ]
+                                },
+                                {
+                                    "id": "replace-player-skin-legacy",
+                                    "label": {
+                                        "zh-CN": "替换史蒂夫（1.19.2-）",
+                                        "zh-Neko": "替换史蒂夫（1.19.2-）喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "替换旧版本玩家皮肤路径。",
+                                        "zh-Neko": "替换旧版本玩家皮肤路径喵。"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "skin2/alex.png",
+                                            "path": "assets/minecraft/textures/entity/alex.png"
+                                        },
+                                        {
+                                            "name": "skin2/steve.png",
+                                            "path": "assets/minecraft/textures/entity/steve.png"
+                                        }
+                                    ],
+                                    "version_only": [
+                                        "java-1-19-2",
+                                        "java-1-19-1",
+                                        "java-1-19",
+                                        "java-1-18-2",
+                                        "java-1-18-1",
+                                        "java-1-18",
+                                        "java-1-17-1",
+                                        "java-1-17",
+                                        "java-1-16-5",
+                                        "java-1-16-4",
+                                        "java-1-16-3",
+                                        "java-1-16-2",
+                                        "java-1-16-1",
+                                        "java-1-16",
+                                        "java-1-15-2",
+                                        "java-1-15-1",
+                                        "java-1-15",
+                                        "java-1-14-4",
+                                        "java-1-14-3",
+                                        "java-1-14-2",
+                                        "java-1-14-1",
+                                        "java-1-14",
+                                        "java-1-13-2",
+                                        "java-1-13-1",
+                                        "java-1-13",
+                                        "java-1-12-2"
+                                    ]
+                                },
+                                {
+                                    "id": "player2cat",
+                                    "label": {
+                                        "zh-CN": "替换玩家为猫娘",
+                                        "zh-Neko": "替换玩家为猫娘喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "替换玩家相关文本称呼。",
+                                        "zh-Neko": "替换玩家相关文本称呼喵。"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "player2cat/zh_cn.json",
+                                            "path": "assets/minecraft/lang/zh_cn.json"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "player2cat-plus",
+                                    "label": {
+                                        "zh-CN": "替换字幕玩家为猫娘",
+                                        "zh-Neko": "替换字幕玩家为猫娘喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "替换字幕中的玩家称呼。",
+                                        "zh-Neko": "替换字幕中的玩家称呼喵。"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "player2catPlus/zh_cn.json",
+                                            "path": "assets/minecraft/lang/zh_cn.json"
                                         }
                                     ]
                                 }
                             ],
                             "childSelection": "multiple"
+                        },
+                        {
+                            "id": "expansion-title",
+                            "label": {
+                                "zh-CN": "标题栏",
+                                "zh-Neko": "标题栏喵"
+                            },
+                            "summary": {
+                                "zh-CN": "标题栏",
+                                "zh-Neko": "标题栏喵"
+                            },
+                            "description": {
+                                "zh-CN": "替换标题栏相关文本。",
+                                "zh-Neko": "替换标题栏相关文本喵。"
+                            },
+                            "files": [
+                                {
+                                    "name": "title/zh_cn.json",
+                                    "path": "assets/minecraft/lang/zh_cn.json"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "expansion-no-h",
+                            "label": {
+                                "zh-CN": "去除黄段子补丁",
+                                "zh-Neko": "去除黄段子补丁喵"
+                            },
+                            "summary": {
+                                "zh-CN": "去黄段子",
+                                "zh-Neko": "去黄段子喵"
+                            },
+                            "description": {
+                                "zh-CN": "覆盖少量不适文本。",
+                                "zh-Neko": "覆盖少量不适文本喵。"
+                            },
+                            "files": [
+                                {
+                                    "name": "no-h/zh_cn.json",
+                                    "path": "assets/minecraft/lang/zh_cn.json"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "expansion-other-text",
+                            "label": {
+                                "zh-CN": "其他文本",
+                                "zh-Neko": "其他文本喵"
+                            },
+                            "summary": {
+                                "zh-CN": "其他文本",
+                                "zh-Neko": "其他文本喵"
+                            },
+                            "description": {
+                                "zh-CN": "闪烁标语、终末文本、终末音乐与制作名单。",
+                                "zh-Neko": "闪烁标语、终末文本、终末音乐和制作名单喵。"
+                            },
+                            "children": [
+                                {
+                                    "id": "splashes",
+                                    "label": {
+                                        "zh-CN": "闪烁标语",
+                                        "zh-Neko": "闪烁标语喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "替换 splashes 文本。",
+                                        "zh-Neko": "替换 splashes 文本喵。"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "splashes/splashes.txt",
+                                            "path": "assets/minecraft/texts/splashes.txt"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "end-poem-text",
+                                    "label": {
+                                        "zh-CN": "新终末之诗文本",
+                                        "zh-Neko": "新终末之诗文本喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "替换 end 与 postcredits 文本。",
+                                        "zh-Neko": "替换 end 和 postcredits 文本喵。"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "end/end.txt",
+                                            "path": "assets/minecraft/texts/end.txt"
+                                        },
+                                        {
+                                            "name": "postcredits/postcredits.txt",
+                                            "path": "assets/minecraft/texts/postcredits.txt"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "end-music",
+                                    "label": {
+                                        "zh-CN": "新终末之诗音乐",
+                                        "zh-Neko": "新终末之诗音乐喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "替换 alpha.ogg。",
+                                        "zh-Neko": "替换 alpha.ogg 喵。"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "end_music/alpha.ogg",
+                                            "path": "assets/minecraft/sounds/music/game/end/alpha.ogg"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "credits",
+                                    "label": {
+                                        "zh-CN": "替换制作人名单",
+                                        "zh-Neko": "替换制作人名单喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "替换 credits 文本。",
+                                        "zh-Neko": "替换 credits 文本喵。"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "credits/credits.json",
+                                            "path": "assets/minecraft/texts/credits.json"
+                                        }
+                                    ],
+                                    "version_only": [
+                                        "java-1-18",
+                                        "java-1-18-1",
+                                        "java-1-18-2",
+                                        "java-1-19",
+                                        "java-1-19-1",
+                                        "java-1-19-2",
+                                        "java-1-19-3",
+                                        "java-1-19-4",
+                                        "java-1-20",
+                                        "java-1-20-1",
+                                        "java-1-20-2",
+                                        "java-1-20-3",
+                                        "java-1-20-4",
+                                        "java-1-20-5",
+                                        "java-1-20-6",
+                                        "java-1-21",
+                                        "java-1-21-1",
+                                        "java-1-21-2",
+                                        "java-1-21-3",
+                                        "java-1-21-4",
+                                        "java-1-21-5",
+                                        "java-1-21-6",
+                                        "java-1-21-7",
+                                        "java-1-21-8",
+                                        "java-1-21-9",
+                                        "java-1-21-10",
+                                        "java-1-21-11",
+                                        "java-26-1",
+                                        "java-26-1-1"
+                                    ]
+                                }
+                            ],
+                            "childSelection": "multiple"
+                        },
+                        {
+                            "id": "expansion-easter-egg",
+                            "label": {
+                                "zh-CN": "彩蛋",
+                                "zh-Neko": "彩蛋喵"
+                            },
+                            "summary": {
+                                "zh-CN": "彩蛋",
+                                "zh-Neko": "彩蛋喵"
+                            },
+                            "description": {
+                                "zh-CN": "云层贴图按版本分流。",
+                                "zh-Neko": "云层贴图按版本分流喵。"
+                            },
+                            "children": [
+                                {
+                                    "id": "cloud-new",
+                                    "label": {
+                                        "zh-CN": "1.21.6 及以上云层",
+                                        "zh-Neko": "1.21.6 及以上云层喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命中 1.21.6+ 版本。",
+                                        "zh-Neko": "命中 1.21.6+ 版本喵。"
+                                    },
+                                    "defaultSelected": true,
+                                    "files": [
+                                        {
+                                            "name": "cloud1/clouds.png",
+                                            "path": "assets/minecraft/textures/environment/clouds.png"
+                                        }
+                                    ],
+                                    "version_only": [
+                                        "java-26-1-1",
+                                        "java-26-1",
+                                        "java-1-21-11",
+                                        "java-1-21-10",
+                                        "java-1-21-9",
+                                        "java-1-21-8",
+                                        "java-1-21-7",
+                                        "java-1-21-6"
+                                    ]
+                                },
+                                {
+                                    "id": "cloud-legacy",
+                                    "label": {
+                                        "zh-CN": "1.21.6 以下云层",
+                                        "zh-Neko": "1.21.6 以下云层喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命中 1.21.5 及以下版本。",
+                                        "zh-Neko": "命中 1.21.5 及以下版本喵。"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "cloud2/clouds.png",
+                                            "path": "assets/minecraft/textures/environment/clouds.png"
+                                        }
+                                    ],
+                                    "version_only": [
+                                        "java-1-21-5",
+                                        "java-1-21-4",
+                                        "java-1-21-3",
+                                        "java-1-21-2",
+                                        "java-1-21-1",
+                                        "java-1-21",
+                                        "java-1-20-6",
+                                        "java-1-20-5",
+                                        "java-1-20-4",
+                                        "java-1-20-3",
+                                        "java-1-20-2",
+                                        "java-1-20-1",
+                                        "java-1-20",
+                                        "java-1-19-4",
+                                        "java-1-19-3",
+                                        "java-1-19-2",
+                                        "java-1-19-1",
+                                        "java-1-19",
+                                        "java-1-18-2",
+                                        "java-1-18-1",
+                                        "java-1-18",
+                                        "java-1-17-1",
+                                        "java-1-17",
+                                        "java-1-16-5",
+                                        "java-1-16-4",
+                                        "java-1-16-3",
+                                        "java-1-16-2",
+                                        "java-1-16-1",
+                                        "java-1-16",
+                                        "java-1-15-2",
+                                        "java-1-15-1",
+                                        "java-1-15",
+                                        "java-1-14-4",
+                                        "java-1-14-3",
+                                        "java-1-14-2",
+                                        "java-1-14-1",
+                                        "java-1-14",
+                                        "java-1-13-2",
+                                        "java-1-13-1",
+                                        "java-1-13",
+                                        "java-1-12-2"
+                                    ]
+                                }
+                            ],
+                            "childSelection": "single"
                         }
                     ]
                 },
@@ -1784,7 +2115,27 @@
                             "description": {
                                 "zh-CN": "内容已基本完成，但还没逐项检查。",
                                 "zh-Neko": "内容已经快做完了喵，但还没逐项检查喵。"
-                            }
+                            },
+                            "children": [
+                                {
+                                    "id": "mtr",
+                                    "label": {
+                                        "zh-CN": "我的世界铁路",
+                                        "zh-Neko": "我的世界铁路喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命名空间：mtr",
+                                        "zh-Neko": "命名空间：mtr"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "mtr.json",
+                                            "path": "assets/mtr/lang/zh_cn.json"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "childSelection": "multiple"
                         },
                         {
                             "id": "unfinished-progress",
@@ -1799,7 +2150,61 @@
                             "description": {
                                 "zh-CN": "内容方向明确，但还没做完。",
                                 "zh-Neko": "内容方向已经明确了喵，但还没有做完喵。"
-                            }
+                            },
+                            "children": [
+                                {
+                                    "id": "ae2",
+                                    "label": {
+                                        "zh-CN": "应用能源2",
+                                        "zh-Neko": "应用能源2喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命名空间：ae2",
+                                        "zh-Neko": "命名空间：ae2"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "ae2.json",
+                                            "path": "assets/ae2/lang/zh_cn.json"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "emi",
+                                    "label": {
+                                        "zh-CN": "EMI",
+                                        "zh-Neko": "EMI 喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命名空间：emi",
+                                        "zh-Neko": "命名空间：emi"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "emi.json",
+                                            "path": "assets/emi/lang/zh_cn.json"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "farmersdelight",
+                                    "label": {
+                                        "zh-CN": "农夫乐事",
+                                        "zh-Neko": "农夫乐事喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命名空间：farmersdelight",
+                                        "zh-Neko": "命名空间：farmersdelight"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "farmersdelight.json",
+                                            "path": "assets/farmersdelight/lang/zh_cn.json"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "childSelection": "multiple"
                         },
                         {
                             "id": "unfinished-abandoned",
@@ -1814,7 +2219,61 @@
                             "description": {
                                 "zh-CN": "后面可能会彻底删除的项。",
                                 "zh-Neko": "后面可能会彻底删掉的喵。"
-                            }
+                            },
+                            "children": [
+                                {
+                                    "id": "item_descriptions",
+                                    "label": {
+                                        "zh-CN": "物品描述",
+                                        "zh-Neko": "物品描述喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命名空间：item_descriptions",
+                                        "zh-Neko": "命名空间：item_descriptions"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "item_descriptions.json",
+                                            "path": "assets/item_descriptions/lang/zh_cn.json"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "worldedit",
+                                    "label": {
+                                        "zh-CN": "创世神",
+                                        "zh-Neko": "创世神喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命名空间：worldedit",
+                                        "zh-Neko": "命名空间：worldedit"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "worldedit.json",
+                                            "path": "assets/worldedit/lang/zh_cn.json"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "botania",
+                                    "label": {
+                                        "zh-CN": "植物魔法",
+                                        "zh-Neko": "植物魔法喵"
+                                    },
+                                    "description": {
+                                        "zh-CN": "命名空间：botania",
+                                        "zh-Neko": "命名空间：botania"
+                                    },
+                                    "files": [
+                                        {
+                                            "name": "botania.json",
+                                            "path": "assets/botania/lang/zh_cn.json"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "childSelection": "multiple"
                         }
                     ]
                 }

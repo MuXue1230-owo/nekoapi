@@ -1,0 +1,23 @@
+{
+    "addServer.title": "编辑服务器信息喵♪(´▽｀)",
+    "accessibility.onboarding.screen.title": "喵喵！欢迎进入Meowcraft！ヾ(≧▽≦*)o\n\n需要打开复述功能或访问辅助功能设置吗喵？",
+    "datapackFailure.title": "当前选中的数据包中出现了错误，导致世界无法加载喵╥﹏╥...\n主人可以尝试只加载原版的数据包（“安全模式”）或回到标题屏幕手动修复该问题喵～",
+    "gui.recipebook.search_hint": "搜索配方喵♪(´▽｀)",
+    "selectWorld.deleteWarning": "“%s”会永远消失掉的喵(っ°Д°;)っ",
+    "selectServer.deleteWarning": "“%s”会永远...永远消失掉的喵╥﹏╥...",
+    "menu.returnToMenu": "不玩了喵T▽T",
+    "menu.returnToGame": "继续玩喵(/≧▽≦)/",
+    "merchant.deprecated": "村民的货卖完了喵╥﹏╥...不过一天有两次补货机会喵。",
+    "menu.savingLevel": "猫猫正在保存世界喵♪(´▽｀)",
+    "selectWorld.title": "选个存档喵ヾ(≧▽≦)ゝ",
+    "advancements.story.upgrade_tools.description": "搞出把更好的镐喵！(/≧▽≦)/",
+    "advancements.nether.netherite_armor.description": "获得一整套下界合金盔甲喵！ヾ(≧▽≦)ゝ",
+    "advancements.sad_label": "T▽T",
+    "advancements.husbandry.tactical_fishing.description": "用桶抓住一条杂鱼喵(/≧▽≦)/！",
+    "advancements.end.levitate.description": "被盒子怪打飞50格喵(っ°Д°;)っ",
+    "advancements.adventure.adventuring_time.description": "完成它......要周游世界上所有的生物群系的喵！ ♪(´▽｀)",
+    "advancements.husbandry.axolotl_in_a_bucket.description": "喵！用桶抓住可爱的美西螈喵～♪(´▽｀)",
+    "advancements.end.find_end_city.description": "进去看看喵...里边有什么呢喵？(*^▽^*)",
+    "advancements.husbandry.complete_catalogue.description": "攻略所有的猫猫！ヾ(≧▽≦*)o",
+    "advancements.nether.all_effects.title": "要......要坏掉了喵 ╥﹏╥... "
+}

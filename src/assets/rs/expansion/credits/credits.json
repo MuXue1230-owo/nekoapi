@@ -1,0 +1,363 @@
+[
+    {
+        "section": "Neko Language Pack for Java Edition",
+        "disciplines": [
+            {
+                "discipline": "§7我把mojang的名单删了哈哈哈哈",
+                "titles": [
+                    {
+                        "title": "最后更新时间",
+                        "names": [
+                            "2026年3月27日"
+                        ]
+                    },
+                    {
+                        "title": "Neko Language Pack 简称",
+                        "names": [
+                            "NLP",
+                            "你老婆（中文译名）"
+                        ]
+                    },
+                    {
+                        "title": "猫娘头头（你老婆，吉祥物，偶尔发个视频）",
+                        "names": [
+                            "XiaoshiTwinkling"
+                        ]
+                    },
+                    {
+                        "title": "古希腊掌管猫猫包的神（实际管事的以及最终审核，有事找他）",
+                        "names": [
+                            "Rainwhisper（望霂）",
+                            "QQ 2635650784"
+                        ]
+                    },
+                    {
+                        "title": "你老婆编辑组（实际上在运作这个包的组）",
+                        "names": [
+                            "Rainwhisper",
+                            "Hikaritsu",
+                            "吃个硝酸uwu"
+                        ]
+                    },
+                    {
+                        "title": "原版文本",
+                        "names": [
+                            "XiaoshiTwinkling",
+                            "Rainwhisper"
+                        ]
+                    },
+                    {
+                        "title": "机械动力等模组文本",
+                        "names": [
+                            "Rainwhisper",
+                            "XiaoshiTwinkling"
+                        ]
+                    },
+                    {
+                        "title": "25w14craftmine文本",
+                        "names": [
+                            "Georgome."
+                        ]
+                    },
+                    {
+                        "title": "物品描述文本（还在做...）",
+                        "names": [
+                            "MUXUE1230",
+                            "KUSSA",
+                            "Hikaritsu",
+                            "吃个硝酸uwu"
+                        ]
+                    },
+                    {
+                        "title": "没了",
+                        "names": [
+                            "就这么几个人直接参与"
+                        ]
+                    },
+                    {
+                        "title": "特别鸣谢",
+                        "names": [
+                            "lolcat",
+                            "布吉岛",
+                            "梗体中文 - teahouse",
+                            "Paratranz",
+                            "",
+                            "Visual Studio Code",
+                            "MT管理器",
+                            "地球",
+                            "我用掉的电",
+                            "我吃掉的饭"
+                        ]
+                    },
+                    {   "title": "香港本地化包（图一乐）等扩展包",
+                        "names": [
+                            "KUSSA_LTSC"
+                        ]
+                    },
+                    {
+                        "title": "终末之诗",
+                        "names": [
+                            "文案：模板出处无从考证，由Gemini改写",
+                            "配音：elevenlabs",
+                            "本来想xiaoshi来配的，但是孩子太不自信了",
+                            "如果有人愿意来写个更正经的终末之诗",
+                            "或者来配音的话，很希望能来owo",
+                            "期望薪资：一只猫娘，可送猫粮"
+                        ]
+                    },
+                    {   "title": "反馈漏洞",
+                        "names": [
+                            "零值null",
+                            "YT_XueLian",
+                            "aurarokl",
+                            "Hikaritsu",
+                            "吃个硝酸uwu <-- 兼“你老婆”译名提出者"
+                        ]
+                    },
+                    {
+                        "title": "提供想法",
+                        "names": [
+                            "2q7y",
+                            "莜鱼",
+                            "KUSSA_LTSC"
+                        ]
+                    },
+                    {
+                        "title": "闪烁标语",
+                        "names": [
+                            "灰色部分为QQ号，均为自愿提供",
+                            " ",
+                            "Dictators.",
+                            "ganji_o",
+                            "Dr.迷の人类",  
+                            "白c羽",
+                            "洛柠Naloveyuki",
+                            "白屿",
+                            "2q7y",
+                            "YT_XueLian",
+                            "星光坠入爱河§7（2896652979）",
+                            "貓屋敷猫屋",
+                            "UID:3493104613067521(真的会有人无聊到来找我吗)",
+                            "拉普兰德•西格蒙德(重伤)",
+                            "佚名喵喵",
+                            "可耐的小伙纸",
+                            "Aumnkenrn§7（4488924）",
+                            "ほし§7（2541471791）",
+                            "BEX",
+                            "量产猫娘10086号",
+                            "南喵北喵§7（1750502909）",
+                            "Tachibana.§7（1283750945）",
+                            "Preference§7（3830289844）",
+                            "FL.阿白§7（1250298160）",
+                            "柿子§7（3038988263）",
+                            "༼༾零值null༿༽§7（2889013380）",
+                            "EP南极洲异教",
+                            "Aaron§7（177436529）",
+                            "Georgome.",
+                            "。。。",
+                            "胡一言～",
+                            "千梦一心Neva",
+                            "yingpan_cn",
+                            "ClassIsBand§7（2441500679）",
+                            "木雪 1230",
+                            "Chasing1145",
+                            "Hikaritsu和他的猫",
+                            "ActualVessel504",
+                            "ichi§7（2125669788）",
+                            "1355喵",
+                            "创造马达烧锅炉§7（3937254493）",
+                            "wzc_ikun§7（1522802600）",
+                            "某人",
+                            "头像本人，再问跳楼",
+                            "Cx300",
+                            "kadmiel",
+                            "ALook4384亻尔 女子",
+                            "Geabal",
+                            "烊咩",
+                            "十一号酱",
+                            "⑨§7（3159038105）"
+
+                        ]
+                    },
+                    {
+                        "title": "其他一些人",
+                        "names": [
+                            "柿子",
+                            "莜鱼",
+                            "koimiaori",
+                            "孤火",
+                            "洛柠Naloveyuki",
+                            "MengMeng_pwp"
+                        ]
+                    },
+                    {
+                        "title": "群猫娘",
+                        "names": [
+                            "露露"
+                        ]
+                    },
+                    {
+                        "title": "一切脚本",
+                        "names": [
+                            "Deepseek",
+                            "Gemini <-- 主力",
+                            "ChatGPT"
+                        ]
+                    },
+                    {
+                        "title": "望霂改脚本的时候旁边看着的两个人",
+                        "names": [
+                            "吃个硝酸uwu",
+                            "Hikaritsu"
+                        ]
+                    },
+                    {
+                        "title": "脚本用的语言和依赖库",
+                        "names": [
+                            "python",
+                            "requests"
+                        ]
+                    },
+                    {
+                        "title": "脚本是用来干什么的",
+                        "names": [
+                            "给那个该死的物品描述mod的该死的",
+                            "没事干™瞎jb改键名玩喜欢把color改成colour",
+                            "结果正文里是color，早期是键名color正文colour",
+                            "还喜欢改该死的命名方式的该死的作者",
+                            "而且它自己别的语言都没跟上",
+                            "猫猫语更新的比它自己还快",
+                            "写的兼容脚本和线上构建脚本",
+                            "如果你在资源包里找到了build_info.txt",
+                            "说明我们成功了！"
+                        ]
+                    },
+                    {
+                        "title": "友商",
+                        "names": [
+                            "Moe Chinses(萌体中文) - CrystalNeko",
+                            "https://modrinth.com/project/5SOLUcG8",
+                            "https://space.bilibili.com/3461580710742160"
+                        ]
+                    },
+                    {
+                        "title": "我知道你想看什么",
+                        "names": [
+                            "来了"
+                        ]
+                    },
+                    {
+                        "title": "AND YOU",
+                        "names": [
+                            "Thanks for using!"
+                        ]
+                    },
+                    {   "title": "为什么这句话一定要用英文啊",
+                        "names": [
+                            "不知道反正别的游戏都这么写"
+                        ]
+
+                    },
+                    {
+                        "title": "我喜欢你",
+                        "names": [
+                            ""
+                        ]
+                    },
+                    {
+                    "title": "外部链接",
+                        "names": [
+                            "QQ群：249663464",
+                            "modrinth：https://modrinth.com/project/YzCQisiC",
+                            "",
+                            "广告位招租"
+                        ]
+                    },
+                    {
+                        "title": "参与社区投票",
+                        "names":[
+                            "这里的名字直接使用参与投票时使用的QQ账户名",
+                            "",
+                            "~(*・_・)ノ⌒*丢出去",
+                            "6",
+                            "绝望少年",
+                            "萌萌的皮卡丘",
+                            "Icerainboww",
+                            "pppppppppp",
+                            "无埃",
+                            "逐·风",
+                            "破胆の甲亢",
+                            "竹喧",
+                            "NDFK9400",
+                            "哈之何",
+                            "ICE-CREAM",
+                            "零",
+                            "小羊驼",
+                            "想念",
+                            "华夫",
+                            "L",
+                            "Miyako",
+                            "rain",
+                            "ʕ̯•͡˔•̯侬依_醤㋡",
+                            "Y",
+                            "yingpan_cn",
+                            "梅角羊",
+                            "Shimizu清水川一",
+                            "丞",
+                            "Icy-White-Cat",
+                            "我有绝望综合症.jpg",
+                            "天童 アリス",
+                            "浔浔",
+                            "咖啡",
+                            "杯里的小猫",
+                            "迴",
+                            "Xiaoshi_",
+                            "嘿嘿",
+                            "莉可",
+                            "不知道该起啥名",
+                            "江念梓",
+                            "芯子",
+                            "洛柠Naloveyuki",
+                            "白屿",
+                            "喵宕七 喵～",
+                            "Omagari Hare",
+                            "Firstlove.阿白",
+                            "喵喵~喵",
+                            "༄༊࿆凌霄未落࿐   ⸙",
+                            "乄_﹏柒ぐ.汐",
+                            "玖月无解",
+                            "星光与爱河",
+                            "bdndf",
+                            "你许与我同研墨",
+                            "天坑烟小柳",
+                            "Dictators.",
+                            "Yolo",
+                            "gwdsir",
+                            "sᴇᴠᴇɴ~♡",
+                            "MerryzzB99",
+                            "Dr.迷の人类",
+                            "哈哈哈",
+                            "语晴",
+                            "星",
+                            "就说瞎话",
+                            "张少",
+                            "Binah",
+                            "chestnut",
+                            "木雪 1230",
+                            "༼༾零值null༿༽",
+                            "普卤柿大蒂●█▀█▄",
+                            "Lingfei233",
+                            "井米甜承"
+                        ]
+                    },
+                    {
+                        "title":"谢谢所有人",
+                        "names":[
+                            ""
+                        ]   
+                    }
+                ]
+            }
+        ]
+    }
+]
