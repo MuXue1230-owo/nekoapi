@@ -33,99 +33,872 @@
                     "selection": "single",
                     "visibleInSimple": true,
                     "items": [
-                        {
-                            "id": "java-1-21",
-                            "label": {
-                                "zh-CN": "1.21~1.21.11",
-                                "zh-Neko": "1.21~1.21.11 喵"
-                            },
-                            "summary": {
-                                "zh-CN": "1.21.x",
-                                "zh-Neko": "1.21.x"
-                            },
-                            "description": {
-                                "zh-CN": "这个版本的包体永远是最新的，并且会拥有最好的支持。如果你发现其他版本出现异常，切换到这个版本或许就正常了。",
-                                "zh-Neko": "这个版本的猫猫包是最棒的那一个喵！如果主人在使用其他版本的猫猫包时发现了问题，可以试试切换到这个版本喵！"
-                            },
-                            "defaultSelected": true
-                        },
-                        {
-                            "id": "java-1-20",
-                            "label": {
-                                "zh-CN": "1.20~1.20.6",
-                                "zh-Neko": "1.20~1.20.6 喵"
-                            },
-                            "summary": {
-                                "zh-CN": "1.20.x",
-                                "zh-Neko": "1.20.x"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            }
-                        },
-                        {
-                            "id": "java-1-19",
-                            "label": {
-                                "zh-CN": "1.19~1.19.4",
-                                "zh-Neko": "1.19~1.19.4 喵"
-                            },
-                            "summary": {
-                                "zh-CN": "1.19.x",
-                                "zh-Neko": "1.19.x"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            }
-                        },
-                        {
-                            "id": "java-1-15-1-18",
-                            "label": {
-                                "zh-CN": "1.15~1.18.2",
-                                "zh-Neko": "1.15~1.18.2 喵"
-                            },
-                            "summary": {
-                                "zh-CN": "1.15.x~1.18.x",
-                                "zh-Neko": "1.15.x~1.18.x"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            }
-                        },
-                        {
-                            "id": "java-1-14",
-                            "label": {
-                                "zh-CN": "1.14~1.14.4",
-                                "zh-Neko": "1.14~1.14.4 喵"
-                            },
-                            "summary": {
-                                "zh-CN": "1.14.x",
-                                "zh-Neko": "1.14.x"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            },
-                            "legacyOnlyPackage": true
-                        },
-                        {
-                            "id": "java-1-13",
-                            "label": {
-                                "zh-CN": "1.13~1.13.2",
-                                "zh-Neko": "1.13~1.13.2 喵"
-                            },
-                            "summary": {
-                                "zh-CN": "1.13.x",
-                                "zh-Neko": "1.13.x"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            },
-                            "legacyOnlyPackage": true
-                        },
+						{
+							"id": "java-26-1-1",
+							"label": {
+								"zh-CN": "当前最新正式版（26.1.1）",
+								"zh-Neko": "当前最新的版本喵（26.1.1）"
+							},
+							"summary": {
+								"zh-CN": "26.1.1",
+								"zh-Neko": "26.1.1"
+							},
+							"description": {
+								"zh-CN": "这个版本的包体永远是最新的，并且会拥有最好的支持。如果你发现其他版本出现异常，切换到这个版本或许就正常了。",
+								"zh-Neko": "这个版本的猫猫包是最棒的那一个喵！如果主人在使用其他版本的猫猫包时发现了问题，可以试试切换到这个版本喵！"
+							},
+							"requiredPackFormat": {
+								"version": 84.0
+							},
+							"defaultSelected": true
+						},
+						{
+							"id": "java-26-1",
+							"label": {
+								"zh-CN": "26.1",
+								"zh-Neko": "26.1"
+							},
+							"summary": {
+								"zh-CN": "26.1",
+								"zh-Neko": "26.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 84.0
+							},
+							"defaultSelected": true
+						},
+						{
+							"id": "java-1-21-11",
+							"label": {
+								"zh-CN": "1.21.11",
+								"zh-Neko": "1.21.11 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.11",
+								"zh-Neko": "1.21.11"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 75.0
+							}
+						},
+						{
+							"id": "java-1-21-10",
+							"label": {
+								"zh-CN": "1.21.10",
+								"zh-Neko": "1.21.10 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.10",
+								"zh-Neko": "1.21.10"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 69.0
+							}
+						},
+						{
+							"id": "java-1-21-9",
+							"label": {
+								"zh-CN": "1.21.9",
+								"zh-Neko": "1.21.9 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.9",
+								"zh-Neko": "1.21.9"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 69.0
+							}
+						},
+						{
+							"id": "java-1-21-8",
+							"label": {
+								"zh-CN": "1.21.8",
+								"zh-Neko": "1.21.8 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.8",
+								"zh-Neko": "1.21.8"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 64
+							}
+						},
+						{
+							"id": "java-1-21-7",
+							"label": {
+								"zh-CN": "1.21.7",
+								"zh-Neko": "1.21.7 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.7",
+								"zh-Neko": "1.21.7"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 64
+							}
+						},
+						{
+							"id": "java-1-21-6",
+							"label": {
+								"zh-CN": "1.21.6",
+								"zh-Neko": "1.21.6 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.6",
+								"zh-Neko": "1.21.6"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 63
+							}
+						},
+						{
+							"id": "java-1-21-5",
+							"label": {
+								"zh-CN": "1.21.5",
+								"zh-Neko": "1.21.5 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.5",
+								"zh-Neko": "1.21.5"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 55
+							}
+						},
+						{
+							"id": "java-1-21-4",
+							"label": {
+								"zh-CN": "1.21.4",
+								"zh-Neko": "1.21.4 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.4",
+								"zh-Neko": "1.21.4"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 46
+							}
+						},
+						{
+							"id": "java-1-21-3",
+							"label": {
+								"zh-CN": "1.21.3",
+								"zh-Neko": "1.21.3 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.3",
+								"zh-Neko": "1.21.3"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 42
+							}
+						},
+						{
+							"id": "java-1-21-2",
+							"label": {
+								"zh-CN": "1.21.2",
+								"zh-Neko": "1.21.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.2",
+								"zh-Neko": "1.21.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 42
+							}
+						},
+						{
+							"id": "java-1-21-1",
+							"label": {
+								"zh-CN": "1.21.1",
+								"zh-Neko": "1.21.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21.1",
+								"zh-Neko": "1.21.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 34
+							}
+						},
+						{
+							"id": "java-1-21",
+							"label": {
+								"zh-CN": "1.21",
+								"zh-Neko": "1.21 喵"
+							},
+							"summary": {
+								"zh-CN": "1.21",
+								"zh-Neko": "1.21"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 34
+							}
+						},
+						{
+							"id": "java-1-20-6",
+							"label": {
+								"zh-CN": "1.20.6",
+								"zh-Neko": "1.20.6 喵"
+							},
+							"summary": {
+								"zh-CN": "1.20.6",
+								"zh-Neko": "1.20.6"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 32
+							}
+						},
+						{
+							"id": "java-1-20-5",
+							"label": {
+								"zh-CN": "1.20.5",
+								"zh-Neko": "1.20.5 喵"
+							},
+							"summary": {
+								"zh-CN": "1.20.5",
+								"zh-Neko": "1.20.5"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 32
+							}
+						},
+						{
+							"id": "java-1-20-4",
+							"label": {
+								"zh-CN": "1.20.4",
+								"zh-Neko": "1.20.4 喵"
+							},
+							"summary": {
+								"zh-CN": "1.20.4",
+								"zh-Neko": "1.20.4"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 22
+							}
+						},
+						{
+							"id": "java-1-20-3",
+							"label": {
+								"zh-CN": "1.20.3",
+								"zh-Neko": "1.20.3 喵"
+							},
+							"summary": {
+								"zh-CN": "1.20.3",
+								"zh-Neko": "1.20.3"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 22
+							}
+						},
+						{
+							"id": "java-1-20-2",
+							"label": {
+								"zh-CN": "1.20.2",
+								"zh-Neko": "1.20.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.20.2",
+								"zh-Neko": "1.20.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 18
+							}
+						},
+						{
+							"id": "java-1-20-1",
+							"label": {
+								"zh-CN": "1.20.1",
+								"zh-Neko": "1.20.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.20.1",
+								"zh-Neko": "1.20.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 15
+							}
+						},
+						{
+							"id": "java-1-20",
+							"label": {
+								"zh-CN": "1.20",
+								"zh-Neko": "1.20 喵"
+							},
+							"summary": {
+								"zh-CN": "1.20",
+								"zh-Neko": "1.20"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 15
+							}
+						},
+						{
+							"id": "java-1-19-4",
+							"label": {
+								"zh-CN": "1.19.4",
+								"zh-Neko": "1.19.4 喵"
+							},
+							"summary": {
+								"zh-CN": "1.19.4",
+								"zh-Neko": "1.19.4"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 13
+							}
+						},
+						{
+							"id": "java-1-19-3",
+							"label": {
+								"zh-CN": "1.19.3",
+								"zh-Neko": "1.19.3 喵"
+							},
+							"summary": {
+								"zh-CN": "1.19.3",
+								"zh-Neko": "1.19.3"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 12
+							}
+						},
+						{
+							"id": "java-1-19-2",
+							"label": {
+								"zh-CN": "1.19.2",
+								"zh-Neko": "1.19.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.19.2",
+								"zh-Neko": "1.19.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 9
+							}
+						},
+						{
+							"id": "java-1-19-1",
+							"label": {
+								"zh-CN": "1.19.1",
+								"zh-Neko": "1.19.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.19.1",
+								"zh-Neko": "1.19.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 9
+							}
+						},
+						{
+							"id": "java-1-19",
+							"label": {
+								"zh-CN": "1.19",
+								"zh-Neko": "1.19 喵"
+							},
+							"summary": {
+								"zh-CN": "1.19",
+								"zh-Neko": "1.19"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 9
+							}
+						},
+						{
+							"id": "java-1-18-2",
+							"label": {
+								"zh-CN": "1.18.2",
+								"zh-Neko": "1.18.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.18.2",
+								"zh-Neko": "1.18.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 8
+							}
+						},
+						{
+							"id": "java-1-18-1",
+							"label": {
+								"zh-CN": "1.18.1",
+								"zh-Neko": "1.18.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.18.1",
+								"zh-Neko": "1.18.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 8
+							}
+						},
+						{
+							"id": "java-1-18",
+							"label": {
+								"zh-CN": "1.18",
+								"zh-Neko": "1.18 喵"
+							},
+							"summary": {
+								"zh-CN": "1.18",
+								"zh-Neko": "1.18"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 7
+							}
+						},
+						{
+							"id": "java-1-17-1",
+							"label": {
+								"zh-CN": "1.17.1",
+								"zh-Neko": "1.17.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.17.1",
+								"zh-Neko": "1.17.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 7
+							}
+						},
+						{
+							"id": "java-1-17",
+							"label": {
+								"zh-CN": "1.17",
+								"zh-Neko": "1.17 喵"
+							},
+							"summary": {
+								"zh-CN": "1.17",
+								"zh-Neko": "1.17"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 7
+							}
+						},
+						{
+							"id": "java-1-16-5",
+							"label": {
+								"zh-CN": "1.16.5",
+								"zh-Neko": "1.16.5 喵"
+							},
+							"summary": {
+								"zh-CN": "1.16.5",
+								"zh-Neko": "1.16.5"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 6
+							}
+						},
+						{
+							"id": "java-1-16-4",
+							"label": {
+								"zh-CN": "1.16.4",
+								"zh-Neko": "1.16.4 喵"
+							},
+							"summary": {
+								"zh-CN": "1.16.4",
+								"zh-Neko": "1.16.4"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 6
+							}
+						},
+						{
+							"id": "java-1-16-3",
+							"label": {
+								"zh-CN": "1.16.3",
+								"zh-Neko": "1.16.3 喵"
+							},
+							"summary": {
+								"zh-CN": "1.16.3",
+								"zh-Neko": "1.16.3"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 6
+							}
+						},
+						{
+							"id": "java-1-16-2",
+							"label": {
+								"zh-CN": "1.16.2",
+								"zh-Neko": "1.16.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.16.2",
+								"zh-Neko": "1.16.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 6
+							}
+						},
+						{
+							"id": "java-1-16-1",
+							"label": {
+								"zh-CN": "1.16.1",
+								"zh-Neko": "1.16.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.16.1",
+								"zh-Neko": "1.16.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 5
+							}
+						},
+						{
+							"id": "java-1-16",
+							"label": {
+								"zh-CN": "1.16",
+								"zh-Neko": "1.16 喵"
+							},
+							"summary": {
+								"zh-CN": "1.16",
+								"zh-Neko": "1.16"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 5
+							}
+						},
+						{
+							"id": "java-1-15-2",
+							"label": {
+								"zh-CN": "1.15.2",
+								"zh-Neko": "1.15.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.15.2",
+								"zh-Neko": "1.15.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 5
+							}
+						},
+						{
+							"id": "java-1-15-1",
+							"label": {
+								"zh-CN": "1.15.1",
+								"zh-Neko": "1.15.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.15.1",
+								"zh-Neko": "1.15.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 5
+							}
+						},
+						{
+							"id": "java-1-15",
+							"label": {
+								"zh-CN": "1.15",
+								"zh-Neko": "1.15 喵"
+							},
+							"summary": {
+								"zh-CN": "1.15",
+								"zh-Neko": "1.15"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 5
+							}
+						},
+						{
+							"id": "java-1-14-4",
+							"label": {
+								"zh-CN": "1.14.4",
+								"zh-Neko": "1.14.4 喵"
+							},
+							"summary": {
+								"zh-CN": "1.14.4",
+								"zh-Neko": "1.14.4"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 4
+							}
+						},
+						{
+							"id": "java-1-14-3",
+							"label": {
+								"zh-CN": "1.14.3",
+								"zh-Neko": "1.14.3 喵"
+							},
+							"summary": {
+								"zh-CN": "1.14.3",
+								"zh-Neko": "1.14.3"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 4
+							}
+						},
+						{
+							"id": "java-1-14-2",
+							"label": {
+								"zh-CN": "1.14.2",
+								"zh-Neko": "1.14.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.14.2",
+								"zh-Neko": "1.14.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 4
+							}
+						},
+						{
+							"id": "java-1-14-1",
+							"label": {
+								"zh-CN": "1.14.1",
+								"zh-Neko": "1.14.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.14.1",
+								"zh-Neko": "1.14.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 4
+							}
+						},
+						{
+							"id": "java-1-14",
+							"label": {
+								"zh-CN": "1.14",
+								"zh-Neko": "1.14 喵"
+							},
+							"summary": {
+								"zh-CN": "1.14",
+								"zh-Neko": "1.14"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 4
+							}
+						},
+						{
+							"id": "java-1-13-2",
+							"label": {
+								"zh-CN": "1.13.2",
+								"zh-Neko": "1.13.2 喵"
+							},
+							"summary": {
+								"zh-CN": "1.13.2",
+								"zh-Neko": "1.13.2"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 4
+							}
+						},
+						{
+							"id": "java-1-13-1",
+							"label": {
+								"zh-CN": "1.13.1",
+								"zh-Neko": "1.13.1 喵"
+							},
+							"summary": {
+								"zh-CN": "1.13.1",
+								"zh-Neko": "1.13.1"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 4
+							}
+						},
+						{
+							"id": "java-1-13",
+							"label": {
+								"zh-CN": "1.13",
+								"zh-Neko": "1.13 喵"
+							},
+							"summary": {
+								"zh-CN": "1.13",
+								"zh-Neko": "1.13"
+							},
+							"description": {
+								"zh-CN": "",
+								"zh-Neko": ""
+							},
+							"requiredPackFormat": {
+								"version": 4
+							}
+						},
                         {
                             "id": "java-1-12-2",
                             "label": {
@@ -177,7 +950,7 @@
                                 "categories": {
                                     "version": {
                                         "selected": [
-                                            "java-1-21"
+                                            "java-26-1"
                                         ]
                                     },
                                     "vanilla": {
@@ -241,7 +1014,7 @@
                                 "categories": {
                                     "version": {
                                         "selected": [
-                                            "java-1-21"
+											"java-26-1"
                                         ]
                                     },
                                     "vanilla": {
@@ -298,7 +1071,7 @@
                                 "categories": {
                                     "version": {
                                         "selected": [
-                                            "java-1-21"
+											"java-26-1"
                                         ]
                                     },
                                     "vanilla": {
@@ -927,7 +1700,38 @@
                                             "name": "credits.json",
                                             "path": "assets/minecraft/texts/credits.json"
                                         }
-                                    ]
+                                    ],
+									"version_only": [
+										"java-1-18",
+										"java-1-18-1",
+										"java-1-18-2",
+										"java-1-19",
+										"java-1-19-1",
+										"java-1-19-2",
+										"java-1-19-3",
+										"java-1-19-4",
+										"java-1-20",
+										"java-1-20-1",
+										"java-1-20-2",
+										"java-1-20-3",
+										"java-1-20-4",
+										"java-1-20-5",
+										"java-1-20-6",
+										"java-1-21",
+										"java-1-21-1",
+										"java-1-21-2",
+										"java-1-21-3",
+										"java-1-21-4",
+										"java-1-21-5",
+										"java-1-21-6",
+										"java-1-21-7",
+										"java-1-21-8",
+										"java-1-21-9",
+										"java-1-21-10",
+										"java-1-21-11",
+										"java-26-1",
+										"java-26-1-1"
+									]
                                 },
                                 {
                                     "id": "poem",
@@ -1252,19 +2056,6 @@
                 }
             ],
             "toggles": [
-                {
-                    "id": "add-language",
-                    "icon": "language",
-                    "label": {
-                        "zh-CN": "添加新语言",
-                        "zh-Neko": "添加新语言喵"
-                    },
-                    "description": {
-                        "zh-CN": "暂时未接入任何内容。",
-                        "zh-Neko": "这里啥也木有喵。"
-                    },
-                    "visibleInSimple": false
-                },
                 {
                     "id": "shuffle-text",
                     "icon": "shuffle",

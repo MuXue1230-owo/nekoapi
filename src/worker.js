@@ -20,7 +20,6 @@ const corsHeaders = {
 
 const bundledAssetsRoot = "/bundle/assets/rs";
 const bundledBaseRoot = join(bundledAssetsRoot, "base");
-const bundledMcmetaRoot = join(bundledAssetsRoot, "mcmeta");
 const legacyDirectDownload = {
   version: "java-1-12-2",
   pathname: "/download/java-1-12-2-direct",
@@ -213,69 +212,21 @@ function safeWriteFileSync(filePath, content) {
   writeFileSync(filePath, content);
 }
 
-function listMcmetaTemplates() {
-  if (!existsSync(bundledMcmetaRoot)) {
-    return [];
-  }
+function resolveRequiredPackFormatVersion(type, version) {
+  const platform = (config.platforms || []).find((item) => item.id === type);
+  const versionCategory = platform?.categories?.find((item) => item.id === "version");
+  const versionItem = versionCategory?.items?.find((item) => item.id === version);
+  const packFormatVersion = versionItem?.requiredPackFormat?.version;
 
-  return readdirSync(bundledMcmetaRoot).filter((name) => name.endsWith(".mcmeta"));
-}
-
-function buildMcmetaCandidates(type, version) {
-  const candidates = [];
-  const seen = new Set();
-  const rawVersion = version.trim();
-
-  const appendCandidate = (filename) => {
-    if (!filename || seen.has(filename)) {
-      return;
-    }
-
-    seen.add(filename);
-    candidates.push(filename);
-  };
-
-  if (rawVersion.startsWith(`${type}-`)) {
-    const versionParts = rawVersion.split("-");
-
-    appendCandidate(`${rawVersion}.mcmeta`);
-
-    for (let count = versionParts.length - 1; count >= 3; count -= 1) {
-      appendCandidate(`${versionParts.slice(0, count).join("-")}.mcmeta`);
-    }
-
-    return candidates;
-  }
-
-  const dotVersionParts = rawVersion.split(".").filter(Boolean);
-
-  appendCandidate(`${type}-${rawVersion}.mcmeta`);
-  appendCandidate(`${type}-${rawVersion.replaceAll(".", "-")}.mcmeta`);
-
-  for (let count = dotVersionParts.length - 1; count >= 2; count -= 1) {
-    appendCandidate(`${type}-${dotVersionParts.slice(0, count).join(".")}.mcmeta`);
-    appendCandidate(`${type}-${dotVersionParts.slice(0, count).join("-")}.mcmeta`);
-  }
-
-  return candidates;
-}
-
-function resolveMcmetaTemplate(type, version) {
-  const availableTemplates = listMcmetaTemplates();
-
-  for (const candidate of buildMcmetaCandidates(type, version)) {
-    if (availableTemplates.includes(candidate)) {
-      return {
-        ok: true,
-        filename: candidate,
-        sourcePath: join(bundledMcmetaRoot, candidate),
-      };
-    }
+  if (typeof packFormatVersion !== "number" || Number.isNaN(packFormatVersion)) {
+    return {
+      ok: false,
+    };
   }
 
   return {
-    ok: false,
-    availableTemplates,
+    ok: true,
+    version: packFormatVersion,
   };
 }
 
@@ -334,12 +285,45 @@ function collectFilesRecursively(rootDir, currentDir = rootDir) {
  * @param {string} category - 类别名称（vanilla/mods/expansion/unfinished）
  * @param {string[]} moduleIds - 模块 ID 列表
  * @param {string} version - 游戏版本
+ * @param {string} type - 构建类型（java/bedrock）
  * @returns {Object} 包含 mergedFiles 和 errors 的对象
  */
-function getModuleFilesFromConfig(category, moduleIds, version) {
+function getModuleFilesFromConfig(category, moduleIds, version, type) {
   const issues = [];
   const mergedFilesMap = new Map(); // key: targetPath, value: MergedFile
-  const rsBasePath = `rs/${category}`;
+  // 构建资源根路径：/bundle/assets/rs/{category} 或 /bundle/assets/rs/differs/{version}
+  const assetsRoot = bundledAssetsRoot;
+  const textFileExtensions = new Set([
+    ".txt",
+    ".lang",
+    ".properties",
+    ".ini",
+    ".cfg",
+    ".conf",
+    ".csv",
+    ".tsv",
+    ".md",
+    ".xml",
+    ".yaml",
+    ".yml",
+    ".toml",
+  ]);
+
+  function resolveMergeMode(targetPath) {
+    const normalizedPath = normalizeArchivePath(targetPath).toLowerCase();
+
+    if (normalizedPath.endsWith(".json") || normalizedPath.endsWith(".mcmeta")) {
+      return "json";
+    }
+
+    for (const extension of textFileExtensions) {
+      if (normalizedPath.endsWith(extension)) {
+        return "text";
+      }
+    }
+
+    return "binary";
+  }
 
   /**
    * 在 config 中递归查找模块
@@ -370,7 +354,9 @@ function getModuleFilesFromConfig(category, moduleIds, version) {
         files.push({
           ...f,
           isDiffer: true,
-          differType: f.type || 'merge'
+          differType: f.type || 'merge',
+          // 差分文件从 rs/differs/{version}/original/ 目录读取
+          sourcePathOverride: join(assetsRoot, 'differs', ver, 'original', f.name)
         });
       });
     }
@@ -394,16 +380,17 @@ function getModuleFilesFromConfig(category, moduleIds, version) {
 
     for (const file of files) {
       const targetPath = file.path;
-      const sourcePath = `${rsBasePath}/${file.name}`;
+      // 如果有 sourcePathOverride 则使用它，否则使用默认路径
+      // 默认路径：/bundle/assets/rs/{category}/{name}
+      const sourcePath = file.sourcePathOverride || join(assetsRoot, category, file.name);
 
       if (!mergedFilesMap.has(targetPath)) {
         mergedFilesMap.set(targetPath, {
           targetPath,
-          content: {},
           sourcePaths: [],
           mergedFrom: [],
-          isMerged: false,
-          differType: null
+          differType: null,
+          mergeMode: resolveMergeMode(targetPath),
         });
       }
 
@@ -420,34 +407,87 @@ function getModuleFilesFromConfig(category, moduleIds, version) {
   // 转换为数组并读取文件内容
   const mergedFiles = [];
   for (const [, fileData] of mergedFilesMap) {
-    const fileContent = {};
-    let hasError = false;
-
-    for (const sourcePath of fileData.sourcePaths) {
-      try {
-        if (existsSync(sourcePath)) {
-          const rawText = readFileSync(sourcePath, "utf8").replace(/^\uFEFF/, "");
-          const jsonContent = JSON.parse(rawText);
-          mergeJson(fileContent, jsonContent, fileData.differType);
-        }
-      } catch (err) {
-        issues.push({
-          moduleId: fileData.mergedFrom.find(id => id),
-          path: sourcePath,
-          message: `Failed to read/parse file: ${err.message}`
-        });
-        hasError = true;
-      }
-    }
-
-    if (!hasError) {
-      mergedFiles.push({
-        targetPath: fileData.targetPath,
-        content: fileContent,
-        sourcePath: fileData.sourcePaths.length === 1 ? fileData.sourcePaths[0] : undefined,
-        mergedFrom: fileData.mergedFrom
+    if (fileData.mergeMode === "binary" && fileData.sourcePaths.length > 1) {
+      issues.push({
+        moduleId: fileData.mergedFrom.find((id) => id),
+        path: fileData.targetPath,
+        message: "Failed to merge file: non-text formats cannot be merged.",
       });
+      continue;
     }
+
+    if (fileData.mergeMode === "json") {
+      const fileContent = {};
+      let hasError = false;
+
+      for (const sourcePath of fileData.sourcePaths) {
+        try {
+          if (existsSync(sourcePath)) {
+            const rawText = readFileSync(sourcePath, "utf8").replace(/^\uFEFF/, "");
+            const jsonContent = JSON.parse(rawText);
+            mergeJson(fileContent, jsonContent, fileData.differType);
+          }
+        } catch (err) {
+          issues.push({
+            moduleId: fileData.mergedFrom.find((id) => id),
+            path: sourcePath,
+            message: `Failed to read/parse file: ${err.message}`,
+          });
+          hasError = true;
+        }
+      }
+
+      if (!hasError) {
+        mergedFiles.push({
+          targetPath: fileData.targetPath,
+          mergeMode: fileData.mergeMode,
+          content: fileContent,
+          sourcePath: fileData.sourcePaths.length === 1 ? fileData.sourcePaths[0] : undefined,
+          mergedFrom: fileData.mergedFrom,
+        });
+      }
+
+      continue;
+    }
+
+    if (fileData.mergeMode === "text") {
+      let textContent = "";
+      let hasError = false;
+
+      for (const sourcePath of fileData.sourcePaths) {
+        try {
+          if (existsSync(sourcePath)) {
+            textContent += readFileSync(sourcePath, "utf8").replace(/^\uFEFF/, "");
+          }
+        } catch (err) {
+          issues.push({
+            moduleId: fileData.mergedFrom.find((id) => id),
+            path: sourcePath,
+            message: `Failed to read text file: ${err.message}`,
+          });
+          hasError = true;
+        }
+      }
+
+      if (!hasError) {
+        mergedFiles.push({
+          targetPath: fileData.targetPath,
+          mergeMode: fileData.mergeMode,
+          textContent,
+          sourcePath: fileData.sourcePaths.length === 1 ? fileData.sourcePaths[0] : undefined,
+          mergedFrom: fileData.mergedFrom,
+        });
+      }
+
+      continue;
+    }
+
+    mergedFiles.push({
+      targetPath: fileData.targetPath,
+      mergeMode: fileData.mergeMode,
+      sourcePath: fileData.sourcePaths[0],
+      mergedFrom: fileData.mergedFrom,
+    });
   }
 
   if (issues.length > 0) {
@@ -518,6 +558,13 @@ function mergeJson(target, source, differType = 'merge') {
  * @returns {Object} 工作区对象或错误响应
  */
 function createBuildWorkspace(buildData) {
+  if (!buildData || typeof buildData !== 'object') {
+    return {
+      ok: false,
+      error: errorResponse(400, "INVALID_BUILD_DATA", "Build data is missing or invalid.")
+    };
+  }
+
   const { type, version, categories } = buildData;
 
   // 1. 验证基础资源
@@ -528,19 +575,18 @@ function createBuildWorkspace(buildData) {
     };
   }
 
-  // 2. 解析 mcmeta 模板
-  const mcmetaTemplate = resolveMcmetaTemplate(type, version);
-  if (!mcmetaTemplate.ok) {
+  // 2. 从配置解析 pack_format
+  const packFormat = resolveRequiredPackFormatVersion(type, version);
+  if (!packFormat.ok) {
     return {
       ok: false,
       error: errorResponse(
         422,
-        "MCMETA_TEMPLATE_NOT_FOUND",
-        "No mcmeta template matches the requested type and version.",
+        "PACK_FORMAT_VERSION_NOT_FOUND",
+        "No requiredPackFormat.version matches the requested type and version.",
         {
           type,
           version,
-          availableTemplates: mcmetaTemplate.availableTemplates
         }
       )
     };
@@ -550,12 +596,24 @@ function createBuildWorkspace(buildData) {
   const tempDir = join("/tmp", `build-${crypto.randomUUID()}`);
   mkdirSync(tempDir, { recursive: true });
   copyDirectoryRecursive(bundledBaseRoot, tempDir);
-  safeWriteFileSync(join(tempDir, "pack.mcmeta"), readFileSync(mcmetaTemplate.sourcePath));
+  safeWriteFileSync(
+    join(tempDir, "pack.mcmeta"),
+    JSON.stringify(
+      {
+        pack: {
+          description: "让你的mc变得更可爱喵！\n作者：XiaoshiTwinkling & 望霂",
+          pack_format: packFormat.version,
+        },
+      },
+      null,
+      2,
+    ),
+  );
 
   // 4. 收集工作区信息
   const workspaceInfo = {
     tempDir,
-    mcmetaTemplate: mcmetaTemplate.filename,
+    packFormatVersion: packFormat.version,
     categories: Object.keys(categories),
     modules: {},
     errors: []
@@ -565,7 +623,7 @@ function createBuildWorkspace(buildData) {
   for (const [category, moduleIds] of Object.entries(categories)) {
     if (!moduleIds || moduleIds.length === 0) continue;
 
-    const result = getModuleFilesFromConfig(category, moduleIds, version);
+    const result = getModuleFilesFromConfig(category, moduleIds, version, type);
 
     if (!result.ok) {
       workspaceInfo.errors.push(...result.errors);
@@ -584,7 +642,7 @@ function createBuildWorkspace(buildData) {
       const zhCnModules = [];
 
       for (const file of result.mergedFiles) {
-        if (file.content) {
+        if (file.mergeMode === "json" && file.content) {
           Object.assign(mergedLang, file.content);
           zhCnModules.push(...file.mergedFrom);
         }
@@ -606,8 +664,10 @@ function createBuildWorkspace(buildData) {
         const namespace = match[1];
         const targetPath = join(tempDir, "assets", namespace, "lang", "zh_cn.json");
 
-        if (file.content) {
+        if (file.mergeMode === "json" && file.content) {
           safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
+        } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
+          safeWriteFileSync(targetPath, file.textContent);
         } else if (file.sourcePath && existsSync(file.sourcePath)) {
           safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
         }
@@ -622,13 +682,15 @@ function createBuildWorkspace(buildData) {
         });
       }
 
-    } else if (category === "extension") {
+    } else if (category === "expansion" || category === "extension") {
       // 处理扩展文件
       for (const file of result.mergedFiles) {
         const targetPath = join(tempDir, file.targetPath);
 
-        if (file.content) {
+        if (file.mergeMode === "json" && file.content) {
           safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
+        } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
+          safeWriteFileSync(targetPath, file.textContent);
         } else if (file.sourcePath && existsSync(file.sourcePath)) {
           safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
         }
@@ -863,7 +925,6 @@ async function handleBuild(request, env) {
       code: "BUILD_ARCHIVE_READY",
       message: "Build archive created and ready to download.",
       data: validation.data,
-      workspace: workspace.workspace,
       download: storedArchive.download,
     },
     201,
