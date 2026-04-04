@@ -216,18 +216,32 @@ function resolveRequiredPackFormatVersion(type, version) {
   const platform = (config.platforms || []).find((item) => item.id === type);
   const versionCategory = platform?.categories?.find((item) => item.id === "version");
   const versionItem = versionCategory?.items?.find((item) => item.id === version);
-  const packFormatVersion = versionItem?.requiredPackFormat?.version;
+  const rpf = versionItem?.requiredPackFormat;
 
-  if (typeof packFormatVersion !== "number" || Number.isNaN(packFormatVersion)) {
+  if (!rpf || typeof rpf !== "object") {
+    return { ok: false };
+  }
+
+  // New format: versions after 1.21.8 use min_format/max_format
+  if (typeof rpf.min_format === "number" && typeof rpf.max_format === "number") {
     return {
-      ok: false,
+      ok: true,
+      isNewFormat: true,
+      min_format: rpf.min_format,
+      max_format: rpf.max_format,
     };
   }
 
-  return {
-    ok: true,
-    version: packFormatVersion,
-  };
+  // Old format: versions up to 1.21.8 use pack_format
+  if (typeof rpf.version === "number") {
+    return {
+      ok: true,
+      isNewFormat: false,
+      version: rpf.version,
+    };
+  }
+
+  return { ok: false };
 }
 
 function readJsonFile(jsonPath) {
@@ -533,6 +547,54 @@ function findModuleInItems(items, moduleId) {
 }
 
 /**
+ * Fisher-Yates shuffle
+ */
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/**
+ * 随机打乱 JSON 对象中所有字符串值
+ * 收集所有 leaf string 值，打乱顺序后重新填回
+ */
+function randomizeStringValues(obj) {
+  const stringValues = [];
+
+  // 收集所有叶子节点字符串值
+  function collectStrings(value) {
+    if (typeof value === "string") {
+      stringValues.push(value);
+    } else if (value !== null && typeof value === "object" && !Array.isArray(value)) {
+      for (const v of Object.values(value)) {
+        collectStrings(v);
+      }
+    }
+  }
+
+  // 按原顺序填回打乱后的值
+  function replaceStrings(value) {
+    if (typeof value === "string") {
+      return replaceStrings.replacements[replaceStrings.index++];
+    } else if (value !== null && typeof value === "object" && !Array.isArray(value)) {
+      for (const key of Object.keys(value)) {
+        value[key] = replaceStrings(value[key]);
+      }
+    }
+    return value;
+  }
+
+  collectStrings(obj);
+  const shuffled = shuffleArray([...stringValues]);
+  replaceStrings.replacements = shuffled;
+  replaceStrings.index = 0;
+  replaceStrings(obj);
+}
+
+/**
  * 合并 JSON 对象
  */
 function mergeJson(target, source, differType = 'merge') {
@@ -565,7 +627,7 @@ function createBuildWorkspace(buildData) {
     };
   }
 
-  const { type, version, categories } = buildData;
+  const { type, version, categories, random } = buildData;
 
   // 1. 验证基础资源
   if (!existsSync(bundledBaseRoot) || !statSync(bundledBaseRoot).isDirectory()) {
@@ -596,24 +658,25 @@ function createBuildWorkspace(buildData) {
   const tempDir = join("/tmp", `build-${crypto.randomUUID()}`);
   mkdirSync(tempDir, { recursive: true });
   copyDirectoryRecursive(bundledBaseRoot, tempDir);
+  const packMeta = {
+    description: "让你的mc变得更可爱喵！\n作者：XiaoshiTwinkling & 望霂",
+  };
+  if (packFormat.isNewFormat) {
+    packMeta.min_format = packFormat.min_format;
+    packMeta.max_format = packFormat.max_format;
+  } else {
+    packMeta.pack_format = packFormat.version;
+    packMeta.supported_formats = [packFormat.version];
+  }
   safeWriteFileSync(
     join(tempDir, "pack.mcmeta"),
-    JSON.stringify(
-      {
-        pack: {
-          description: "让你的mc变得更可爱喵！\n作者：XiaoshiTwinkling & 望霂",
-          pack_format: packFormat.version,
-        },
-      },
-      null,
-      2,
-    ),
+    JSON.stringify({ pack: packMeta }, null, 2),
   );
 
   // 4. 收集工作区信息
   const workspaceInfo = {
     tempDir,
-    packFormatVersion: packFormat.version,
+    packFormatVersion: packFormat.isNewFormat ? packFormat.min_format : packFormat.version,
     categories: Object.keys(categories),
     modules: {},
     errors: []
@@ -648,6 +711,9 @@ function createBuildWorkspace(buildData) {
         }
       }
 
+      if (random) {
+        randomizeStringValues(mergedLang);
+      }
       const zhCnPath = join(tempDir, "assets", "minecraft", "lang", "zh_cn.json");
       safeWriteFileSync(zhCnPath, JSON.stringify(mergedLang, null, 2));
 
@@ -665,6 +731,7 @@ function createBuildWorkspace(buildData) {
         const targetPath = join(tempDir, "assets", namespace, "lang", "zh_cn.json");
 
         if (file.mergeMode === "json" && file.content) {
+          if (random) randomizeStringValues(file.content);
           safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
         } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
           safeWriteFileSync(targetPath, file.textContent);
@@ -688,6 +755,7 @@ function createBuildWorkspace(buildData) {
         const targetPath = join(tempDir, file.targetPath);
 
         if (file.mergeMode === "json" && file.content) {
+          if (random) randomizeStringValues(file.content);
           safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
         } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
           safeWriteFileSync(targetPath, file.textContent);
