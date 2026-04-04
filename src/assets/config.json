@@ -1,2553 +1,2598 @@
 {
-    "meta": {
-        "qqGroupUrl": "https://qm.qq.com/q/AntBtGj33i",
-        "pendingBuildNote": {
-            "zh-CN": "",
-            "zh-Neko": ""
-        }
-    },
-    "platforms": [
+  "meta": {
+    "qqGroupUrl": "https://qm.qq.com/q/AntBtGj33i",
+    "pendingBuildNote": {
+      "zh-CN": "",
+      "zh-Neko": ""
+    }
+  },
+  "platforms": [
+    {
+      "id": "java",
+      "icon": "java",
+      "label": {
+        "zh-CN": "Java",
+        "zh-Neko": "爪哇版喵"
+      },
+      "categories": [
         {
-            "id": "java",
-            "icon": "java",
-            "label": {
-                "zh-CN": "Java",
-                "zh-Neko": "爪哇版喵"
-            },
-            "categories": [
-                {
-                    "id": "version",
-                    "icon": "version",
-                    "label": {
-                        "zh-CN": "游戏版本",
-                        "zh-Neko": "游戏版本喵"
-                    },
-                    "description": {
-                        "zh-CN": "在此处选择你需要安装本包的游戏版本。",
-                        "zh-Neko": "主人在这里选择需要安装猫猫包的游戏版本喵。"
-                    },
-                    "helper": {
-                        "zh-CN": "目前最低支持为1.12.2，并且暂时无法支持自定义。",
-                        "zh-Neko": "目前猫猫包最低只有1.12.2喵，而且还没办法自定义喵……"
-                    },
-                    "selection": "single",
-                    "visibleInSimple": true,
-                    "items": [
-						{
-							"id": "java-26-1-1",
-							"label": {
-								"zh-CN": "当前最新正式版（26.1.1）",
-								"zh-Neko": "当前最新的版本喵（26.1.1）"
-							},
-							"summary": {
-								"zh-CN": "26.1.1",
-								"zh-Neko": "26.1.1"
-							},
-							"description": {
-								"zh-CN": "这个版本的包体永远是最新的，并且会拥有最好的支持。如果你发现其他版本出现异常，切换到这个版本或许就正常了。",
-								"zh-Neko": "这个版本的猫猫包是最棒的那一个喵！如果主人在使用其他版本的猫猫包时发现了问题，可以试试切换到这个版本喵！"
-							},
-							"requiredPackFormat": {
-								"min_format": 84,
-								"max_format": 84
-							},
-							"defaultSelected": true
-						},
-						{
-							"id": "java-26-1",
-							"label": {
-								"zh-CN": "26.1",
-								"zh-Neko": "26.1"
-							},
-							"summary": {
-								"zh-CN": "26.1",
-								"zh-Neko": "26.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"min_format": 84,
-								"max_format": 84
-							},
-							"defaultSelected": true
-						},
-						{
-							"id": "java-1-21-11",
-							"label": {
-								"zh-CN": "1.21.11",
-								"zh-Neko": "1.21.11 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.11",
-								"zh-Neko": "1.21.11"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"min_format": 75,
-								"max_format": 75
-							}
-						},
-						{
-							"id": "java-1-21-10",
-							"label": {
-								"zh-CN": "1.21.10",
-								"zh-Neko": "1.21.10 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.10",
-								"zh-Neko": "1.21.10"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"min_format": 69,
-								"max_format": 69
-							}
-						},
-						{
-							"id": "java-1-21-9",
-							"label": {
-								"zh-CN": "1.21.9",
-								"zh-Neko": "1.21.9 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.9",
-								"zh-Neko": "1.21.9"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"min_format": 69,
-								"max_format": 69
-							}
-						},
-						{
-							"id": "java-1-21-8",
-							"label": {
-								"zh-CN": "1.21.8",
-								"zh-Neko": "1.21.8 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.8",
-								"zh-Neko": "1.21.8"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 64,
-								"supported_formats": [64]
-							}
-						},
-						{
-							"id": "java-1-21-7",
-							"label": {
-								"zh-CN": "1.21.7",
-								"zh-Neko": "1.21.7 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.7",
-								"zh-Neko": "1.21.7"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 64,
-								"supported_formats": [64]
-							}
-						},
-						{
-							"id": "java-1-21-6",
-							"label": {
-								"zh-CN": "1.21.6",
-								"zh-Neko": "1.21.6 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.6",
-								"zh-Neko": "1.21.6"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 63,
-								"supported_formats": [63]
-							}
-						},
-						{
-							"id": "java-1-21-5",
-							"label": {
-								"zh-CN": "1.21.5",
-								"zh-Neko": "1.21.5 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.5",
-								"zh-Neko": "1.21.5"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 55,
-								"supported_formats": [55]
-							}
-						},
-						{
-							"id": "java-1-21-4",
-							"label": {
-								"zh-CN": "1.21.4",
-								"zh-Neko": "1.21.4 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.4",
-								"zh-Neko": "1.21.4"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 46,
-								"supported_formats": [46]
-							}
-						},
-						{
-							"id": "java-1-21-3",
-							"label": {
-								"zh-CN": "1.21.3",
-								"zh-Neko": "1.21.3 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.3",
-								"zh-Neko": "1.21.3"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 42,
-								"supported_formats": [42]
-							}
-						},
-						{
-							"id": "java-1-21-2",
-							"label": {
-								"zh-CN": "1.21.2",
-								"zh-Neko": "1.21.2 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.2",
-								"zh-Neko": "1.21.2"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 42,
-								"supported_formats": [42]
-							}
-						},
-						{
-							"id": "java-1-21-1",
-							"label": {
-								"zh-CN": "1.21.1",
-								"zh-Neko": "1.21.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21.1",
-								"zh-Neko": "1.21.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 34,
-								"supported_formats": [34]
-							}
-						},
-						{
-							"id": "java-1-21",
-							"label": {
-								"zh-CN": "1.21",
-								"zh-Neko": "1.21 喵"
-							},
-							"summary": {
-								"zh-CN": "1.21",
-								"zh-Neko": "1.21"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 34,
-								"supported_formats": [34]
-							}
-						},
-						{
-							"id": "java-1-20-6",
-							"label": {
-								"zh-CN": "1.20.6",
-								"zh-Neko": "1.20.6 喵"
-							},
-							"summary": {
-								"zh-CN": "1.20.6",
-								"zh-Neko": "1.20.6"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 32,
-								"supported_formats": [32]
-							}
-						},
-						{
-							"id": "java-1-20-5",
-							"label": {
-								"zh-CN": "1.20.5",
-								"zh-Neko": "1.20.5 喵"
-							},
-							"summary": {
-								"zh-CN": "1.20.5",
-								"zh-Neko": "1.20.5"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 32,
-								"supported_formats": [32]
-							}
-						},
-						{
-							"id": "java-1-20-4",
-							"label": {
-								"zh-CN": "1.20.4",
-								"zh-Neko": "1.20.4 喵"
-							},
-							"summary": {
-								"zh-CN": "1.20.4",
-								"zh-Neko": "1.20.4"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 22,
-								"supported_formats": [22]
-							}
-						},
-						{
-							"id": "java-1-20-3",
-							"label": {
-								"zh-CN": "1.20.3",
-								"zh-Neko": "1.20.3 喵"
-							},
-							"summary": {
-								"zh-CN": "1.20.3",
-								"zh-Neko": "1.20.3"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 22,
-								"supported_formats": [22]
-							}
-						},
-						{
-							"id": "java-1-20-2",
-							"label": {
-								"zh-CN": "1.20.2",
-								"zh-Neko": "1.20.2 喵"
-							},
-							"summary": {
-								"zh-CN": "1.20.2",
-								"zh-Neko": "1.20.2"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 18,
-								"supported_formats": [18]
-							}
-						},
-						{
-							"id": "java-1-20-1",
-							"label": {
-								"zh-CN": "1.20.1",
-								"zh-Neko": "1.20.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.20.1",
-								"zh-Neko": "1.20.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 15
-							}
-						},
-						{
-							"id": "java-1-20",
-							"label": {
-								"zh-CN": "1.20",
-								"zh-Neko": "1.20 喵"
-							},
-							"summary": {
-								"zh-CN": "1.20",
-								"zh-Neko": "1.20"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 15
-							}
-						},
-						{
-							"id": "java-1-19-4",
-							"label": {
-								"zh-CN": "1.19.4",
-								"zh-Neko": "1.19.4 喵"
-							},
-							"summary": {
-								"zh-CN": "1.19.4",
-								"zh-Neko": "1.19.4"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 13
-							}
-						},
-						{
-							"id": "java-1-19-3",
-							"label": {
-								"zh-CN": "1.19.3",
-								"zh-Neko": "1.19.3 喵"
-							},
-							"summary": {
-								"zh-CN": "1.19.3",
-								"zh-Neko": "1.19.3"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 12
-							}
-						},
-						{
-							"id": "java-1-19-2",
-							"label": {
-								"zh-CN": "1.19.2",
-								"zh-Neko": "1.19.2 喵"
-							},
-							"summary": {
-								"zh-CN": "1.19.2",
-								"zh-Neko": "1.19.2"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 9
-							}
-						},
-						{
-							"id": "java-1-19-1",
-							"label": {
-								"zh-CN": "1.19.1",
-								"zh-Neko": "1.19.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.19.1",
-								"zh-Neko": "1.19.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 9
-							}
-						},
-						{
-							"id": "java-1-19",
-							"label": {
-								"zh-CN": "1.19",
-								"zh-Neko": "1.19 喵"
-							},
-							"summary": {
-								"zh-CN": "1.19",
-								"zh-Neko": "1.19"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 9
-							}
-						},
-						{
-							"id": "java-1-18-2",
-							"label": {
-								"zh-CN": "1.18.2",
-								"zh-Neko": "1.18.2 喵"
-							},
-							"summary": {
-								"zh-CN": "1.18.2",
-								"zh-Neko": "1.18.2"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 8
-							}
-						},
-						{
-							"id": "java-1-18-1",
-							"label": {
-								"zh-CN": "1.18.1",
-								"zh-Neko": "1.18.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.18.1",
-								"zh-Neko": "1.18.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 8
-							}
-						},
-						{
-							"id": "java-1-18",
-							"label": {
-								"zh-CN": "1.18",
-								"zh-Neko": "1.18 喵"
-							},
-							"summary": {
-								"zh-CN": "1.18",
-								"zh-Neko": "1.18"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 7
-							}
-						},
-						{
-							"id": "java-1-17-1",
-							"label": {
-								"zh-CN": "1.17.1",
-								"zh-Neko": "1.17.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.17.1",
-								"zh-Neko": "1.17.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 7
-							}
-						},
-						{
-							"id": "java-1-17",
-							"label": {
-								"zh-CN": "1.17",
-								"zh-Neko": "1.17 喵"
-							},
-							"summary": {
-								"zh-CN": "1.17",
-								"zh-Neko": "1.17"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 7
-							}
-						},
-						{
-							"id": "java-1-16-5",
-							"label": {
-								"zh-CN": "1.16.5",
-								"zh-Neko": "1.16.5 喵"
-							},
-							"summary": {
-								"zh-CN": "1.16.5",
-								"zh-Neko": "1.16.5"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 6
-							}
-						},
-						{
-							"id": "java-1-16-4",
-							"label": {
-								"zh-CN": "1.16.4",
-								"zh-Neko": "1.16.4 喵"
-							},
-							"summary": {
-								"zh-CN": "1.16.4",
-								"zh-Neko": "1.16.4"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 6
-							}
-						},
-						{
-							"id": "java-1-16-3",
-							"label": {
-								"zh-CN": "1.16.3",
-								"zh-Neko": "1.16.3 喵"
-							},
-							"summary": {
-								"zh-CN": "1.16.3",
-								"zh-Neko": "1.16.3"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 6
-							}
-						},
-						{
-							"id": "java-1-16-2",
-							"label": {
-								"zh-CN": "1.16.2",
-								"zh-Neko": "1.16.2 喵"
-							},
-							"summary": {
-								"zh-CN": "1.16.2",
-								"zh-Neko": "1.16.2"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 6
-							}
-						},
-						{
-							"id": "java-1-16-1",
-							"label": {
-								"zh-CN": "1.16.1",
-								"zh-Neko": "1.16.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.16.1",
-								"zh-Neko": "1.16.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 5
-							}
-						},
-						{
-							"id": "java-1-16",
-							"label": {
-								"zh-CN": "1.16",
-								"zh-Neko": "1.16 喵"
-							},
-							"summary": {
-								"zh-CN": "1.16",
-								"zh-Neko": "1.16"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 5
-							}
-						},
-						{
-							"id": "java-1-15-2",
-							"label": {
-								"zh-CN": "1.15.2",
-								"zh-Neko": "1.15.2 喵"
-							},
-							"summary": {
-								"zh-CN": "1.15.2",
-								"zh-Neko": "1.15.2"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 5
-							}
-						},
-						{
-							"id": "java-1-15-1",
-							"label": {
-								"zh-CN": "1.15.1",
-								"zh-Neko": "1.15.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.15.1",
-								"zh-Neko": "1.15.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 5
-							}
-						},
-						{
-							"id": "java-1-15",
-							"label": {
-								"zh-CN": "1.15",
-								"zh-Neko": "1.15 喵"
-							},
-							"summary": {
-								"zh-CN": "1.15",
-								"zh-Neko": "1.15"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 5
-							}
-						},
-						{
-							"id": "java-1-14-4",
-							"label": {
-								"zh-CN": "1.14.4",
-								"zh-Neko": "1.14.4 喵"
-							},
-							"summary": {
-								"zh-CN": "1.14.4",
-								"zh-Neko": "1.14.4"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 4
-							}
-						},
-						{
-							"id": "java-1-14-3",
-							"label": {
-								"zh-CN": "1.14.3",
-								"zh-Neko": "1.14.3 喵"
-							},
-							"summary": {
-								"zh-CN": "1.14.3",
-								"zh-Neko": "1.14.3"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 4
-							}
-						},
-						{
-							"id": "java-1-14-2",
-							"label": {
-								"zh-CN": "1.14.2",
-								"zh-Neko": "1.14.2 喵"
-							},
-							"summary": {
-								"zh-CN": "1.14.2",
-								"zh-Neko": "1.14.2"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 4
-							}
-						},
-						{
-							"id": "java-1-14-1",
-							"label": {
-								"zh-CN": "1.14.1",
-								"zh-Neko": "1.14.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.14.1",
-								"zh-Neko": "1.14.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 4
-							}
-						},
-						{
-							"id": "java-1-14",
-							"label": {
-								"zh-CN": "1.14",
-								"zh-Neko": "1.14 喵"
-							},
-							"summary": {
-								"zh-CN": "1.14",
-								"zh-Neko": "1.14"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 4
-							}
-						},
-						{
-							"id": "java-1-13-2",
-							"label": {
-								"zh-CN": "1.13.2",
-								"zh-Neko": "1.13.2 喵"
-							},
-							"summary": {
-								"zh-CN": "1.13.2",
-								"zh-Neko": "1.13.2"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 4
-							}
-						},
-						{
-							"id": "java-1-13-1",
-							"label": {
-								"zh-CN": "1.13.1",
-								"zh-Neko": "1.13.1 喵"
-							},
-							"summary": {
-								"zh-CN": "1.13.1",
-								"zh-Neko": "1.13.1"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 4
-							}
-						},
-						{
-							"id": "java-1-13",
-							"label": {
-								"zh-CN": "1.13",
-								"zh-Neko": "1.13 喵"
-							},
-							"summary": {
-								"zh-CN": "1.13",
-								"zh-Neko": "1.13"
-							},
-							"description": {
-								"zh-CN": "",
-								"zh-Neko": ""
-							},
-							"requiredPackFormat": {
-								"version": 4
-							}
-						},
-                        {
-                            "id": "java-1-12-2",
-                            "label": {
-                                "zh-CN": "1.12.2",
-                                "zh-Neko": "1.12.2 喵"
-                            },
-                            "summary": {
-                                "zh-CN": "1.12.2",
-                                "zh-Neko": "1.12.2"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            },
-                            "legacyOnlyPackage": true
-                        }
-                    ]
-                },
-                {
-                    "id": "preset",
-                    "icon": "preset",
-                    "label": {
-                        "zh-CN": "预设",
-                        "zh-Neko": "预设喵"
-                    },
-                    "description": {
-                        "zh-CN": "我们根据需求准备的几个预设，如果你不知道怎么设置，可以在这里选择。",
-                        "zh-Neko": "为主人准备的几个预设，主人可以直接使用的喵。"
-                    },
-                    "selection": "single",
-                    "visibleInSimple": true,
-                    "disabledInLegacy": true,
-                    "items": [
-                        {
-                            "id": "preset-standard",
-                            "label": {
-                                "zh-CN": "标准包",
-                                "zh-Neko": "标准包喵"
-                            },
-                            "summary": {
-                                "zh-CN": "标准",
-                                "zh-Neko": "标准"
-                            },
-                            "description": {
-                                "zh-CN": "是我们主要维护的几个选项，适合大多数使用场景。",
-                                "zh-Neko": "走主线内容喵，适合大多数使用场景喵。"
-                            },
-                            "presetSelection": {
-                                "categories": {
-                                    "version": {
-                                        "selected": [
-                                            "java-26-1"
-                                        ]
-                                    },
-                                    "vanilla": {
-                                        "selected": [
-                                            "vanilla-core"
-                                        ]
-                                    },
-                                    "mods": {
-                                        "selected": [
-                                            "mods-base-pack"
-                                        ],
-                                        "children": {
-                                            "mods-base-pack": [
-                                                "appleskin",
-                                                "cherishedworlds",
-                                                "flashback",
-                                                "languagereload",
-                                                "lanserverproperties",
-                                                "mcwifipnp",
-                                                "menulogue",
-                                                "modmenu",
-                                                "neo_language_reload",
-                                                "nochatreports",
-                                                "ponder",
-                                                "sodium"
-                                            ]
-                                        }
-                                    },
-                                    "expansion": {
-                                        "selected": [
-                                            "expansion-kaomoji"
-                                        ]
-                                    },
-                                    "unfinished": {
-                                        "selected": []
-                                    }
-                                },
-                                "toggles": {
-                                    "add-language": false,
-                                    "shuffle-text": false
-                                }
-                            },
-                            "defaultSelected": true
-                        },
-                        {
-                            "id": "preset-lite",
-                            "label": {
-                                "zh-CN": "轻量包",
-                                "zh-Neko": "轻量包喵"
-                            },
-                            "summary": {
-                                "zh-CN": "轻量",
-                                "zh-Neko": "轻量喵"
-                            },
-                            "description": {
-                                "zh-CN": "少一点花活，偏保守。",
-                                "zh-Neko": "少一点花活喵，偏保守一点喵。"
-                            },
-                            "presetSelection": {
-                                "categories": {
-                                    "version": {
-                                        "selected": [
-											"java-26-1"
-                                        ]
-                                    },
-                                    "vanilla": {
-                                        "selected": [
-                                            "vanilla-core"
-                                        ]
-                                    },
-                                    "mods": {
-                                        "selected": [
-                                            "mods-base-pack"
-                                        ],
-                                        "children": {
-                                            "mods-base-pack": [
-                                                "appleskin",
-                                                "cherishedworlds",
-                                                "languagereload",
-                                                "lanserverproperties",
-                                                "mcwifipnp",
-                                                "menulogue",
-                                                "modmenu",
-                                                "nochatreports",
-                                                "sodium"
-                                            ]
-                                        }
-                                    },
-                                    "expansion": {
-                                        "selected": []
-                                    },
-                                    "unfinished": {
-                                        "selected": []
-                                    }
-                                },
-                                "toggles": {
-                                    "add-language": false,
-                                    "shuffle-text": false
-                                }
-                            }
-                        },
-                        {
-                            "id": "preset-chaos",
-                            "label": {
-                                "zh-CN": "整活包",
-                                "zh-Neko": "整活包喵"
-                            },
-                            "summary": {
-                                "zh-CN": "整活",
-                                "zh-Neko": "整活喵"
-                            },
-                            "description": {
-                                "zh-CN": "更多替换内容和额外模块，适合先做效果展示。",
-                                "zh-Neko": "会带上更多替换内容和额外模块喵，适合先做效果展示喵。"
-                            },
-                            "presetSelection": {
-                                "categories": {
-                                    "version": {
-                                        "selected": [
-											"java-26-1"
-                                        ]
-                                    },
-                                    "vanilla": {
-                                        "selected": [
-                                            "vanilla-core",
-                                            "vanilla-craftmine"
-                                        ]
-                                    },
-                                    "mods": {
-                                        "selected": [
-                                            "mods-base-pack",
-                                            "mods-experimental"
-                                        ],
-                                        "children": {
-                                            "mods-base-pack": [
-                                                "appleskin",
-                                                "cherishedworlds",
-                                                "flashback",
-                                                "languagereload",
-                                                "lanserverproperties",
-                                                "mcwifipnp",
-                                                "menulogue",
-                                                "modmenu",
-                                                "neo_language_reload",
-                                                "nochatreports",
-                                                "ponder",
-                                                "sodium"
-                                            ],
-                                            "mods-experimental": [
-                                                "create"
-                                            ]
-                                        }
-                                    },
-                                    "expansion": {
-                                        "selected": [
-                                            "expansion-enchantments",
-                                            "expansion-kaomoji",
-                                            "expansion-transform",
-                                            "expansion-title",
-                                            "expansion-no-h",
-                                            "expansion-other-text",
-                                            "expansion-easter-egg"
-                                        ],
-                                        "children": {
-                                            "expansion-transform": [
-                                                "chatmeow",
-                                                "replace-player-skin-modern",
-                                                "player2cat",
-                                                "player2cat-plus"
-                                            ],
-                                            "expansion-other-text": [
-                                                "credits",
-                                                "end-poem-text",
-                                                "end-music",
-                                                "splashes"
-                                            ],
-                                            "expansion-easter-egg": [
-                                                "cloud-new"
-                                            ]
-                                        }
-                                    },
-                                    "unfinished": {
-                                        "selected": [
-                                            "unfinished-review",
-                                            "unfinished-progress",
-                                            "unfinished-abandoned"
-                                        ],
-                                        "children": {
-                                            "unfinished-review": [
-                                                "mtr"
-                                            ],
-                                            "unfinished-progress": [
-                                                "ae2",
-                                                "emi",
-                                                "farmersdelight"
-                                            ],
-                                            "unfinished-abandoned": [
-                                                "botania",
-                                                "item_descriptions",
-                                                "worldedit"
-                                            ]
-                                        }
-                                    }
-                                },
-                                "toggles": {
-                                    "add-language": true,
-                                    "shuffle-text": true
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "vanilla",
-                    "icon": "vanilla",
-                    "label": {
-                        "zh-CN": "原版内容",
-                        "zh-Neko": "原版内容喵"
-                    },
-                    "description": {
-                        "zh-CN": "原版向的替换和补充内容，支持带子选项的模块。",
-                        "zh-Neko": "原版向的替换和补充内容喵，支持带子选项的模块喵。"
-                    },
-                    "selection": "multiple",
-                    "visibleInSimple": false,
-                    "disabledInLegacy": true,
-                    "items": [
-                        {
-                            "id": "vanilla-core",
-                            "label": {
-                                "zh-CN": "原版基础内容",
-                                "zh-Neko": "原版基础内容喵"
-                            },
-                            "summary": {
-                                "zh-CN": "原版基础",
-                                "zh-Neko": "原版基础喵"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            },
-                            "defaultSelected": true,
-                            "files": [
-                                {
-                                    "name": "vanilla-core.json",
-                                    "path": "assets/minecraft/lang/zh_cn.json"
-                                }
-                            ],
-                            "differ": {
-                                "java-1-14": {
-                                    "files": [
-                                        {
-                                            "name": "vanilla-core.json",
-                                            "path": "assets/minecraft/lang/zh_cn.json",
-                                            "type": "merge"
-                                        }
-                                    ]
-                                },
-                                "java-1-13": {
-                                    "files": [
-                                        {
-                                            "name": "vanilla-core.json",
-                                            "path": "assets/minecraft/lang/zh_cn.json",
-                                            "type": "merge"
-                                        }
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "id": "vanilla-craftmine",
-                            "label": {
-                                "zh-CN": "25w14craftmine",
-                                "zh-Neko": "25w14craftmine 喵"
-                            },
-                            "summary": {
-                                "zh-CN": "craftmine",
-                                "zh-Neko": "craftmine 喵"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            },
-                            "files": [
-                                {
-                                    "name": "vanilla-craftmine.json",
-                                    "path": "assets/minecraft/lang/zh_cn.json"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "mods",
-                    "icon": "mods",
-                    "label": {
-                        "zh-CN": "mod 内容",
-                        "zh-Neko": "mod 内容喵"
-                    },
-                    "description": {
-                        "zh-CN": "",
-                        "zh-Neko": ""
-                    },
-                    "selection": "multiple",
-                    "visibleInSimple": false,
-                    "disabledInLegacy": true,
-                    "items": [
-                        {
-                            "id": "mods-base-pack",
-                            "label": {
-                                "zh-CN": "基础 mod 包",
-                                "zh-Neko": "基础 mod 包喵"
-                            },
-                            "summary": {
-                                "zh-CN": "基础 mod",
-                                "zh-Neko": "基础 mod 喵"
-                            },
-                            "description": {
-                                "zh-CN": "",
-                                "zh-Neko": ""
-                            },
-                            "children": [
-                                {
-                                    "id": "appleskin",
-                                    "label": {
-                                        "zh-CN": "苹果皮",
-                                        "zh-Neko": "苹果皮喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：appleskin",
-                                        "zh-Neko": "命名空间：appleskin"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "appleskin.json",
-                                            "path": "assets/appleskin/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "cherishedworlds",
-                                    "label": {
-                                        "zh-CN": "存档置顶",
-                                        "zh-Neko": "存档置顶喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：cherishedworlds",
-                                        "zh-Neko": "命名空间：cherishedworlds"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "cherishedworlds.json",
-                                            "path": "assets/cherishedworlds/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "flashback",
-                                    "label": {
-                                        "zh-CN": "FlashBack",
-                                        "zh-Neko": "FlashBack 喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：flashback",
-                                        "zh-Neko": "命名空间：flashback"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "flashback.json",
-                                            "path": "assets/flashback/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "languagereload",
-                                    "label": {
-                                        "zh-CN": "LanguageReload",
-                                        "zh-Neko": "LanguageReload 喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：languagereload",
-                                        "zh-Neko": "命名空间：languagereload"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "languagereload.json",
-                                            "path": "assets/languagereload/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "lanserverproperties",
-                                    "label": {
-                                        "zh-CN": "自定义局域网联机",
-                                        "zh-Neko": "自定义局域网联机喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：lanserverproperties",
-                                        "zh-Neko": "命名空间：lanserverproperties"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "lanserverproperties.json",
-                                            "path": "assets/lanserverproperties/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "mcwifipnp",
-                                    "label": {
-                                        "zh-CN": "更高级的联机设置",
-                                        "zh-Neko": "更高级的联机设置喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：mcwifipnp",
-                                        "zh-Neko": "命名空间：mcwifipnp"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "mcwifipnp.json",
-                                            "path": "assets/mcwifipnp/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "menulogue",
-                                    "label": {
-                                        "zh-CN": "Menulogue",
-                                        "zh-Neko": "Menulogue 喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：menulogue",
-                                        "zh-Neko": "命名空间：menulogue"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "menulogue.json",
-                                            "path": "assets/menulogue/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "modmenu",
-                                    "label": {
-                                        "zh-CN": "模组菜单",
-                                        "zh-Neko": "模组菜单喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：modmenu",
-                                        "zh-Neko": "命名空间：modmenu"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "modmenu.json",
-                                            "path": "assets/modmenu/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "neo_language_reload",
-                                    "label": {
-                                        "zh-CN": "NeoLanguageReload",
-                                        "zh-Neko": "NeoLanguageReload喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：neo_language_reload",
-                                        "zh-Neko": "命名空间：neo_language_reload"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "neo_language_reload.json",
-                                            "path": "assets/neo_language_reload/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "nochatreports",
-                                    "label": {
-                                        "zh-CN": "禁用聊天举报",
-                                        "zh-Neko": "禁用聊天举报喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：nochatreports",
-                                        "zh-Neko": "命名空间：nochatreports"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "nochatreports.json",
-                                            "path": "assets/nochatreports/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "ponder",
-                                    "label": {
-                                        "zh-CN": "思索",
-                                        "zh-Neko": "思索喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：ponder",
-                                        "zh-Neko": "命名空间：ponder"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "ponder.json",
-                                            "path": "assets/ponder/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "sodium",
-                                    "label": {
-                                        "zh-CN": "Sodium",
-                                        "zh-Neko": "Sodium 喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：sodium",
-                                        "zh-Neko": "命名空间：sodium"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "sodium.json",
-                                            "path": "assets/sodium/lang/zh_cn.json"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "childSelection": "multiple",
-                            "defaultSelected": true
-                        },
-                        {
-                            "id": "mods-experimental",
-                            "label": {
-                                "zh-CN": "大型模组翻译",
-                                "zh-Neko": "大型模组翻译"
-                            },
-                            "summary": {
-                                "zh-CN": "大型模组",
-                                "zh-Neko": "大型模组喵"
-                            },
-                            "description": {
-                                "zh-CN": "会保持持续更新，请及时下载最新构建版本。",
-                                "zh-Neko": "我们会一直更新这块内容喵，主人要用的话，要及时更新哟喵~"
-                            },
-                            "children": [
-                                {
-                                    "id": "create",
-                                    "label": {
-                                        "zh-CN": "机械动力",
-                                        "zh-Neko": "机械动力喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：create",
-                                        "zh-Neko": "命名空间：create"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "create.json",
-                                            "path": "assets/create/lang/zh_cn.json"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "childSelection": "multiple"
-                        }
-                    ]
-                },
-                {
-                    "id": "expansion",
-                    "icon": "expansion",
-                    "label": {
-                        "zh-CN": "扩展内容",
-                        "zh-Neko": "扩展内容喵"
-                    },
-                    "description": {
-                        "zh-CN": "这里是颜文字包、皮肤替换和额外整活内容。",
-                        "zh-Neko": "这里都是些颜文字包、皮肤替换和额外整活内容喵~"
-                    },
-                    "selection": "multiple",
-                    "visibleInSimple": false,
-                    "disabledInLegacy": true,
-                    "items": [
-                        {
-                            "id": "expansion-enchantments",
-                            "label": {
-                                "zh-CN": "附魔名",
-                                "zh-Neko": "附魔名喵"
-                            },
-                            "summary": {
-                                "zh-CN": "附魔名",
-                                "zh-Neko": "附魔名喵"
-                            },
-                            "description": {
-                                "zh-CN": "覆盖原版附魔名称文本。",
-                                "zh-Neko": "覆盖原版附魔名称文本喵。"
-                            },
-                            "files": [
-                                {
-                                    "name": "enchantment/zh_cn.json",
-                                    "path": "assets/minecraft/lang/zh_cn.json"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "expansion-kaomoji",
-                            "label": {
-                                "zh-CN": "颜文字",
-                                "zh-Neko": "颜文字喵"
-                            },
-                            "summary": {
-                                "zh-CN": "颜文字",
-                                "zh-Neko": "颜文字喵"
-                            },
-                            "description": {
-                                "zh-CN": "建议开启 Unicode 强制字体或使用现代字体以获得最佳显示效果。",
-                                "zh-Neko": "建议开启 Unicode 强制字体或使用现代字体，显示效果会更好喵。"
-                            },
-                            "files": [
-                                {
-                                    "name": "kaomoji/zh_cn.json",
-                                    "path": "assets/minecraft/lang/zh_cn.json"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "expansion-transform",
-                            "label": {
-                                "zh-CN": "给我变！",
-                                "zh-Neko": "给我变喵！"
-                            },
-                            "summary": {
-                                "zh-CN": "给我变",
-                                "zh-Neko": "给我变喵"
-                            },
-                            "description": {
-                                "zh-CN": "聊天结尾、皮肤与玩家文本替换。",
-                                "zh-Neko": "聊天结尾、皮肤和玩家文本替换喵。"
-                            },
-                            "children": [
-                                {
-                                    "id": "chatmeow",
-                                    "label": {
-                                        "zh-CN": "聊天结尾喵",
-                                        "zh-Neko": "聊天结尾喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "将聊天结尾统一替换为喵。",
-                                        "zh-Neko": "将聊天结尾替换成喵喵喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "chatmeow/zh_cn.json",
-                                            "path": "assets/minecraft/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "replace-player-skin-modern",
-                                    "label": {
-                                        "zh-CN": "替换史蒂夫（1.19.3+）",
-                                        "zh-Neko": "替换史蒂夫（1.19.3+）喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "替换 slim/wide 玩家皮肤。",
-                                        "zh-Neko": "替换 slim/wide 玩家皮肤喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "skin_slim/alex.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/alex.png"
-                                        },
-                                        {
-                                            "name": "skin_slim/ari.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/ari.png"
-                                        },
-                                        {
-                                            "name": "skin_slim/efe.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/efe.png"
-                                        },
-                                        {
-                                            "name": "skin_slim/kai.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/kai.png"
-                                        },
-                                        {
-                                            "name": "skin_slim/makena.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/makena.png"
-                                        },
-                                        {
-                                            "name": "skin_slim/noor.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/noor.png"
-                                        },
-                                        {
-                                            "name": "skin_slim/steve.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/steve.png"
-                                        },
-                                        {
-                                            "name": "skin_slim/sunny.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/sunny.png"
-                                        },
-                                        {
-                                            "name": "skin_slim/zuri.png",
-                                            "path": "assets/minecraft/textures/entity/player/slim/zuri.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/alex.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/alex.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/ari.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/ari.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/efe.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/efe.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/kai.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/kai.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/makena.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/makena.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/noor.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/noor.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/steve.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/steve.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/sunny.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/sunny.png"
-                                        },
-                                        {
-                                            "name": "skin_wide/zuri.png",
-                                            "path": "assets/minecraft/textures/entity/player/wide/zuri.png"
-                                        }
-                                    ],
-                                    "version_only": [
-                                        "java-26-1-1",
-                                        "java-26-1",
-                                        "java-1-21-11",
-                                        "java-1-21-10",
-                                        "java-1-21-9",
-                                        "java-1-21-8",
-                                        "java-1-21-7",
-                                        "java-1-21-6",
-                                        "java-1-21-5",
-                                        "java-1-21-4",
-                                        "java-1-21-3",
-                                        "java-1-21-2",
-                                        "java-1-21-1",
-                                        "java-1-21",
-                                        "java-1-20-6",
-                                        "java-1-20-5",
-                                        "java-1-20-4",
-                                        "java-1-20-3",
-                                        "java-1-20-2",
-                                        "java-1-20-1",
-                                        "java-1-20",
-                                        "java-1-19-4",
-                                        "java-1-19-3"
-                                    ]
-                                },
-                                {
-                                    "id": "replace-player-skin-legacy",
-                                    "label": {
-                                        "zh-CN": "替换史蒂夫（1.19.2-）",
-                                        "zh-Neko": "替换史蒂夫（1.19.2-）喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "替换旧版本玩家皮肤路径。",
-                                        "zh-Neko": "替换旧版本玩家皮肤路径喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "skin2/alex.png",
-                                            "path": "assets/minecraft/textures/entity/alex.png"
-                                        },
-                                        {
-                                            "name": "skin2/steve.png",
-                                            "path": "assets/minecraft/textures/entity/steve.png"
-                                        }
-                                    ],
-                                    "version_only": [
-                                        "java-1-19-2",
-                                        "java-1-19-1",
-                                        "java-1-19",
-                                        "java-1-18-2",
-                                        "java-1-18-1",
-                                        "java-1-18",
-                                        "java-1-17-1",
-                                        "java-1-17",
-                                        "java-1-16-5",
-                                        "java-1-16-4",
-                                        "java-1-16-3",
-                                        "java-1-16-2",
-                                        "java-1-16-1",
-                                        "java-1-16",
-                                        "java-1-15-2",
-                                        "java-1-15-1",
-                                        "java-1-15",
-                                        "java-1-14-4",
-                                        "java-1-14-3",
-                                        "java-1-14-2",
-                                        "java-1-14-1",
-                                        "java-1-14",
-                                        "java-1-13-2",
-                                        "java-1-13-1",
-                                        "java-1-13",
-                                        "java-1-12-2"
-                                    ]
-                                },
-                                {
-                                    "id": "player2cat",
-                                    "label": {
-                                        "zh-CN": "替换玩家为猫娘",
-                                        "zh-Neko": "替换玩家为猫娘喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "替换玩家相关文本称呼。",
-                                        "zh-Neko": "替换玩家相关文本称呼喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "player2cat/zh_cn.json",
-                                            "path": "assets/minecraft/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "player2cat-plus",
-                                    "label": {
-                                        "zh-CN": "替换字幕玩家为猫娘",
-                                        "zh-Neko": "替换字幕玩家为猫娘喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "替换字幕中的玩家称呼。",
-                                        "zh-Neko": "替换字幕中的玩家称呼喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "player2catPlus/zh_cn.json",
-                                            "path": "assets/minecraft/lang/zh_cn.json"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "childSelection": "multiple"
-                        },
-                        {
-                            "id": "expansion-title",
-                            "label": {
-                                "zh-CN": "标题栏",
-                                "zh-Neko": "标题栏喵"
-                            },
-                            "summary": {
-                                "zh-CN": "标题栏",
-                                "zh-Neko": "标题栏喵"
-                            },
-                            "description": {
-                                "zh-CN": "替换标题栏相关文本。",
-                                "zh-Neko": "替换标题栏相关文本喵。"
-                            },
-                            "files": [
-                                {
-                                    "name": "title/zh_cn.json",
-                                    "path": "assets/minecraft/lang/zh_cn.json"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "expansion-no-h",
-                            "label": {
-                                "zh-CN": "去除黄段子补丁",
-                                "zh-Neko": "去除黄段子补丁喵"
-                            },
-                            "summary": {
-                                "zh-CN": "去黄段子",
-                                "zh-Neko": "去黄段子喵"
-                            },
-                            "description": {
-                                "zh-CN": "覆盖少量不适文本。",
-                                "zh-Neko": "覆盖少量不适文本喵。"
-                            },
-                            "files": [
-                                {
-                                    "name": "no-h/zh_cn.json",
-                                    "path": "assets/minecraft/lang/zh_cn.json"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "expansion-other-text",
-                            "label": {
-                                "zh-CN": "其他文本",
-                                "zh-Neko": "其他文本喵"
-                            },
-                            "summary": {
-                                "zh-CN": "其他文本",
-                                "zh-Neko": "其他文本喵"
-                            },
-                            "description": {
-                                "zh-CN": "闪烁标语、终末文本、终末音乐与制作名单。",
-                                "zh-Neko": "闪烁标语、终末文本、终末音乐和制作名单喵。"
-                            },
-                            "children": [
-                                {
-                                    "id": "splashes",
-                                    "label": {
-                                        "zh-CN": "闪烁标语",
-                                        "zh-Neko": "闪烁标语喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "替换 splashes 文本。",
-                                        "zh-Neko": "替换 splashes 文本喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "splashes/splashes.txt",
-                                            "path": "assets/minecraft/texts/splashes.txt"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "end-poem-text",
-                                    "label": {
-                                        "zh-CN": "新终末之诗文本",
-                                        "zh-Neko": "新终末之诗文本喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "替换 end 与 postcredits 文本。",
-                                        "zh-Neko": "替换 end 和 postcredits 文本喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "end/end.txt",
-                                            "path": "assets/minecraft/texts/end.txt"
-                                        },
-                                        {
-                                            "name": "postcredits/postcredits.txt",
-                                            "path": "assets/minecraft/texts/postcredits.txt"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "end-music",
-                                    "label": {
-                                        "zh-CN": "新终末之诗音乐",
-                                        "zh-Neko": "新终末之诗音乐喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "替换 alpha.ogg。",
-                                        "zh-Neko": "替换 alpha.ogg 喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "end_music/alpha.ogg",
-                                            "path": "assets/minecraft/sounds/music/game/end/alpha.ogg"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "credits",
-                                    "label": {
-                                        "zh-CN": "替换制作人名单",
-                                        "zh-Neko": "替换制作人名单喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "替换 credits 文本。",
-                                        "zh-Neko": "替换 credits 文本喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "credits/credits.json",
-                                            "path": "assets/minecraft/texts/credits.json"
-                                        }
-                                    ],
-                                    "version_only": [
-                                        "java-1-18",
-                                        "java-1-18-1",
-                                        "java-1-18-2",
-                                        "java-1-19",
-                                        "java-1-19-1",
-                                        "java-1-19-2",
-                                        "java-1-19-3",
-                                        "java-1-19-4",
-                                        "java-1-20",
-                                        "java-1-20-1",
-                                        "java-1-20-2",
-                                        "java-1-20-3",
-                                        "java-1-20-4",
-                                        "java-1-20-5",
-                                        "java-1-20-6",
-                                        "java-1-21",
-                                        "java-1-21-1",
-                                        "java-1-21-2",
-                                        "java-1-21-3",
-                                        "java-1-21-4",
-                                        "java-1-21-5",
-                                        "java-1-21-6",
-                                        "java-1-21-7",
-                                        "java-1-21-8",
-                                        "java-1-21-9",
-                                        "java-1-21-10",
-                                        "java-1-21-11",
-                                        "java-26-1",
-                                        "java-26-1-1"
-                                    ]
-                                }
-                            ],
-                            "childSelection": "multiple"
-                        },
-                        {
-                            "id": "expansion-easter-egg",
-                            "label": {
-                                "zh-CN": "彩蛋",
-                                "zh-Neko": "彩蛋喵"
-                            },
-                            "summary": {
-                                "zh-CN": "彩蛋",
-                                "zh-Neko": "彩蛋喵"
-                            },
-                            "description": {
-                                "zh-CN": "云层贴图按版本分流。",
-                                "zh-Neko": "云层贴图按版本分流喵。"
-                            },
-                            "children": [
-                                {
-                                    "id": "cloud-new",
-                                    "label": {
-                                        "zh-CN": "1.21.6 及以上云层",
-                                        "zh-Neko": "1.21.6 及以上云层喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命中 1.21.6+ 版本。",
-                                        "zh-Neko": "命中 1.21.6+ 版本喵。"
-                                    },
-                                    "defaultSelected": true,
-                                    "files": [
-                                        {
-                                            "name": "cloud1/clouds.png",
-                                            "path": "assets/minecraft/textures/environment/clouds.png"
-                                        }
-                                    ],
-                                    "version_only": [
-                                        "java-26-1-1",
-                                        "java-26-1",
-                                        "java-1-21-11",
-                                        "java-1-21-10",
-                                        "java-1-21-9",
-                                        "java-1-21-8",
-                                        "java-1-21-7",
-                                        "java-1-21-6"
-                                    ]
-                                },
-                                {
-                                    "id": "cloud-legacy",
-                                    "label": {
-                                        "zh-CN": "1.21.6 以下云层",
-                                        "zh-Neko": "1.21.6 以下云层喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命中 1.21.5 及以下版本。",
-                                        "zh-Neko": "命中 1.21.5 及以下版本喵。"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "cloud2/clouds.png",
-                                            "path": "assets/minecraft/textures/environment/clouds.png"
-                                        }
-                                    ],
-                                    "version_only": [
-                                        "java-1-21-5",
-                                        "java-1-21-4",
-                                        "java-1-21-3",
-                                        "java-1-21-2",
-                                        "java-1-21-1",
-                                        "java-1-21",
-                                        "java-1-20-6",
-                                        "java-1-20-5",
-                                        "java-1-20-4",
-                                        "java-1-20-3",
-                                        "java-1-20-2",
-                                        "java-1-20-1",
-                                        "java-1-20",
-                                        "java-1-19-4",
-                                        "java-1-19-3",
-                                        "java-1-19-2",
-                                        "java-1-19-1",
-                                        "java-1-19",
-                                        "java-1-18-2",
-                                        "java-1-18-1",
-                                        "java-1-18",
-                                        "java-1-17-1",
-                                        "java-1-17",
-                                        "java-1-16-5",
-                                        "java-1-16-4",
-                                        "java-1-16-3",
-                                        "java-1-16-2",
-                                        "java-1-16-1",
-                                        "java-1-16",
-                                        "java-1-15-2",
-                                        "java-1-15-1",
-                                        "java-1-15",
-                                        "java-1-14-4",
-                                        "java-1-14-3",
-                                        "java-1-14-2",
-                                        "java-1-14-1",
-                                        "java-1-14",
-                                        "java-1-13-2",
-                                        "java-1-13-1",
-                                        "java-1-13",
-                                        "java-1-12-2"
-                                    ]
-                                }
-                            ],
-                            "childSelection": "single"
-                        }
-                    ]
-                },
-                {
-                    "id": "unfinished",
-                    "icon": "unfinished",
-                    "label": {
-                        "zh-CN": "未完成内容",
-                        "zh-Neko": "未完成内容喵"
-                    },
-                    "description": {
-                        "zh-CN": "",
-                        "zh-Neko": ""
-                    },
-                    "selection": "multiple",
-                    "visibleInSimple": false,
-                    "disabledInLegacy": true,
-                    "items": [
-                        {
-                            "id": "unfinished-review",
-                            "label": {
-                                "zh-CN": "未检查",
-                                "zh-Neko": "未检查喵"
-                            },
-                            "summary": {
-                                "zh-CN": "未检查",
-                                "zh-Neko": "未检查喵"
-                            },
-                            "description": {
-                                "zh-CN": "内容已基本完成，但还没逐项检查。",
-                                "zh-Neko": "内容已经快做完了喵，但还没逐项检查喵。"
-                            },
-                            "children": [
-                                {
-                                    "id": "mtr",
-                                    "label": {
-                                        "zh-CN": "我的世界铁路",
-                                        "zh-Neko": "我的世界铁路喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：mtr",
-                                        "zh-Neko": "命名空间：mtr"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "mtr.json",
-                                            "path": "assets/mtr/lang/zh_cn.json"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "childSelection": "multiple"
-                        },
-                        {
-                            "id": "unfinished-progress",
-                            "label": {
-                                "zh-CN": "未完成",
-                                "zh-Neko": "未完成喵"
-                            },
-                            "summary": {
-                                "zh-CN": "未完成",
-                                "zh-Neko": "未完成喵"
-                            },
-                            "description": {
-                                "zh-CN": "内容方向明确，但还没做完。",
-                                "zh-Neko": "内容方向已经明确了喵，但还没有做完喵。"
-                            },
-                            "children": [
-                                {
-                                    "id": "ae2",
-                                    "label": {
-                                        "zh-CN": "应用能源2",
-                                        "zh-Neko": "应用能源2喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：ae2",
-                                        "zh-Neko": "命名空间：ae2"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "ae2.json",
-                                            "path": "assets/ae2/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "emi",
-                                    "label": {
-                                        "zh-CN": "EMI",
-                                        "zh-Neko": "EMI 喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：emi",
-                                        "zh-Neko": "命名空间：emi"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "emi.json",
-                                            "path": "assets/emi/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "farmersdelight",
-                                    "label": {
-                                        "zh-CN": "农夫乐事",
-                                        "zh-Neko": "农夫乐事喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：farmersdelight",
-                                        "zh-Neko": "命名空间：farmersdelight"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "farmersdelight.json",
-                                            "path": "assets/farmersdelight/lang/zh_cn.json"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "childSelection": "multiple"
-                        },
-                        {
-                            "id": "unfinished-abandoned",
-                            "label": {
-                                "zh-CN": "弃置",
-                                "zh-Neko": "弃置喵"
-                            },
-                            "summary": {
-                                "zh-CN": "弃置",
-                                "zh-Neko": "弃置喵"
-                            },
-                            "description": {
-                                "zh-CN": "后面可能会彻底删除的项。",
-                                "zh-Neko": "后面可能会彻底删掉的喵。"
-                            },
-                            "children": [
-                                {
-                                    "id": "item_descriptions",
-                                    "label": {
-                                        "zh-CN": "物品描述",
-                                        "zh-Neko": "物品描述喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：item_descriptions",
-                                        "zh-Neko": "命名空间：item_descriptions"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "item_descriptions.json",
-                                            "path": "assets/item_descriptions/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "worldedit",
-                                    "label": {
-                                        "zh-CN": "创世神",
-                                        "zh-Neko": "创世神喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：worldedit",
-                                        "zh-Neko": "命名空间：worldedit"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "worldedit.json",
-                                            "path": "assets/worldedit/lang/zh_cn.json"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "botania",
-                                    "label": {
-                                        "zh-CN": "植物魔法",
-                                        "zh-Neko": "植物魔法喵"
-                                    },
-                                    "description": {
-                                        "zh-CN": "命名空间：botania",
-                                        "zh-Neko": "命名空间：botania"
-                                    },
-                                    "files": [
-                                        {
-                                            "name": "botania.json",
-                                            "path": "assets/botania/lang/zh_cn.json"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "childSelection": "multiple"
-                        }
-                    ]
-                }
-            ],
-            "toggles": [
-                {
-                    "id": "shuffle-text",
-                    "icon": "shuffle",
-                    "label": {
-                        "zh-CN": "打乱所有文本",
-                        "zh-Neko": "打乱所有文本喵"
-                    },
-                    "description": {
-                        "zh-CN": "整活！",
-                        "zh-Neko": "整活喵！"
-                    },
-                    "disabledInLegacy": true,
-                    "visibleInSimple": false
-                }
-            ]
+          "id": "version",
+          "icon": "version",
+          "label": {
+            "zh-CN": "游戏版本",
+            "zh-Neko": "游戏版本喵"
+          },
+          "description": {
+            "zh-CN": "在此处选择你需要安装本包的游戏版本。",
+            "zh-Neko": "主人在这里选择需要安装猫猫包的游戏版本喵。"
+          },
+          "helper": {
+            "zh-CN": "目前最低支持为1.12.2，并且暂时无法支持自定义。",
+            "zh-Neko": "目前猫猫包最低只有1.12.2喵，而且还没办法自定义喵……"
+          },
+          "selection": "single",
+          "visibleInSimple": true,
+          "items": [
+			  {
+			  	"id": "java-26-1-1",
+			  	"label": {
+			  		"zh-CN": "当前最新正式版（26.1.1）",
+			  		"zh-Neko": "当前最新的版本喵（26.1.1）"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "26.1.1",
+			  		"zh-Neko": "26.1.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "这个版本的包体永远是最新的，并且会拥有最好的支持。如果你发现其他版本出现异常，切换到这个版本或许就正常了。",
+			  		"zh-Neko": "这个版本的猫猫包是最棒的那一个喵！如果主人在使用其他版本的猫猫包时发现了问题，可以试试切换到这个版本喵！"
+			  	},
+			  	"requiredPackFormat": {
+			  		"min_format": 84,
+			  		"max_format": 84
+			  	},
+			  	"defaultSelected": true
+			  },
+			  {
+			  	"id": "java-26-1",
+			  	"label": {
+			  		"zh-CN": "26.1",
+			  		"zh-Neko": "26.1"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "26.1",
+			  		"zh-Neko": "26.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"min_format": 84,
+			  		"max_format": 84
+			  	},
+			  	"defaultSelected": true
+			  },
+			  {
+			  	"id": "java-1-21-11",
+			  	"label": {
+			  		"zh-CN": "1.21.11",
+			  		"zh-Neko": "1.21.11 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.11",
+			  		"zh-Neko": "1.21.11"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"min_format": 75,
+			  		"max_format": 75
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-10",
+			  	"label": {
+			  		"zh-CN": "1.21.10",
+			  		"zh-Neko": "1.21.10 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.10",
+			  		"zh-Neko": "1.21.10"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"min_format": 69,
+			  		"max_format": 69
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-9",
+			  	"label": {
+			  		"zh-CN": "1.21.9",
+			  		"zh-Neko": "1.21.9 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.9",
+			  		"zh-Neko": "1.21.9"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"min_format": 69,
+			  		"max_format": 69
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-8",
+			  	"label": {
+			  		"zh-CN": "1.21.8",
+			  		"zh-Neko": "1.21.8 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.8",
+			  		"zh-Neko": "1.21.8"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 64,
+			  		"supported_formats": [64, 64]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-7",
+			  	"label": {
+			  		"zh-CN": "1.21.7",
+			  		"zh-Neko": "1.21.7 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.7",
+			  		"zh-Neko": "1.21.7"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 64,
+			  		"supported_formats": [64, 64]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-6",
+			  	"label": {
+			  		"zh-CN": "1.21.6",
+			  		"zh-Neko": "1.21.6 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.6",
+			  		"zh-Neko": "1.21.6"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 63,
+			  		"supported_formats": [63, 63]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-5",
+			  	"label": {
+			  		"zh-CN": "1.21.5",
+			  		"zh-Neko": "1.21.5 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.5",
+			  		"zh-Neko": "1.21.5"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 55,
+			  		"supported_formats": [55, 55]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-4",
+			  	"label": {
+			  		"zh-CN": "1.21.4",
+			  		"zh-Neko": "1.21.4 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.4",
+			  		"zh-Neko": "1.21.4"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 46,
+			  		"supported_formats": [46, 46]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-3",
+			  	"label": {
+			  		"zh-CN": "1.21.3",
+			  		"zh-Neko": "1.21.3 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.3",
+			  		"zh-Neko": "1.21.3"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 42,
+			  		"supported_formats": [42, 42]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-2",
+			  	"label": {
+			  		"zh-CN": "1.21.2",
+			  		"zh-Neko": "1.21.2 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.2",
+			  		"zh-Neko": "1.21.2"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 42,
+			  		"supported_formats": [42, 42]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21-1",
+			  	"label": {
+			  		"zh-CN": "1.21.1",
+			  		"zh-Neko": "1.21.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21.1",
+			  		"zh-Neko": "1.21.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 34,
+			  		"supported_formats": [34, 34]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-21",
+			  	"label": {
+			  		"zh-CN": "1.21",
+			  		"zh-Neko": "1.21 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.21",
+			  		"zh-Neko": "1.21"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 34,
+			  		"supported_formats": [34, 34]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-20-6",
+			  	"label": {
+			  		"zh-CN": "1.20.6",
+			  		"zh-Neko": "1.20.6 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.20.6",
+			  		"zh-Neko": "1.20.6"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 32,
+			  		"supported_formats": [32, 32]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-20-5",
+			  	"label": {
+			  		"zh-CN": "1.20.5",
+			  		"zh-Neko": "1.20.5 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.20.5",
+			  		"zh-Neko": "1.20.5"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 32,
+			  		"supported_formats": [32, 32]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-20-4",
+			  	"label": {
+			  		"zh-CN": "1.20.4",
+			  		"zh-Neko": "1.20.4 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.20.4",
+			  		"zh-Neko": "1.20.4"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 22,
+			  		"supported_formats": [22, 22]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-20-3",
+			  	"label": {
+			  		"zh-CN": "1.20.3",
+			  		"zh-Neko": "1.20.3 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.20.3",
+			  		"zh-Neko": "1.20.3"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 22,
+			  		"supported_formats": [22, 22]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-20-2",
+			  	"label": {
+			  		"zh-CN": "1.20.2",
+			  		"zh-Neko": "1.20.2 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.20.2",
+			  		"zh-Neko": "1.20.2"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 18,
+			  		"supported_formats": [18, 18]
+			  	}
+			  },
+			  {
+			  	"id": "java-1-20-1",
+			  	"label": {
+			  		"zh-CN": "1.20.1",
+			  		"zh-Neko": "1.20.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.20.1",
+			  		"zh-Neko": "1.20.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 15
+			  	}
+			  },
+			  {
+			  	"id": "java-1-20",
+			  	"label": {
+			  		"zh-CN": "1.20",
+			  		"zh-Neko": "1.20 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.20",
+			  		"zh-Neko": "1.20"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 15
+			  	}
+			  },
+			  {
+			  	"id": "java-1-19-4",
+			  	"label": {
+			  		"zh-CN": "1.19.4",
+			  		"zh-Neko": "1.19.4 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.19.4",
+			  		"zh-Neko": "1.19.4"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 13
+			  	}
+			  },
+			  {
+			  	"id": "java-1-19-3",
+			  	"label": {
+			  		"zh-CN": "1.19.3",
+			  		"zh-Neko": "1.19.3 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.19.3",
+			  		"zh-Neko": "1.19.3"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 12
+			  	}
+			  },
+			  {
+			  	"id": "java-1-19-2",
+			  	"label": {
+			  		"zh-CN": "1.19.2",
+			  		"zh-Neko": "1.19.2 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.19.2",
+			  		"zh-Neko": "1.19.2"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 9
+			  	}
+			  },
+			  {
+			  	"id": "java-1-19-1",
+			  	"label": {
+			  		"zh-CN": "1.19.1",
+			  		"zh-Neko": "1.19.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.19.1",
+			  		"zh-Neko": "1.19.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 9
+			  	}
+			  },
+			  {
+			  	"id": "java-1-19",
+			  	"label": {
+			  		"zh-CN": "1.19",
+			  		"zh-Neko": "1.19 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.19",
+			  		"zh-Neko": "1.19"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 9
+			  	}
+			  },
+			  {
+			  	"id": "java-1-18-2",
+			  	"label": {
+			  		"zh-CN": "1.18.2",
+			  		"zh-Neko": "1.18.2 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.18.2",
+			  		"zh-Neko": "1.18.2"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 8
+			  	}
+			  },
+			  {
+			  	"id": "java-1-18-1",
+			  	"label": {
+			  		"zh-CN": "1.18.1",
+			  		"zh-Neko": "1.18.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.18.1",
+			  		"zh-Neko": "1.18.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 8
+			  	}
+			  },
+			  {
+			  	"id": "java-1-18",
+			  	"label": {
+			  		"zh-CN": "1.18",
+			  		"zh-Neko": "1.18 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.18",
+			  		"zh-Neko": "1.18"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 7
+			  	}
+			  },
+			  {
+			  	"id": "java-1-17-1",
+			  	"label": {
+			  		"zh-CN": "1.17.1",
+			  		"zh-Neko": "1.17.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.17.1",
+			  		"zh-Neko": "1.17.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 7
+			  	}
+			  },
+			  {
+			  	"id": "java-1-17",
+			  	"label": {
+			  		"zh-CN": "1.17",
+			  		"zh-Neko": "1.17 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.17",
+			  		"zh-Neko": "1.17"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 7
+			  	}
+			  },
+			  {
+			  	"id": "java-1-16-5",
+			  	"label": {
+			  		"zh-CN": "1.16.5",
+			  		"zh-Neko": "1.16.5 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.16.5",
+			  		"zh-Neko": "1.16.5"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 6
+			  	}
+			  },
+			  {
+			  	"id": "java-1-16-4",
+			  	"label": {
+			  		"zh-CN": "1.16.4",
+			  		"zh-Neko": "1.16.4 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.16.4",
+			  		"zh-Neko": "1.16.4"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 6
+			  	}
+			  },
+			  {
+			  	"id": "java-1-16-3",
+			  	"label": {
+			  		"zh-CN": "1.16.3",
+			  		"zh-Neko": "1.16.3 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.16.3",
+			  		"zh-Neko": "1.16.3"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 6
+			  	}
+			  },
+			  {
+			  	"id": "java-1-16-2",
+			  	"label": {
+			  		"zh-CN": "1.16.2",
+			  		"zh-Neko": "1.16.2 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.16.2",
+			  		"zh-Neko": "1.16.2"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 6
+			  	}
+			  },
+			  {
+			  	"id": "java-1-16-1",
+			  	"label": {
+			  		"zh-CN": "1.16.1",
+			  		"zh-Neko": "1.16.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.16.1",
+			  		"zh-Neko": "1.16.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 5
+			  	}
+			  },
+			  {
+			  	"id": "java-1-16",
+			  	"label": {
+			  		"zh-CN": "1.16",
+			  		"zh-Neko": "1.16 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.16",
+			  		"zh-Neko": "1.16"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 5
+			  	}
+			  },
+			  {
+			  	"id": "java-1-15-2",
+			  	"label": {
+			  		"zh-CN": "1.15.2",
+			  		"zh-Neko": "1.15.2 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.15.2",
+			  		"zh-Neko": "1.15.2"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 5
+			  	}
+			  },
+			  {
+			  	"id": "java-1-15-1",
+			  	"label": {
+			  		"zh-CN": "1.15.1",
+			  		"zh-Neko": "1.15.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.15.1",
+			  		"zh-Neko": "1.15.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 5
+			  	}
+			  },
+			  {
+			  	"id": "java-1-15",
+			  	"label": {
+			  		"zh-CN": "1.15",
+			  		"zh-Neko": "1.15 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.15",
+			  		"zh-Neko": "1.15"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 5
+			  	}
+			  },
+			  {
+			  	"id": "java-1-14-4",
+			  	"label": {
+			  		"zh-CN": "1.14.4",
+			  		"zh-Neko": "1.14.4 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.14.4",
+			  		"zh-Neko": "1.14.4"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 4
+			  	}
+			  },
+			  {
+			  	"id": "java-1-14-3",
+			  	"label": {
+			  		"zh-CN": "1.14.3",
+			  		"zh-Neko": "1.14.3 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.14.3",
+			  		"zh-Neko": "1.14.3"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 4
+			  	}
+			  },
+			  {
+			  	"id": "java-1-14-2",
+			  	"label": {
+			  		"zh-CN": "1.14.2",
+			  		"zh-Neko": "1.14.2 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.14.2",
+			  		"zh-Neko": "1.14.2"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 4
+			  	}
+			  },
+			  {
+			  	"id": "java-1-14-1",
+			  	"label": {
+			  		"zh-CN": "1.14.1",
+			  		"zh-Neko": "1.14.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.14.1",
+			  		"zh-Neko": "1.14.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 4
+			  	}
+			  },
+			  {
+			  	"id": "java-1-14",
+			  	"label": {
+			  		"zh-CN": "1.14",
+			  		"zh-Neko": "1.14 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.14",
+			  		"zh-Neko": "1.14"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 4
+			  	}
+			  },
+			  {
+			  	"id": "java-1-13-2",
+			  	"label": {
+			  		"zh-CN": "1.13.2",
+			  		"zh-Neko": "1.13.2 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.13.2",
+			  		"zh-Neko": "1.13.2"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 4
+			  	}
+			  },
+			  {
+			  	"id": "java-1-13-1",
+			  	"label": {
+			  		"zh-CN": "1.13.1",
+			  		"zh-Neko": "1.13.1 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.13.1",
+			  		"zh-Neko": "1.13.1"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 4
+			  	}
+			  },
+			  {
+			  	"id": "java-1-13",
+			  	"label": {
+			  		"zh-CN": "1.13",
+			  		"zh-Neko": "1.13 喵"
+			  	},
+			  	"summary": {
+			  		"zh-CN": "1.13",
+			  		"zh-Neko": "1.13"
+			  	},
+			  	"description": {
+			  		"zh-CN": "",
+			  		"zh-Neko": ""
+			  	},
+			  	"requiredPackFormat": {
+			  		"version": 4
+			  	}
+			  },
+            {
+              "id": "java-1-12-2",
+              "label": {
+                "zh-CN": "1.12.2",
+                "zh-Neko": "1.12.2 喵"
+              },
+              "summary": {
+                "zh-CN": "1.12.2",
+                "zh-Neko": "1.12.2"
+              },
+              "description": {
+                "zh-CN": "",
+                "zh-Neko": ""
+              },
+              "legacyOnlyPackage": true
+            }
+          ]
         },
-        {
-            "id": "bedrock",
-            "icon": "bedrock",
-            "label": {
-                "zh-CN": "基岩版",
-                "zh-Neko": "猫抓版喵"
-            },
-            "categories": [
-                {
-                    "id": "version",
-                    "icon": "version",
-                    "label": {
-                        "zh-CN": "游戏版本",
-                        "zh-Neko": "游戏版本喵"
-                    },
-                    "description": {
-                        "zh-CN": "基岩版的资源资源暂未准备完毕，敬请期待！",
-                        "zh-Neko": "为猫抓版提供的资源还没有做完喵，主人先等等叭喵！"
-                    },
-                    "selection": "single",
-                    "visibleInSimple": true,
-                    "items": [
-                        {
-                            "id": "bedrock-latest",
-                            "label": {
-                                "zh-CN": "Latest",
-                                "zh-Neko": "最新版喵"
-                            },
-                            "summary": {
-                                "zh-CN": "Latest",
-                                "zh-Neko": "最新版喵"
-                            },
-                            "description": {
-                                "zh-CN": "基岩版最新版本的资源包。",
-                                "zh-Neko": "基岩版最新版本的资源包喵。"
-                            },
-                            "defaultSelected": true
-                        },
-                        {
-                            "id": "bedrock-snapshot",
-                            "label": {
-                                "zh-CN": "快照版",
-                                "zh-Neko": "快照版喵"
-                            },
-                            "summary": {
-                                "zh-CN": "快照版",
-                                "zh-Neko": "快照版喵"
-                            },
-                            "description": {
-                                "zh-CN": "基岩版最新快照版本的资源包。",
-                                "zh-Neko": "基岩版最新快照版本的资源包。"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "preset",
-                    "icon": "preset",
-                    "label": {
-                        "zh-CN": "预设",
-                        "zh-Neko": "预设喵"
-                    },
-                    "description": {
-                        "zh-CN": "因为资源较少，所以暂时只有一个预设。",
-                        "zh-Neko": "因为资源较少，所以暂时只有一个预设喵。"
-                    },
-                    "selection": "single",
-                    "visibleInSimple": true,
-                    "items": [
-                        {
-                            "id": "bedrock-standard",
-                            "label": {
-                                "zh-CN": "标准包",
-                                "zh-Neko": "标准包喵"
-                            },
-                            "summary": {
-                                "zh-CN": "标准",
-                                "zh-Neko": "标准喵"
-                            },
-                            "description": {
-                                "zh-CN": "包含目前所有内容。",
-                                "zh-Neko": "唯一的预设喵，能加的都加了喵。"
-                            },
-                            "presetSelection": {
-                                "categories": {
-                                    "version": {
-                                        "selected": [
-                                            "bedrock-latest"
-                                        ]
-                                    },
-                                    "vanilla": {
-                                        "selected": []
-                                    },
-                                    "mods": {
-                                        "selected": []
-                                    },
-                                    "expansion": {
-                                        "selected": []
-                                    },
-                                    "unfinished": {
-                                        "selected": []
-                                    }
-                                },
-                                "toggles": {
-                                    "add-language": false,
-                                    "shuffle-text": false
-                                }
-                            },
-                            "defaultSelected": true
-                        }
-                    ]
-                },
-                {
-                    "id": "vanilla",
-                    "icon": "vanilla",
-                    "label": {
-                        "zh-CN": "原版内容",
-                        "zh-Neko": "原版内容喵"
-                    },
-                    "description": {
-                        "zh-CN": "基岩版原版内容。",
-                        "zh-Neko": "基岩版原版内容喵。"
-                    },
-                    "selection": "multiple",
-                    "visibleInSimple": false,
-                    "items": []
-                },
-                {
-                    "id": "mods",
-                    "icon": "mods",
-                    "label": {
-                        "zh-CN": "mod 内容",
-                        "zh-Neko": "mod 内容喵"
-                    },
-                    "description": {
-                        "zh-CN": "暂时未接入任何内容。",
-                        "zh-Neko": "这里啥也木有喵。"
-                    },
-                    "selection": "multiple",
-                    "visibleInSimple": false,
-                    "items": []
-                },
-                {
-                    "id": "expansion",
-                    "icon": "expansion",
-                    "label": {
-                        "zh-CN": "扩展内容",
-                        "zh-Neko": "扩展内容喵"
-                    },
-                    "description": {
-                        "zh-CN": "这是一些额外的皮肤、文本包等内容。",
-                        "zh-Neko": "这是一些为主人额外准备的皮肤、文本包之类的东西哦喵。"
-                    },
-                    "selection": "multiple",
-                    "visibleInSimple": false,
-                    "items": []
-                },
-                {
-                    "id": "unfinished",
-                    "icon": "unfinished",
-                    "label": {
-                        "zh-CN": "未完成内容",
-                        "zh-Neko": "未完成内容喵"
-                    },
-                    "description": {
-                        "zh-CN": "与 Java 版保持同样的状态分类。",
-                        "zh-Neko": "和 Java 版保持一样的状态分类喵。"
-                    },
-                    "selection": "multiple",
-                    "visibleInSimple": false,
-                    "items": [
-                        {
-                            "id": "bedrock-review",
-                            "label": {
-                                "zh-CN": "未检查",
-                                "zh-Neko": "未检查喵"
-                            },
-                            "summary": {
-                                "zh-CN": "未检查",
-                                "zh-Neko": "未检查喵"
-                            },
-                            "description": {
-                                "zh-CN": "暂时未接入任何内容。",
-                                "zh-Neko": "这里啥也木有喵。"
-                            }
-                        },
-                        {
-                            "id": "bedrock-progress",
-                            "label": {
-                                "zh-CN": "未完成",
-                                "zh-Neko": "未完成喵"
-                            },
-                            "summary": {
-                                "zh-CN": "未完成",
-                                "zh-Neko": "未完成喵"
-                            },
-                            "description": {
-                                "zh-CN": "暂时未接入任何内容。",
-                                "zh-Neko": "这里啥也木有喵。"
-                            }
-                        },
-                        {
-                            "id": "bedrock-abandoned",
-                            "label": {
-                                "zh-CN": "弃置",
-                                "zh-Neko": "弃置喵"
-                            },
-                            "summary": {
-                                "zh-CN": "弃置",
-                                "zh-Neko": "弃置喵"
-                            },
-                            "description": {
-                                "zh-CN": "暂时未接入任何内容。",
-                                "zh-Neko": "这里啥也木有喵。"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "toggles": [
-                {
-                    "id": "shuffle-text",
-                    "icon": "shuffle",
-                    "label": {
-                        "zh-CN": "打乱所有文本",
-                        "zh-Neko": "打乱所有文本喵"
-                    },
-                    "description": {
-                        "zh-CN": "暂时未接入任何内容。",
-                        "zh-Neko": "这里啥也木有喵。"
-                    },
-                    "visibleInSimple": false
-                }
-            ]
-        }
-    ]
+		  {
+			  "id": "preset",
+			  "icon": "preset",
+			  "label": {
+				  "zh-CN": "预设",
+				  "zh-Neko": "预设喵"
+			  },
+			  "description": {
+				  "zh-CN": "我们根据需求准备的几个预设，如果你不知道怎么设置，可以在这里选择。",
+				  "zh-Neko": "为主人准备的几个预设，主人可以直接使用的喵。"
+			  },
+			  "selection": "single",
+			  "visibleInSimple": true,
+			  "disabledInLegacy": true,
+			  "items": [
+				  {
+					  "id": "preset-standard",
+					  "label": {
+						  "zh-CN": "标准包",
+						  "zh-Neko": "标准包喵"
+					  },
+					  "summary": {
+						  "zh-CN": "标准",
+						  "zh-Neko": "标准"
+					  },
+					  "description": {
+						  "zh-CN": "是我们主要维护的几个选项，适合大多数使用场景。",
+						  "zh-Neko": "走主线内容喵，适合大多数使用场景喵。"
+					  },
+					  "presetSelection": {
+						  "categories": {
+							  "version": {
+								  "selected": [
+									  "java-26-1"
+								  ]
+							  },
+							  "vanilla": {
+								  "selected": [
+									  "vanilla-core"
+								  ]
+							  },
+							  "mods": {
+								  "selected": [
+									  "mods-base-pack"
+								  ],
+								  "children": {
+									  "mods-base-pack": [
+										  "appleskin",
+										  "cherishedworlds",
+										  "flashback",
+										  "languagereload",
+										  "lanserverproperties",
+										  "mcwifipnp",
+										  "menulogue",
+										  "modmenu",
+										  "neo_language_reload",
+										  "nochatreports",
+										  "ponder",
+										  "sodium"
+									  ]
+								  }
+							  },
+							  "expansion": {
+								  "selected": [
+									  "expansion-kaomoji"
+								  ]
+							  },
+							  "unfinished": {
+								  "selected": []
+							  }
+						  },
+						  "toggles": {
+							  "add-language": false,
+							  "shuffle-text": false
+						  }
+					  },
+					  "defaultSelected": true
+				  },
+				  {
+					  "id": "preset-lite",
+					  "label": {
+						  "zh-CN": "轻量包",
+						  "zh-Neko": "轻量包喵"
+					  },
+					  "summary": {
+						  "zh-CN": "轻量",
+						  "zh-Neko": "轻量喵"
+					  },
+					  "description": {
+						  "zh-CN": "少一点花活，偏保守。",
+						  "zh-Neko": "少一点花活喵，偏保守一点喵。"
+					  },
+					  "presetSelection": {
+						  "categories": {
+							  "version": {
+								  "selected": [
+									  "java-26-1"
+								  ]
+							  },
+							  "vanilla": {
+								  "selected": [
+									  "vanilla-core"
+								  ]
+							  },
+							  "mods": {
+								  "selected": [
+									  "mods-base-pack"
+								  ],
+								  "children": {
+									  "mods-base-pack": [
+										  "appleskin",
+										  "cherishedworlds",
+										  "languagereload",
+										  "lanserverproperties",
+										  "mcwifipnp",
+										  "menulogue",
+										  "modmenu",
+										  "nochatreports",
+										  "sodium"
+									  ]
+								  }
+							  },
+							  "expansion": {
+								  "selected": []
+							  },
+							  "unfinished": {
+								  "selected": []
+							  }
+						  },
+						  "toggles": {
+							  "add-language": false,
+							  "shuffle-text": false
+						  }
+					  }
+				  },
+				  {
+					  "id": "preset-chaos",
+					  "label": {
+						  "zh-CN": "整活包",
+						  "zh-Neko": "整活包喵"
+					  },
+					  "summary": {
+						  "zh-CN": "整活",
+						  "zh-Neko": "整活喵"
+					  },
+					  "description": {
+						  "zh-CN": "更多替换内容和额外模块，适合先做效果展示。",
+						  "zh-Neko": "会带上更多替换内容和额外模块喵，适合先做效果展示喵。"
+					  },
+					  "presetSelection": {
+						  "categories": {
+							  "version": {
+								  "selected": [
+									  "java-26-1"
+								  ]
+							  },
+							  "vanilla": {
+								  "selected": [
+									  "vanilla-core",
+									  "vanilla-craftmine"
+								  ]
+							  },
+							  "mods": {
+								  "selected": [
+									  "mods-base-pack",
+									  "create"
+								  ],
+								  "children": {
+									  "mods-base-pack": [
+										  "appleskin",
+										  "cherishedworlds",
+										  "flashback",
+										  "languagereload",
+										  "lanserverproperties",
+										  "mcwifipnp",
+										  "menulogue",
+										  "modmenu",
+										  "neo_language_reload",
+										  "nochatreports",
+										  "ponder",
+										  "sodium"
+									  ]
+								  }
+							  },
+							  "expansion": {
+								  "selected": [
+									  "expansion-enchantments",
+									  "expansion-kaomoji",
+									  "expansion-transform",
+									  "expansion-title",
+									  "expansion-no-h",
+									  "expansion-other-text",
+									  "expansion-easter-egg"
+								  ],
+								  "children": {
+									  "expansion-transform": [
+										  "chatmeow",
+										  "replace-player-skin-modern",
+										  "player2cat",
+										  "player2cat-plus"
+									  ],
+									  "expansion-other-text": [
+										  "credits",
+										  "end-poem-text",
+										  "end-music",
+										  "splashes"
+									  ],
+									  "expansion-easter-egg": [
+										  "cloud-new"
+									  ]
+								  }
+							  },
+							  "unfinished": {
+								  "selected": [
+									  "unfinished-review",
+									  "unfinished-progress",
+									  "unfinished-abandoned"
+								  ],
+								  "children": {
+									  "unfinished-review": [
+										  "mtr"
+									  ],
+									  "unfinished-progress": [
+										  "ae2",
+										  "emi",
+										  "farmersdelight"
+									  ],
+									  "unfinished-abandoned": [
+										  "botania",
+										  "item_descriptions",
+										  "worldedit"
+									  ]
+								  }
+							  }
+						  },
+						  "toggles": {
+							  "add-language": true,
+							  "shuffle-text": true
+						  }
+					  }
+				  }
+			  ]
+		  },
+		  {
+			  "id": "vanilla",
+			  "icon": "vanilla",
+			  "label": {
+				  "zh-CN": "原版内容",
+				  "zh-Neko": "原版内容喵"
+			  },
+			  "description": {
+				  "zh-CN": "原版向的替换和补充内容，支持带子选项的模块。",
+				  "zh-Neko": "原版向的替换和补充内容喵，支持带子选项的模块喵。"
+			  },
+			  "selection": "multiple",
+			  "visibleInSimple": false,
+			  "disabledInLegacy": true,
+			  "items": [
+				  {
+					  "id": "vanilla-core",
+					  "label": {
+						  "zh-CN": "原版基础内容",
+						  "zh-Neko": "原版基础内容喵"
+					  },
+					  "summary": {
+						  "zh-CN": "原版的大多数东西",
+						  "zh-Neko": "原版的大多数东西"
+					  },
+					  "description": {
+						  "zh-CN": "",
+						  "zh-Neko": ""
+					  },
+					  "defaultSelected": true,
+					  "files": [
+						  {
+							  "name": "vanilla-core.json",
+							  "path": "assets/minecraft/lang/zh_cn.json"
+						  }
+					  ],
+					  "differ": {
+						  "java-1-14-4": {
+							  "files": [
+								  {
+									  "name": "vanilla-core.json",
+									  "path": "assets/minecraft/lang/zh_cn.json",
+									  "type": "merge"
+								  }
+							  ]
+						  },
+						  "java-1-14-3": {
+							  "files": [
+								  {
+									  "name": "vanilla-core.json",
+									  "path": "assets/minecraft/lang/zh_cn.json",
+									  "type": "merge"
+								  }
+							  ]
+						  },
+						  "java-1-14-2": {
+							  "files": [
+								  {
+									  "name": "vanilla-core.json",
+									  "path": "assets/minecraft/lang/zh_cn.json",
+									  "type": "merge"
+								  }
+							  ]
+						  },
+						  "java-1-14-1": {
+							  "files": [
+								  {
+									  "name": "vanilla-core.json",
+									  "path": "assets/minecraft/lang/zh_cn.json",
+									  "type": "merge"
+								  }
+							  ]
+						  },
+						  "java-1-14": {
+							  "files": [
+								  {
+									  "name": "vanilla-core.json",
+									  "path": "assets/minecraft/lang/zh_cn.json",
+									  "type": "merge"
+								  }
+							  ]
+						  },
+						  "java-1-13-2": {
+							  "files": [
+								  {
+									  "name": "vanilla-core.json",
+									  "path": "assets/minecraft/lang/zh_cn.json",
+									  "type": "merge"
+								  }
+							  ]
+						  },
+						  "java-1-13-1": {
+							  "files": [
+								  {
+									  "name": "vanilla-core.json",
+									  "path": "assets/minecraft/lang/zh_cn.json",
+									  "type": "merge"
+								  }
+							  ]
+						  },
+						  "java-1-13": {
+							  "files": [
+								  {
+									  "name": "vanilla-core.json",
+									  "path": "assets/minecraft/lang/zh_cn.json",
+									  "type": "merge"
+								  }
+							  ]
+						  }
+					  }
+				  },
+				  {
+					  "id": "vanilla-craftmine",
+					  "label": {
+						  "zh-CN": "25w14craftmine",
+						  "zh-Neko": "25w14craftmine 喵"
+					  },
+					  "summary": {
+						  "zh-CN": "2025年愚人节",
+						  "zh-Neko": "2025年愚人节喵"
+					  },
+					  "description": {
+						  "zh-CN": "",
+						  "zh-Neko": ""
+					  },
+					  "defaultSelected": true,
+					  "files": [
+						  {
+							  "name": "vanilla-craftmine.json",
+							  "path": "assets/minecraft/lang/zh_cn.json"
+						  }
+					  ]
+				  }
+			  ]
+		  },
+		  {
+			  "id": "mods",
+			  "icon": "mods",
+			  "label": {
+				  "zh-CN": "mod 内容",
+				  "zh-Neko": "mod 内容喵"
+			  },
+			  "description": {
+				  "zh-CN": "",
+				  "zh-Neko": ""
+			  },
+			  "selection": "multiple",
+			  "visibleInSimple": false,
+			  "disabledInLegacy": true,
+			  "items": [
+				  {
+					  "id": "mods-base-pack",
+					  "label": {
+						  "zh-CN": "基础 mod 包",
+						  "zh-Neko": "基础 mod 包喵"
+					  },
+					  "summary": {
+						  "zh-CN": "很多的小 mod",
+						  "zh-Neko": "基础 mod 喵"
+					  },
+					  "description": {
+						  "zh-CN": "",
+						  "zh-Neko": ""
+					  },
+					  "children": [
+						  {
+							  "id": "appleskin",
+							  "label": {
+								  "zh-CN": "苹果皮",
+								  "zh-Neko": "苹果皮喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "appleskin.json",
+									  "path": "assets/appleskin/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "cherishedworlds",
+							  "label": {
+								  "zh-CN": "存档置顶",
+								  "zh-Neko": "存档置顶喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "cherishedworlds.json",
+									  "path": "assets/cherishedworlds/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "flashback",
+							  "label": {
+								  "zh-CN": "FlashBack",
+								  "zh-Neko": "FlashBack 喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "flashback.json",
+									  "path": "assets/flashback/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "languagereload",
+							  "label": {
+								  "zh-CN": "LanguageReload",
+								  "zh-Neko": "LanguageReload 喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "languagereload.json",
+									  "path": "assets/languagereload/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "lanserverproperties",
+							  "label": {
+								  "zh-CN": "自定义局域网联机",
+								  "zh-Neko": "自定义局域网联机喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "lanserverproperties.json",
+									  "path": "assets/lanserverproperties/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "mcwifipnp",
+							  "label": {
+								  "zh-CN": "更高级的联机设置",
+								  "zh-Neko": "更高级的联机设置喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "mcwifipnp.json",
+									  "path": "assets/mcwifipnp/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "menulogue",
+							  "label": {
+								  "zh-CN": "Menulogue",
+								  "zh-Neko": "Menulogue 喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "menulogue.json",
+									  "path": "assets/menulogue/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "modmenu",
+							  "label": {
+								  "zh-CN": "模组菜单",
+								  "zh-Neko": "模组菜单喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "modmenu.json",
+									  "path": "assets/modmenu/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "neo_language_reload",
+							  "label": {
+								  "zh-CN": "NeoLanguageReload",
+								  "zh-Neko": "NeoLanguageReload喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "neo_language_reload.json",
+									  "path": "assets/neo_language_reload/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "nochatreports",
+							  "label": {
+								  "zh-CN": "禁用聊天举报",
+								  "zh-Neko": "禁用聊天举报喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "nochatreports.json",
+									  "path": "assets/nochatreports/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "ponder",
+							  "label": {
+								  "zh-CN": "思索",
+								  "zh-Neko": "思索喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "ponder.json",
+									  "path": "assets/ponder/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "sodium",
+							  "label": {
+								  "zh-CN": "Sodium",
+								  "zh-Neko": "Sodium 喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "sodium.json",
+									  "path": "assets/sodium/lang/zh_cn.json"
+								  }
+							  ]
+						  }
+					  ],
+					  "childSelection": "multiple",
+					  "defaultSelected": true
+				  },
+				  {
+					  "id": "create",
+					  "label": {
+						  "zh-CN": "机械动力",
+						  "zh-Neko": "机械动力喵"
+					  },
+					  "summary": {
+						  "zh-CN": "机械动力",
+						  "zh-Neko": "机械动力"
+					  },
+					  "description": {
+						  "zh-CN": "会保持持续更新，请及时下载最新构建版本。",
+						  "zh-Neko": "我们会一直更新这块内容喵，主人要用的话，要及时更新哟喵~"
+					  },
+					  "defaultSelected": true,
+					  "files": [
+						  {
+							  "name": "create.json",
+							  "path": "assets/create/lang/zh_cn.json"
+						  }
+					  ]
+				  }
+			  ]
+		  },
+		  {
+			  "id": "expansion",
+			  "icon": "expansion",
+			  "label": {
+				  "zh-CN": "扩展内容",
+				  "zh-Neko": "扩展内容喵"
+			  },
+			  "description": {
+				  "zh-CN": "这里是颜文字包、皮肤替换和额外整活内容。",
+				  "zh-Neko": "这里都是些颜文字包、皮肤替换和额外整活内容喵~"
+			  },
+			  "selection": "multiple",
+			  "visibleInSimple": false,
+			  "disabledInLegacy": true,
+			  "items": [
+				  {
+					  "id": "expansion-enchantments",
+					  "label": {
+						  "zh-CN": "附魔名",
+						  "zh-Neko": "附魔名喵"
+					  },
+					  "summary": {
+						  "zh-CN": "附魔名",
+						  "zh-Neko": "附魔名喵"
+					  },
+					  "description": {
+						  "zh-CN": "覆盖原版附魔名称文本，建议搭配物品描述mod。",
+						  "zh-Neko": "覆盖原版附魔名称文本喵，建议搭配物品描述mod食用喵。"
+					  },
+					  "files": [
+						  {
+							  "name": "enchantment/zh_cn.json",
+							  "path": "assets/minecraft/lang/zh_cn.json"
+						  }
+					  ]
+				  },
+				  {
+					  "id": "expansion-kaomoji",
+					  "label": {
+						  "zh-CN": "颜文字",
+						  "zh-Neko": "颜文字喵"
+					  },
+					  "summary": {
+						  "zh-CN": "颜文字喵",
+						  "zh-Neko": "颜文字喵"
+					  },
+					  "description": {
+						  "zh-CN": "建议开启 Unicode 强制字体或使用现代字体以获得最佳显示效果。",
+						  "zh-Neko": "建议开启 Unicode 强制字体或使用现代字体，显示效果会更好喵。"
+					  },
+					  "defaultSelected": true,
+					  "files": [
+						  {
+							  "name": "kaomoji/zh_cn.json",
+							  "path": "assets/minecraft/lang/zh_cn.json"
+						  }
+					  ]
+				  },
+				  {
+					  "id": "expansion-transform",
+					  "label": {
+						  "zh-CN": "给我变！",
+						  "zh-Neko": "给我变喵！"
+					  },
+					  "summary": {
+						  "zh-CN": "都变成猫娘！",
+						  "zh-Neko": "给我变喵"
+					  },
+					  "description": {
+						  "zh-CN": "聊天结尾、皮肤与玩家文本替换。",
+						  "zh-Neko": "聊天结尾、皮肤和玩家文本替换喵。"
+					  },
+					  "children": [
+						  {
+							  "id": "chatmeow",
+							  "label": {
+								  "zh-CN": "聊天结尾喵",
+								  "zh-Neko": "聊天结尾喵"
+							  },
+							  "description": {
+								  "zh-CN": "在聊天结尾统一附加一个“喵”。",
+								  "zh-Neko": "将聊天结尾替换成喵喵喵。"
+							  },
+							  "files": [
+								  {
+									  "name": "chatmeow/zh_cn.json",
+									  "path": "assets/minecraft/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "replace-player-skin-modern",
+							  "label": {
+								  "zh-CN": "替换史蒂夫皮肤",
+								  "zh-Neko": "替换史蒂夫喵"
+							  },
+							  "description": {
+								  "zh-CN": "将原版默认皮肤替换为18个不同的猫娘",
+								  "zh-Neko": "替换 slim/wide 玩家皮肤喵。"
+							  },
+							  "files": [
+								  {
+									  "name": "skin_slim/alex.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/alex.png"
+								  },
+								  {
+									  "name": "skin_slim/ari.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/ari.png"
+								  },
+								  {
+									  "name": "skin_slim/efe.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/efe.png"
+								  },
+								  {
+									  "name": "skin_slim/kai.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/kai.png"
+								  },
+								  {
+									  "name": "skin_slim/makena.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/makena.png"
+								  },
+								  {
+									  "name": "skin_slim/noor.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/noor.png"
+								  },
+								  {
+									  "name": "skin_slim/steve.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/steve.png"
+								  },
+								  {
+									  "name": "skin_slim/sunny.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/sunny.png"
+								  },
+								  {
+									  "name": "skin_slim/zuri.png",
+									  "path": "assets/minecraft/textures/entity/player/slim/zuri.png"
+								  },
+								  {
+									  "name": "skin_wide/alex.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/alex.png"
+								  },
+								  {
+									  "name": "skin_wide/ari.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/ari.png"
+								  },
+								  {
+									  "name": "skin_wide/efe.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/efe.png"
+								  },
+								  {
+									  "name": "skin_wide/kai.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/kai.png"
+								  },
+								  {
+									  "name": "skin_wide/makena.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/makena.png"
+								  },
+								  {
+									  "name": "skin_wide/noor.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/noor.png"
+								  },
+								  {
+									  "name": "skin_wide/steve.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/steve.png"
+								  },
+								  {
+									  "name": "skin_wide/sunny.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/sunny.png"
+								  },
+								  {
+									  "name": "skin_wide/zuri.png",
+									  "path": "assets/minecraft/textures/entity/player/wide/zuri.png"
+								  }
+							  ],
+							  "version_only": [
+								  "java-26-1-1",
+								  "java-26-1",
+								  "java-1-21-11",
+								  "java-1-21-10",
+								  "java-1-21-9",
+								  "java-1-21-8",
+								  "java-1-21-7",
+								  "java-1-21-6",
+								  "java-1-21-5",
+								  "java-1-21-4",
+								  "java-1-21-3",
+								  "java-1-21-2",
+								  "java-1-21-1",
+								  "java-1-21",
+								  "java-1-20-6",
+								  "java-1-20-5",
+								  "java-1-20-4",
+								  "java-1-20-3",
+								  "java-1-20-2",
+								  "java-1-20-1",
+								  "java-1-20",
+								  "java-1-19-4",
+								  "java-1-19-3"
+							  ]
+						  },
+						  {
+							  "id": "replace-player-skin-legacy",
+							  "label": {
+								  "zh-CN": "替换史蒂夫",
+								  "zh-Neko": "替换史蒂夫喵"
+							  },
+							  "description": {
+								  "zh-CN": "把史蒂夫变成猫娘",
+								  "zh-Neko": "替换旧版本玩家皮肤路径喵。"
+							  },
+							  "files": [
+								  {
+									  "name": "skin2/alex.png",
+									  "path": "assets/minecraft/textures/entity/alex.png"
+								  },
+								  {
+									  "name": "skin2/steve.png",
+									  "path": "assets/minecraft/textures/entity/steve.png"
+								  }
+							  ],
+							  "version_only": [
+								  "java-1-19-2",
+								  "java-1-19-1",
+								  "java-1-19",
+								  "java-1-18-2",
+								  "java-1-18-1",
+								  "java-1-18",
+								  "java-1-17-1",
+								  "java-1-17",
+								  "java-1-16-5",
+								  "java-1-16-4",
+								  "java-1-16-3",
+								  "java-1-16-2",
+								  "java-1-16-1",
+								  "java-1-16",
+								  "java-1-15-2",
+								  "java-1-15-1",
+								  "java-1-15",
+								  "java-1-14-4",
+								  "java-1-14-3",
+								  "java-1-14-2",
+								  "java-1-14-1",
+								  "java-1-14",
+								  "java-1-13-2",
+								  "java-1-13-1",
+								  "java-1-13"
+							  ]
+						  },
+						  {
+							  "id": "player2cat",
+							  "label": {
+								  "zh-CN": "替换玩家为猫娘",
+								  "zh-Neko": "替换玩家为猫娘喵"
+							  },
+							  "description": {
+								  "zh-CN": "让玩家相关的文本变成猫娘两个字，但不含字幕",
+								  "zh-Neko": "替换玩家相关文本称呼喵。"
+							  },
+							  "files": [
+								  {
+									  "name": "player2cat/zh_cn.json",
+									  "path": "assets/minecraft/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "player2cat-plus",
+							  "label": {
+								  "zh-CN": "字幕也要换",
+								  "zh-Neko": "替换字幕玩家为猫娘喵"
+							  },
+							  "description": {
+								  "zh-CN": "补全了上面的空缺，以身入局",
+								  "zh-Neko": "替换字幕中的玩家。称呼喵。"
+							  },
+							  "files": [
+								  {
+									  "name": "player2catPlus/zh_cn.json",
+									  "path": "assets/minecraft/lang/zh_cn.json"
+								  }
+							  ]
+						  }
+					  ],
+					  "childSelection": "multiple"
+				  },
+				  {
+					  "id": "expansion-title",
+					  "label": {
+						  "zh-CN": "标题栏",
+						  "zh-Neko": "标题栏喵"
+					  },
+					  "summary": {
+						  "zh-CN": "游戏窗口化时候有的标题栏，可能会被启动器覆盖",
+						  "zh-Neko": "标题栏喵"
+					  },
+					  "description": {
+						  "zh-CN": "替换标题栏相关文本。",
+						  "zh-Neko": "替换标题栏相关文本喵。"
+					  },
+					  "defaultSelected": true,
+					  "files": [
+						  {
+							  "name": "title/zh_cn.json",
+							  "path": "assets/minecraft/lang/zh_cn.json"
+						  }
+					  ]
+				  },
+				  {
+					  "id": "expansion-no-h",
+					  "label": {
+						  "zh-CN": "去除黄段子补丁",
+						  "zh-Neko": "去除黄段子补丁喵"
+					  },
+					  "summary": {
+						  "zh-CN": "如果你介意的话...",
+						  "zh-Neko": "去黄段子喵"
+					  },
+					  "description": {
+						  "zh-CN": "覆盖少量不适文本。",
+						  "zh-Neko": "覆盖少量不适文本喵。"
+					  },
+					  "files": [
+						  {
+							  "name": "no-h/zh_cn.json",
+							  "path": "assets/minecraft/lang/zh_cn.json"
+						  }
+					  ]
+				  },
+				  {
+					  "id": "expansion-other-text",
+					  "label": {
+						  "zh-CN": "其他文本",
+						  "zh-Neko": "其他文本喵"
+					  },
+					  "summary": {
+						  "zh-CN": "闪烁标语之类的其他地方",
+						  "zh-Neko": "其他文本喵"
+					  },
+					  "description": {
+						  "zh-CN": "闪烁标语之类的其他地方",
+						  "zh-Neko": "闪烁标语、终末文本、终末音乐和制作名单喵。"
+					  },
+					  "defaultSelected": true,
+					  "children": [
+						  {
+							  "id": "splashes",
+							  "label": {
+								  "zh-CN": "闪烁标语",
+								  "zh-Neko": "闪烁标语"
+							  },
+							  "description": {
+								  "zh-CN": "主菜单上那个黄色的会跳的字",
+								  "zh-Neko": "替换 splashes 文本喵。"
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "splashes/splashes.txt",
+									  "path": "assets/minecraft/texts/splashes.txt"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "end-poem-text",
+							  "label": {
+								  "zh-CN": "新终末之诗",
+								  "zh-Neko": "新终末之诗文本喵"
+							  },
+							  "description": {
+								  "zh-CN": "做的比较敷衍，以后搞个正式的出来",
+								  "zh-Neko": "替换 end 和 postcredits 文本喵。"
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "end/end.txt",
+									  "path": "assets/minecraft/texts/end.txt"
+								  },
+								  {
+									  "name": "postcredits/postcredits.txt",
+									  "path": "assets/minecraft/texts/postcredits.txt"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "end-music",
+							  "label": {
+								  "zh-CN": "新终末之诗音乐",
+								  "zh-Neko": "新终末之诗音乐喵"
+							  },
+							  "description": {
+								  "zh-CN": "也是比较敷衍。诚招配音演员",
+								  "zh-Neko": "替换 alpha.ogg 喵。"
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "end_music/alpha.ogg",
+									  "path": "assets/minecraft/sounds/music/game/end/alpha.ogg"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "credits",
+							  "label": {
+								  "zh-CN": "替换制作人名单",
+								  "zh-Neko": "替换制作人名单喵"
+							  },
+							  "description": {
+								  "zh-CN": "nekohouse侵占mojang",
+								  "zh-Neko": "nekohouse把mojang打下来了喵！"
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "credits/credits.json",
+									  "path": "assets/minecraft/texts/credits.json"
+								  }
+							  ],
+							  "version_only": [
+								  "java-1-18",
+								  "java-1-18-1",
+								  "java-1-18-2",
+								  "java-1-19",
+								  "java-1-19-1",
+								  "java-1-19-2",
+								  "java-1-19-3",
+								  "java-1-19-4",
+								  "java-1-20",
+								  "java-1-20-1",
+								  "java-1-20-2",
+								  "java-1-20-3",
+								  "java-1-20-4",
+								  "java-1-20-5",
+								  "java-1-20-6",
+								  "java-1-21",
+								  "java-1-21-1",
+								  "java-1-21-2",
+								  "java-1-21-3",
+								  "java-1-21-4",
+								  "java-1-21-5",
+								  "java-1-21-6",
+								  "java-1-21-7",
+								  "java-1-21-8",
+								  "java-1-21-9",
+								  "java-1-21-10",
+								  "java-1-21-11",
+								  "java-26-1",
+								  "java-26-1-1"
+							  ]
+						  }
+					  ],
+					  "childSelection": "multiple"
+				  },
+				  {
+					  "id": "expansion-easter-egg",
+					  "label": {
+						  "zh-CN": "小彩蛋",
+						  "zh-Neko": "彩蛋喵"
+					  },
+					  "summary": {
+						  "zh-CN": "或许运气好能发现",
+						  "zh-Neko": "彩蛋喵"
+					  },
+					  "description": {
+						  "zh-CN": "云层贴图按版本分流。",
+						  "zh-Neko": "云层贴图按版本分流喵。"
+					  },
+					  "defaultSelected": true,
+					  "children": [
+						  {
+							  "id": "cloud-new",
+							  "label": {
+								  "zh-CN": "抬头看看？",
+								  "zh-Neko": "天上的惊喜喵~"
+							  },
+							  "description": {
+								  "zh-CN": "高空的奇妙发现",
+								  "zh-Neko": "靛蓝色猫猫头喵！"
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "cloud1/clouds.png",
+									  "path": "assets/minecraft/textures/environment/clouds.png"
+								  }
+							  ],
+							  "version_only": [
+								  "java-26-1-1",
+								  "java-26-1",
+								  "java-1-21-11",
+								  "java-1-21-10",
+								  "java-1-21-9",
+								  "java-1-21-8",
+								  "java-1-21-7",
+								  "java-1-21-6"
+							  ]
+						  },
+						  {
+							  "id": "cloud-legacy",
+							  "label": {
+								  "zh-CN": "抬头看看？",
+								  "zh-Neko": "天上的惊喜喵~"
+							  },
+							  "description": {
+								  "zh-CN": "靛蓝色的奇妙发现~",
+								  "zh-Neko": "靛蓝色猫猫头喵！"
+							  },
+							  "defaultSelected": true,
+							  "files": [
+								  {
+									  "name": "cloud2/clouds.png",
+									  "path": "assets/minecraft/textures/environment/clouds.png"
+								  }
+							  ],
+							  "version_only": [
+								  "java-1-21-5",
+								  "java-1-21-4",
+								  "java-1-21-3",
+								  "java-1-21-2",
+								  "java-1-21-1",
+								  "java-1-21",
+								  "java-1-20-6",
+								  "java-1-20-5",
+								  "java-1-20-4",
+								  "java-1-20-3",
+								  "java-1-20-2",
+								  "java-1-20-1",
+								  "java-1-20",
+								  "java-1-19-4",
+								  "java-1-19-3",
+								  "java-1-19-2",
+								  "java-1-19-1",
+								  "java-1-19",
+								  "java-1-18-2",
+								  "java-1-18-1",
+								  "java-1-18",
+								  "java-1-17-1",
+								  "java-1-17",
+								  "java-1-16-5",
+								  "java-1-16-4",
+								  "java-1-16-3",
+								  "java-1-16-2",
+								  "java-1-16-1",
+								  "java-1-16",
+								  "java-1-15-2",
+								  "java-1-15-1",
+								  "java-1-15",
+								  "java-1-14-4",
+								  "java-1-14-3",
+								  "java-1-14-2",
+								  "java-1-14-1",
+								  "java-1-14",
+								  "java-1-13-2",
+								  "java-1-13-1",
+								  "java-1-13"
+							  ]
+						  }
+					  ],
+					  "childSelection": "multiple"
+				  }
+			  ]
+		  },
+		  {
+			  "id": "unfinished",
+			  "icon": "unfinished",
+			  "label": {
+				  "zh-CN": "未完成内容",
+				  "zh-Neko": "未完成内容喵"
+			  },
+			  "description": {
+				  "zh-CN": "",
+				  "zh-Neko": ""
+			  },
+			  "selection": "multiple",
+			  "visibleInSimple": false,
+			  "disabledInLegacy": true,
+			  "items": [
+				  {
+					  "id": "unfinished-review",
+					  "label": {
+						  "zh-CN": "未检查",
+						  "zh-Neko": "未检查喵"
+					  },
+					  "summary": {
+						  "zh-CN": "未检查",
+						  "zh-Neko": "未检查喵"
+					  },
+					  "description": {
+						  "zh-CN": "内容已基本完成，但还没逐项检查。",
+						  "zh-Neko": "内容已经快做完了喵，但还没逐项检查喵。"
+					  },
+					  "children": [
+						  {
+							  "id": "mtr",
+							  "label": {
+								  "zh-CN": "我的世界铁路",
+								  "zh-Neko": "我的世界铁路喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "files": [
+								  {
+									  "name": "mtr.json",
+									  "path": "assets/mtr/lang/zh_cn.json"
+								  }
+							  ]
+						  }
+					  ],
+					  "childSelection": "multiple"
+				  },
+				  {
+					  "id": "unfinished-progress",
+					  "label": {
+						  "zh-CN": "未完成",
+						  "zh-Neko": "未完成喵"
+					  },
+					  "summary": {
+						  "zh-CN": "未完成",
+						  "zh-Neko": "未完成喵"
+					  },
+					  "description": {
+						  "zh-CN": "内容方向明确，但还没做完。",
+						  "zh-Neko": "内容方向已经明确了喵，但还没有做完喵。"
+					  },
+					  "children": [
+						  {
+							  "id": "ae2",
+							  "label": {
+								  "zh-CN": "应用能源2",
+								  "zh-Neko": "应用能源2喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "files": [
+								  {
+									  "name": "ae2.json",
+									  "path": "assets/ae2/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "emi",
+							  "label": {
+								  "zh-CN": "EMI",
+								  "zh-Neko": "EMI 喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "files": [
+								  {
+									  "name": "emi.json",
+									  "path": "assets/emi/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "farmersdelight",
+							  "label": {
+								  "zh-CN": "农夫乐事",
+								  "zh-Neko": "农夫乐事喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "files": [
+								  {
+									  "name": "farmersdelight.json",
+									  "path": "assets/farmersdelight/lang/zh_cn.json"
+								  }
+							  ]
+						  }
+					  ],
+					  "childSelection": "multiple"
+				  },
+				  {
+					  "id": "unfinished-abandoned",
+					  "label": {
+						  "zh-CN": "弃置",
+						  "zh-Neko": "弃置喵"
+					  },
+					  "summary": {
+						  "zh-CN": "弃置",
+						  "zh-Neko": "弃置喵"
+					  },
+					  "description": {
+						  "zh-CN": "后面可能会彻底删除的项。",
+						  "zh-Neko": "后面可能会彻底删掉的喵。"
+					  },
+					  "children": [
+						  {
+							  "id": "item_descriptions",
+							  "label": {
+								  "zh-CN": "物品描述",
+								  "zh-Neko": "物品描述喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "files": [
+								  {
+									  "name": "item_descriptions.json",
+									  "path": "assets/item_descriptions/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "worldedit",
+							  "label": {
+								  "zh-CN": "创世神",
+								  "zh-Neko": "创世神喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "files": [
+								  {
+									  "name": "worldedit.json",
+									  "path": "assets/worldedit/lang/zh_cn.json"
+								  }
+							  ]
+						  },
+						  {
+							  "id": "botania",
+							  "label": {
+								  "zh-CN": "植物魔法",
+								  "zh-Neko": "植物魔法喵"
+							  },
+							  "description": {
+								  "zh-CN": "",
+								  "zh-Neko": ""
+							  },
+							  "files": [
+								  {
+									  "name": "botania.json",
+									  "path": "assets/botania/lang/zh_cn.json"
+								  }
+							  ]
+						  }
+					  ],
+					  "childSelection": "multiple"
+				  }
+			  ]
+		  }
+	  ],
+		"toggles": [
+			{
+				"id": "shuffle-text",
+				"icon": "shuffle",
+				"label": {
+					"zh-CN": "打乱所有文本",
+					"zh-Neko": "打乱所有文本喵"
+				},
+				"description": {
+					"zh-CN": "整活！",
+					"zh-Neko": "整活喵！"
+				},
+				"disabledInLegacy": true,
+				"visibleInSimple": false
+			}
+		]
+	},
+	  {
+		  "id": "bedrock",
+		  "icon": "bedrock",
+		  "label": {
+			  "zh-CN": "基岩版",
+			  "zh-Neko": "猫抓版喵"
+		  },
+		  "categories": [
+			  {
+				  "id": "version",
+				  "icon": "version",
+				  "label": {
+					  "zh-CN": "游戏版本",
+					  "zh-Neko": "游戏版本喵"
+				  },
+				  "description": {
+					  "zh-CN": "基岩版的资源资源暂未准备完毕，敬请期待！",
+					  "zh-Neko": "为猫抓版提供的资源还没有做完喵，主人先等等叭喵！"
+				  },
+				  "selection": "single",
+				  "visibleInSimple": true,
+				  "items": [
+					  {
+						  "id": "bedrock-latest",
+						  "label": {
+							  "zh-CN": "Latest",
+							  "zh-Neko": "最新版喵"
+						  },
+						  "summary": {
+							  "zh-CN": "Latest",
+							  "zh-Neko": "最新版喵"
+						  },
+						  "description": {
+							  "zh-CN": "基岩版最新版本的资源包。",
+							  "zh-Neko": "基岩版最新版本的资源包喵。"
+						  },
+						  "defaultSelected": true
+					  },
+					  {
+						  "id": "bedrock-snapshot",
+						  "label": {
+							  "zh-CN": "快照版",
+							  "zh-Neko": "快照版喵"
+						  },
+						  "summary": {
+							  "zh-CN": "快照版",
+							  "zh-Neko": "快照版喵"
+						  },
+						  "description": {
+							  "zh-CN": "基岩版最新快照版本的资源包。",
+							  "zh-Neko": "基岩版最新快照版本的资源包。"
+						  }
+					  }
+				  ]
+			  },
+			  {
+				  "id": "preset",
+				  "icon": "preset",
+				  "label": {
+					  "zh-CN": "预设",
+					  "zh-Neko": "预设喵"
+				  },
+				  "description": {
+					  "zh-CN": "因为资源较少，所以暂时只有一个预设。",
+					  "zh-Neko": "因为资源较少，所以暂时只有一个预设喵。"
+				  },
+				  "selection": "single",
+				  "visibleInSimple": true,
+				  "items": [
+					  {
+						  "id": "bedrock-standard",
+						  "label": {
+							  "zh-CN": "标准包",
+							  "zh-Neko": "标准包喵"
+						  },
+						  "summary": {
+							  "zh-CN": "标准",
+							  "zh-Neko": "标准喵"
+						  },
+						  "description": {
+							  "zh-CN": "包含目前所有内容。",
+							  "zh-Neko": "唯一的预设喵，能加的都加了喵。"
+						  },
+						  "presetSelection": {
+							  "categories": {
+								  "version": {
+									  "selected": [
+										  "bedrock-latest"
+									  ]
+								  },
+								  "vanilla": {
+									  "selected": []
+								  },
+								  "mods": {
+									  "selected": []
+								  },
+								  "expansion": {
+									  "selected": []
+								  },
+								  "unfinished": {
+									  "selected": []
+								  }
+							  },
+							  "toggles": {
+								  "add-language": false,
+								  "shuffle-text": false
+							  }
+						  },
+						  "defaultSelected": true
+					  }
+				  ]
+			  },
+			  {
+				  "id": "vanilla",
+				  "icon": "vanilla",
+				  "label": {
+					  "zh-CN": "原版内容",
+					  "zh-Neko": "原版内容喵"
+				  },
+				  "description": {
+					  "zh-CN": "基岩版原版内容。",
+					  "zh-Neko": "基岩版原版内容喵。"
+				  },
+				  "selection": "multiple",
+				  "visibleInSimple": false,
+				  "items": []
+			  },
+			  {
+				  "id": "mods",
+				  "icon": "mods",
+				  "label": {
+					  "zh-CN": "mod 内容",
+					  "zh-Neko": "mod 内容喵"
+				  },
+				  "description": {
+					  "zh-CN": "暂时未接入任何内容。",
+					  "zh-Neko": "这里啥也木有喵。"
+				  },
+				  "selection": "multiple",
+				  "visibleInSimple": false,
+				  "items": []
+			  },
+			  {
+				  "id": "expansion",
+				  "icon": "expansion",
+				  "label": {
+					  "zh-CN": "扩展内容",
+					  "zh-Neko": "扩展内容喵"
+				  },
+				  "description": {
+					  "zh-CN": "这是一些额外的皮肤、文本包等内容。",
+					  "zh-Neko": "这是一些为主人额外准备的皮肤、文本包之类的东西哦喵。"
+				  },
+				  "selection": "multiple",
+				  "visibleInSimple": false,
+				  "items": []
+			  },
+			  {
+				  "id": "unfinished",
+				  "icon": "unfinished",
+				  "label": {
+					  "zh-CN": "未完成内容",
+					  "zh-Neko": "未完成内容喵"
+				  },
+				  "description": {
+					  "zh-CN": "与 Java 版保持同样的状态分类。",
+					  "zh-Neko": "和 Java 版保持一样的状态分类喵。"
+				  },
+				  "selection": "multiple",
+				  "visibleInSimple": false,
+				  "items": [
+					  {
+						  "id": "bedrock-review",
+						  "label": {
+							  "zh-CN": "未检查",
+							  "zh-Neko": "未检查喵"
+						  },
+						  "summary": {
+							  "zh-CN": "未检查",
+							  "zh-Neko": "未检查喵"
+						  },
+						  "description": {
+							  "zh-CN": "暂时未接入任何内容。",
+							  "zh-Neko": "这里啥也木有喵。"
+						  }
+					  },
+					  {
+						  "id": "bedrock-progress",
+						  "label": {
+							  "zh-CN": "未完成",
+							  "zh-Neko": "未完成喵"
+						  },
+						  "summary": {
+							  "zh-CN": "未完成",
+							  "zh-Neko": "未完成喵"
+						  },
+						  "description": {
+							  "zh-CN": "暂时未接入任何内容。",
+							  "zh-Neko": "这里啥也木有喵。"
+						  }
+					  },
+					  {
+						  "id": "bedrock-abandoned",
+						  "label": {
+							  "zh-CN": "弃置",
+							  "zh-Neko": "弃置喵"
+						  },
+						  "summary": {
+							  "zh-CN": "弃置",
+							  "zh-Neko": "弃置喵"
+						  },
+						  "description": {
+							  "zh-CN": "暂时未接入任何内容。",
+							  "zh-Neko": "这里啥也木有喵。"
+						  }
+					  }
+				  ]
+			  }
+		  ],
+		  "toggles": [
+			  {
+				  "id": "shuffle-text",
+				  "icon": "shuffle",
+				  "label": {
+					  "zh-CN": "打乱所有文本",
+					  "zh-Neko": "打乱所有文本喵"
+				  },
+				  "description": {
+					  "zh-CN": "暂时未接入任何内容。",
+					  "zh-Neko": "这里啥也木有喵。"
+				  },
+				  "visibleInSimple": false
+			  }
+		  ]
+	  }
+  ]
 }
