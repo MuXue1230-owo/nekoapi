@@ -558,40 +558,54 @@ function shuffleArray(arr) {
 }
 
 /**
- * 随机打乱 JSON 对象中所有字符串值
- * 收集所有 leaf string 值，打乱顺序后重新填回
+ * 收集 JSON 对象中所有叶子节点字符串值
  */
-function randomizeStringValues(obj) {
-  const stringValues = [];
-
-  // 收集所有叶子节点字符串值
-  function collectStrings(value) {
+function collectStrings(obj) {
+  const values = [];
+  function walk(value) {
     if (typeof value === "string") {
-      stringValues.push(value);
+      values.push(value);
     } else if (value !== null && typeof value === "object" && !Array.isArray(value)) {
       for (const v of Object.values(value)) {
-        collectStrings(v);
+        walk(v);
       }
     }
   }
+  walk(obj);
+  return values;
+}
 
-  // 按原顺序填回打乱后的值
-  function replaceStrings(value) {
+/**
+ * 用替换器替换 JSON 对象中的叶子节点字符串值
+ */
+function replaceStringValues(obj, replacer) {
+  function walk(value) {
     if (typeof value === "string") {
-      return replaceStrings.replacements[replaceStrings.index++];
+      return replacer.next();
     } else if (value !== null && typeof value === "object" && !Array.isArray(value)) {
       for (const key of Object.keys(value)) {
-        value[key] = replaceStrings(value[key]);
+        value[key] = walk(value[key]);
       }
     }
     return value;
   }
+  walk(obj);
+}
 
-  collectStrings(obj);
-  const shuffled = shuffleArray([...stringValues]);
-  replaceStrings.replacements = shuffled;
-  replaceStrings.index = 0;
-  replaceStrings(obj);
+/**
+ * 写入合并后的文件内容
+ */
+function writeMergedFile(file, targetPath, options = {}) {
+  if (file.mergeMode === "json" && file.content) {
+    if (options.randomReplacer) {
+      replaceStringValues(file.content, options.randomReplacer);
+    }
+    safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
+  } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
+    safeWriteFileSync(targetPath, file.textContent);
+  } else if (file.sourcePath && existsSync(file.sourcePath)) {
+    safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
+  }
 }
 
 /**
@@ -698,69 +712,50 @@ function createBuildWorkspace(buildData) {
       files: result.mergedFiles
     };
 
-    // 根据类别处理文件
-    if (category === "vanilla") {
-      // 合并所有 JSON 文件到 zh_cn.json
-      const mergedLang = {};
-      const zhCnModules = [];
-
+    // 统一处理所有类别的文件
+    if (random) {
+      // 第一遍：收集所有 JSON 文件的字符串
+      const allStrings = [];
       for (const file of result.mergedFiles) {
         if (file.mergeMode === "json" && file.content) {
-          Object.assign(mergedLang, file.content);
-          zhCnModules.push(...file.mergedFrom);
+          allStrings.push(...collectStrings(file.content));
         }
       }
+      // 全局打乱一次
+      const shuffled = shuffleArray(allStrings);
+      let index = 0;
+      const replacer = { next: () => shuffled[index++] };
 
-      if (random) {
-        randomizeStringValues(mergedLang);
-      }
-      const zhCnPath = join(tempDir, "assets", "minecraft", "lang", "zh_cn.json");
-      safeWriteFileSync(zhCnPath, JSON.stringify(mergedLang, null, 2));
-
-      workspaceInfo.zhCnPath = zhCnPath;
-      workspaceInfo.zhCnEntries = Object.keys(mergedLang).length;
-      workspaceInfo.zhCnModules = [...new Set(zhCnModules)];
-
-    } else if (category === "mods") {
-      // 处理 mod 文件
+      // 第二遍：回填 + 写入
       for (const file of result.mergedFiles) {
+        writeMergedFile(file, join(tempDir, file.targetPath), { randomReplacer: replacer });
+      }
+    } else {
+      for (const file of result.mergedFiles) {
+        writeMergedFile(file, join(tempDir, file.targetPath));
+      }
+    }
+
+    // 类别特定的元数据收集
+    for (const file of result.mergedFiles) {
+      if (category === "vanilla") {
+        workspaceInfo.zhCnPath = join(tempDir, file.targetPath);
+        workspaceInfo.zhCnEntries = Object.keys(file.content || {}).length;
+        workspaceInfo.zhCnModules = [...(workspaceInfo.zhCnModules || []), ...file.mergedFrom];
+      }
+
+      if (category === "mods") {
         const match = file.targetPath.match(/assets\/([^/]+)\/lang\/zh_cn\.json$/);
-        if (!match) continue;
-
-        const namespace = match[1];
-        const targetPath = join(tempDir, "assets", namespace, "lang", "zh_cn.json");
-
-        if (file.mergeMode === "json" && file.content) {
-          if (random) randomizeStringValues(file.content);
-          safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
-        } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
-          safeWriteFileSync(targetPath, file.textContent);
-        } else if (file.sourcePath && existsSync(file.sourcePath)) {
-          safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
-        }
-
-        if (!workspaceInfo.modules[category].namespaces) {
-          workspaceInfo.modules[category].namespaces = [];
-        }
-        workspaceInfo.modules[category].namespaces.push({
-          namespace,
-          entries: Object.keys(file.content || {}),
-          modules: file.mergedFrom || []
-        });
-      }
-
-    } else if (category === "expansion" || category === "extension") {
-      // 处理扩展文件
-      for (const file of result.mergedFiles) {
-        const targetPath = join(tempDir, file.targetPath);
-
-        if (file.mergeMode === "json" && file.content) {
-          if (random) randomizeStringValues(file.content);
-          safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
-        } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
-          safeWriteFileSync(targetPath, file.textContent);
-        } else if (file.sourcePath && existsSync(file.sourcePath)) {
-          safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
+        if (match) {
+          const namespace = match[1];
+          if (!workspaceInfo.modules[category].namespaces) {
+            workspaceInfo.modules[category].namespaces = [];
+          }
+          workspaceInfo.modules[category].namespaces.push({
+            namespace,
+            entries: Object.keys(file.content || {}),
+            modules: file.mergedFrom || []
+          });
         }
       }
     }
