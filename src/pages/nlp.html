@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>构建</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --border-color: #c4c4c4;
+            --highlight-color: #1976d2;
+            --label-color: #757575;
+            --chip-bg: rgba(255, 255, 255, 0.05);
+            --transition-speed: 0.3s;
+            --modal-bg: #ffffff;
+            --overlay-bg: rgba(0, 0, 0, 0.4);
+            --easing: cubic-bezier(0.4, 0, 0.2, 1);
+            --hover-bg: rgba(0, 0, 0, 0.04);
+            --banner-bg: #e3f2fd;
+            --banner-text: #1565c0;
+            --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+            --scrollbar-thumb-hover: rgba(0, 0, 0, 0.4);
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --border-color: #444444;
+            --highlight-color: #448aff;
+            --label-color: #bbbbbb;
+            --chip-bg: #333333;
+            --modal-bg: #1e1e1e;
+            --hover-bg: rgba(255, 255, 255, 0.08);
+            --banner-bg: #4a6fa5;
+            --banner-text: #ffffff;
+            --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+            --scrollbar-thumb-hover: rgba(255, 255, 255, 0.5);
+        }
+
+        .option-list::-webkit-scrollbar { width: 6px; }
+        .option-list::-webkit-scrollbar-track { background: transparent; }
+        .option-list::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbar-thumb);
+            border-radius: 10px;
+            transition: background-color var(--transition-speed) var(--easing);
+        }
+        .option-list::-webkit-scrollbar-thumb:hover,
+        .option-list::-webkit-scrollbar-thumb:active {
+            background-color: var(--scrollbar-thumb-hover);
+        }
+        .option-list {
+            scrollbar-width: thin;
+            scrollbar-color: var(--scrollbar-thumb) transparent;
+        }
+
+        * { outline: none !important; -webkit-tap-highlight-color: transparent !important; user-select: none; }
+
+        .header-bar {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(233, 233, 233, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #333333;
+            z-index: 1100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: 62px;
+            transition: background var(--transition-speed) var(--easing), color var(--transition-speed) var(--easing);
+        }
+        .dark-mode .header-bar {
+            background: rgba(39, 39, 39, 0.8);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .mode-selector {
+            display: flex; align-items: center;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 768px) {
+            .mode-selector { margin-bottom: 40px; }
+        }
+
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation-duration: 0.4s;
+            animation-timing-function: var(--easing);
+        }
+
+        .mode-label {
+            font-size: 16px; font-weight: 500; margin-right: 16px; color: var(--label-color);
+        }
+        .mode-options { display: flex; align-items: center; gap: 8px; }
+        .mode-btn {
+            background: none; border: none; font-size: 14px; color: var(--text-color);
+            cursor: pointer; padding: 6px 12px; border-radius: 4px;
+            transition: all var(--transition-speed) var(--easing);
+        }
+        .mode-btn:not(.active):hover { background-color: var(--hover-bg); }
+        .mode-btn.active { color: var(--highlight-color); font-weight: 500; cursor: default; }
+        .mode-divider { color: var(--border-color); transition: color var(--transition-speed) var(--easing); }
+
+        .header-content {
+            max-width: 1120px; margin: 0 auto; padding: 0 50px;
+            display: flex; align-items: center; justify-content: space-between; height: 100%;
+        }
+        @media (max-width: 768px) {
+            .header-bar { height: 58px; }
+            .header-content { padding: 0 20px; }
+        }
+        .header-title {
+            font-size: 20px; font-weight: bold; margin: 0;
+            font-family: 'TT Norms Pro', sans-serif;
+        }
+        .theme-toggle,
+        .menu-toggle {
+            background: none; border: none; color: #333333; cursor: pointer;
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: background-color var(--transition-speed) var(--easing), color var(--transition-speed) var(--easing);
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover,
+        .menu-toggle:hover { background-color: rgba(0, 0, 0, 0.08); }
+        .dark-mode .theme-toggle,
+        .dark-mode .menu-toggle { color: white; }
+        .dark-mode .theme-toggle:hover,
+        .dark-mode .menu-toggle:hover { background-color: rgba(255, 255, 255, 0.1); }
+        .theme-icon {
+            width: 20px; height: 20px;
+            transition: opacity var(--transition-speed) var(--easing), transform var(--transition-speed) var(--easing);
+        }
+        .moon-icon { display: none; }
+        .dark-mode .moon-icon { display: block; }
+        .dark-mode .sun-icon { display: none; }
+
+        .top-banner {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            height: 36px; background-color: var(--banner-bg); color: var(--banner-text);
+            display: flex; align-items: center; justify-content: center;
+            padding: 0 20px; font-size: 13px; font-weight: bold; z-index: 1000;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+        .banner-text { text-align: center; }
+        .performance-monitor {
+            position: absolute;
+            right: 20px;
+            font-size: 11px; font-weight: normal; opacity: 0.9; font-family: monospace;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://gitee.com/rainwhisper11/nlp-data/raw/master/110410863_p0.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            margin: 0; padding: 98px 20px 56px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex; justify-content: center; min-height: 100vh;
+            box-sizing: border-box; overflow-x: hidden;
+            color: var(--text-color);
+            transition: background-color var(--transition-speed) var(--easing), color var(--transition-speed) var(--easing);
+        }
+        body.dark-mode {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://gitee.com/rainwhisper11/nlp-data/raw/master/110410863_p0.jpg');
+        }
+
+        /* 日志面板样式 */
+        .log-panel {
+            position: fixed;
+            top: 0;
+            right: -33.333%;
+            width: 33.333%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+            transition: right var(--transition-speed) var(--easing);
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+        }
+        .dark-mode .log-panel {
+            background: rgba(30, 30, 30, 0.95);
+        }
+        .log-panel.open {
+            right: 0;
+        }
+        .log-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+        .log-panel-close {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: background var(--transition-speed);
+        }
+        .log-panel-close:hover {
+            background: var(--hover-bg);
+        }
+        .log-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 20px;
+            font-family: monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        .log-entry {
+            margin-bottom: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid var(--border-color);
+            opacity: 0.8;
+        }
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        .log-time {
+            color: var(--label-color);
+            margin-right: 8px;
+        }
+
+        /* 日志按钮样式 */
+        .log-toggle-btn {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 8px 0 0 8px;
+            cursor: pointer;
+            z-index: 1199;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-speed) var(--easing);
+        }
+        .dark-mode .log-toggle-btn {
+            background: rgba(30, 30, 30, 0.95);
+        }
+        .log-toggle-btn:hover {
+            width: 48px;
+        }
+        .log-toggle-btn.hidden {
+            right: -50px;
+        }
+        .log-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-color);
+        }
+
+        /* 设置面板样式 */
+        /* 设置面板遮罩层 */
+        .settings-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1199;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-speed) var(--easing), visibility var(--transition-speed) var(--easing);
+        }
+        .settings-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -33.333%;
+            width: 33.333%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+            transition: right var(--transition-speed) var(--easing);
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+        }
+        .dark-mode .settings-panel {
+            background: rgba(30, 30, 30, 0.95);
+        }
+        .settings-panel.open {
+            right: 0;
+        }
+        .settings-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+        .settings-panel-close {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: background var(--transition-speed);
+        }
+        .settings-panel-close:hover {
+            background: var(--hover-bg);
+        }
+        .settings-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .settings-section {
+            margin-bottom: 32px;
+        }
+        .settings-section-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--label-color);
+            margin: 0 0 16px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .settings-section .toggle-container {
+            margin-top: 12px;
+        }
+        .settings-section .toggle-container:first-child {
+            margin-top: 0;
+        }
+        .settings-button-container {
+            margin-top: 8px;
+        }
+        .settings-button {
+            background: var(--highlight-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all var(--transition-speed) var(--easing);
+        }
+        .settings-button:hover {
+            background: #1565c0;
+        }
+        .settings-note {
+            font-size: 12px;
+            color: var(--label-color);
+            margin: 8px 0 0 0;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .log-panel {
+                width: 80%;
+                right: -80%;
+            }
+            .log-panel.open {
+                right: 0;
+            }
+            .settings-panel {
+                width: 80%;
+                right: -80%;
+            }
+            .settings-panel.open {
+                right: 0;
+            }
+        }
+
+        .center-container {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px; padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: background var(--transition-speed) var(--easing);
+        }
+        .dark-mode .center-container { background: rgba(18, 18, 18, 0.4); }
+        @media (max-width: 768px) {
+            body {
+                padding-top: 88px; padding-left: 10px; padding-right: 10px;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://gitee.com/rainwhisper11/nlp-data/raw/master/96be176ce693c93ed9ef28238045cc6f.png');
+                background-position: top center;
+            }
+            body.dark-mode {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://gitee.com/rainwhisper11/nlp-data/raw/master/96be176ce693c93ed9ef28238045cc6f.png');
+                background-position: top center;
+            }
+            .center-container { padding: 20px; }
+        }
+        .center-container { width: 100%; max-width: 1120px; margin: 0 auto; }
+        @media (max-width: 768px) { 
+            .center-container { max-width: 100%; }
+            .build-button-container { margin-bottom: 0; }
+            .top-banner { justify-content: flex-start; }
+            .banner-text { text-align: left; }
+            .performance-monitor { right: 10px; }
+        }
+
+        .field-grid {
+            display: grid; grid-template-columns: 1fr; gap: 40px;
+        }
+        @media (min-width: 601px) {
+            .field-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .field-item {
+            width: 100%; display: flex; align-items: center; gap: 12px;
+        }
+        .field-icon {
+            color: var(--text-color); opacity: 0.7; flex-shrink: 0;
+            transition: color var(--transition-speed) var(--easing);
+        }
+        .field-box {
+            position: relative; display: flex; align-items: center;
+            border: 2px solid var(--border-color); border-radius: 8px; height: 56px;
+            cursor: pointer; transition: all var(--transition-speed) var(--easing), color var(--transition-speed) var(--easing);
+            box-sizing: border-box; background: rgba(240, 240, 240, 0.75); flex: 1; max-width: 457px;
+        }
+        .dark-mode .field-box { background: rgba(30, 30, 30, 0.75); }
+        .field-box:hover { border-color: var(--label-color); opacity: 0.9; }
+        .field-box.active { border-color: var(--highlight-color); box-shadow: 0 0 0 1px var(--highlight-color); color: var(--highlight-color); }
+        .field-label {
+            position: absolute; top: -10px; left: 12px;
+            background: rgba(245, 245, 245, 0.95); padding: 0 6px;
+            font-size: 12px; color: var(--label-color); z-index: 20; border-radius: 4px;
+            transition: color var(--transition-speed) var(--easing), background var(--transition-speed) var(--easing);
+        }
+        .dark-mode .field-label { background: rgba(40, 40, 40, 0.95); }
+        .field-box.active .field-label { color: var(--highlight-color); }
+        .chip-wrapper {
+            position: absolute; left: 12px; right: 45px; top: 0; bottom: 0;
+            display: flex; align-items: center; overflow: hidden; pointer-events: none;
+        }
+        .chip-container { display: flex; flex-wrap: nowrap; gap: 6px; align-items: center; width: 100%; }
+        .chip {
+            background: rgba(230, 230, 230, 0.75); color: var(--text-color);
+            padding: 6px 12px; border-radius: 16px; font-size: 14px; white-space: nowrap;
+            transition: color var(--transition-speed) var(--easing), background var(--transition-speed) var(--easing);
+        }
+        .dark-mode .chip { background: rgba(60, 60, 60, 0.75); }
+        .placeholder-text { color: var(--label-color); opacity: 0.6; font-size: 14px; transition: color var(--transition-speed) var(--easing); }
+        .ellipsis {
+            position: absolute; right: 42px; width: 60px; height: 32px; top: 50%; transform: translateY(-50%);
+            display: none; align-items: center; justify-content: flex-end; z-index: 5;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 80%, rgba(255, 255, 255, 0.7) 100%);
+            color: var(--text-color); font-weight: bold; padding-right: 4px; font-size: 13px;
+            transition: color var(--transition-speed) var(--easing), background var(--transition-speed) var(--easing);
+        }
+        .dark-mode .ellipsis {
+            background: linear-gradient(to right, transparent 0%, rgba(18, 18, 18, 0.7) 80%, rgba(18, 18, 18, 0.7) 100%);
+        }
+        .field-box::after {
+            content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+            width: 8px; height: 8px; border-right: 2px solid var(--label-color); border-bottom: 2px solid var(--label-color);
+            transform: translateY(-70%) rotate(45deg);
+            transition: border-color var(--transition-speed) var(--easing);
+        }
+        .field-box.active::after {
+            border-right: 2px solid var(--highlight-color); border-bottom: 2px solid var(--highlight-color);
+        }
+
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--overlay-bg); z-index: 1100;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden; transition: all var(--transition-speed) var(--easing);
+        }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal-content {
+            background: var(--modal-bg); display: flex; flex-direction: column;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.24); overflow: hidden;
+            transition: width 0.4s var(--easing), transform var(--transition-speed) var(--easing), opacity var(--transition-speed);
+        }
+        .panes-container { display: flex; height: 100%; transition: transform 0.4s var(--easing); }
+        .pane { flex-shrink: 0; display: flex; flex-direction: column; height: 100%; background: var(--modal-bg); box-sizing: border-box; }
+
+        @media (min-width: 901px) {
+            .modal-content { width: 450px; border-radius: 12px; height: 80vh; max-height: 80vh; opacity: 0; transform: scale(0.92); }
+            .modal-content.expanded { width: 900px; }
+            .modal-overlay.show .modal-content { opacity: 1; transform: scale(1); }
+            .panes-container { width: 100%; transform: none !important; }
+            .pane { width: 450px; height: 100%; }
+            .pane-secondary {
+                border-left: 1px solid var(--border-color);
+                opacity: 0;
+                transition: opacity var(--transition-speed) var(--easing), transform var(--transition-speed) var(--easing), visibility var(--transition-speed) var(--easing);
+                transform: translateX(20px);
+            }
+            .modal-content.expanded .pane-secondary { visibility: visible; opacity: 1; transform: translateX(0); }
+            .modal-content:not(.expanded) .pane-secondary { visibility: hidden; }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+            .modal-content { width: 90vw; max-width: 500px; border-radius: 12px; height: 80vh; max-height: 80vh; opacity: 0; transform: scale(0.92); }
+            .modal-overlay.show .modal-content { opacity: 1; transform: scale(1); }
+            .panes-container { width: 200%; }
+            .pane { width: 50%; height: 100%; }
+            .modal-content.view-sub .panes-container { transform: translateX(-50%); }
+            .pane-secondary { border-left: 1px solid var(--border-color); }
+        }
+        @media (max-width: 600px) {
+            .modal-overlay { align-items: flex-end; }
+            .modal-content { width: 100%; border-radius: 16px 16px 0 0; transform: translateY(100%); height: 80vh; }
+            .modal-overlay.show .modal-content { transform: translateY(0); }
+            .panes-container { width: 200%; }
+            .pane { width: 50%; }
+            .modal-content.view-sub .panes-container { transform: translateX(-50%); }
+        }
+
+        .modal-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 20px; border-bottom: 1px solid var(--border-color);
+            height: 56px; box-sizing: border-box; flex-shrink: 0; color: var(--text-color);
+        }
+        .header-btn {
+            background: none; border: none; color: var(--text-color); cursor: pointer;
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; transition: background var(--transition-speed);
+        }
+        .header-btn:hover { background: rgba(125, 125, 125, 0.1); }
+        .header-btn svg { width: 24px; height: 24px; fill: currentColor; }
+
+        .option-list { flex: 1; overflow-y: auto; padding: 8px 0; -webkit-overflow-scrolling: touch; }
+        .pane-secondary .option-item {
+            opacity: 0; transform: translateY(10px);
+            transition: opacity 0.3s var(--easing), transform 0.3s var(--easing);
+        }
+        .modal-content.expanded .pane-secondary .option-item,
+        .modal-content.view-sub .pane-secondary .option-item { opacity: 1; transform: translateY(0); }
+        .modal-content:not(.expanded) .pane-secondary .option-item,
+        .modal-content:not(.view-sub) .pane-secondary .option-item { opacity: 0; transform: translateY(10px); }
+        @keyframes item-in { to { opacity: 1; transform: translateY(0); } }
+
+        .option-item {
+            display: flex; align-items: center; padding: 14px 20px; cursor: pointer; color: var(--text-color); position: relative; overflow: hidden;
+            transition: background-color var(--transition-speed) var(--easing);
+        }
+        @media (hover: hover) { .option-item:hover { background-color: var(--hover-bg); } }
+
+        .ripple {
+            position: absolute; background-color: var(--highlight-color); border-radius: 50%;
+            pointer-events: none; transform: scale(0); opacity: 0.15; z-index: 0;
+            animation: ripple-effect 0.6s var(--easing) forwards;
+        }
+        @keyframes ripple-effect { 0% { transform: scale(0); opacity: 0.15; } 100% { transform: scale(1); opacity: 0; } }
+
+        .option-item-content { position: relative; z-index: 1; pointer-events: none; display: flex; align-items: center; flex: 1; color: inherit; }
+        .mod-name-container { display: flex; flex-direction: column; line-height: 1.3; color: inherit; }
+        .mod-en-name { font-size: 11px; color: var(--label-color); opacity: 0.8; }
+        .mod-desc { font-size: 11px; color: var(--label-color); opacity: 0.7; }
+
+        .selector-box {
+            width: 20px; height: 20px; border: 2px solid var(--border-color); margin-right: 14px;
+            position: relative; flex-shrink: 0; box-sizing: border-box;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .selector-box.checkbox { border-radius: 4px; }
+        .option-item.selected .selector-box.checkbox {
+            background-color: var(--highlight-color); border-color: var(--highlight-color);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+            background-size: 14px; background-repeat: no-repeat; background-position: center;
+        }
+        .option-item.indeterminate .selector-box.checkbox {
+            background-color: var(--highlight-color); border-color: var(--highlight-color);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 13H5v-2h14v2z'/%3E%3C/svg%3E");
+            background-size: 14px; background-repeat: no-repeat; background-position: center;
+        }
+        .option-item.animate-pop .selector-box.checkbox { animation: box-pop 0.3s var(--easing); }
+        .selector-box.radio { border-radius: 50%; }
+        .option-item.selected .selector-box.radio { border-color: var(--highlight-color); }
+        .selector-box.radio::after {
+            content: ''; position: absolute; left: 4px; top: 4px; width: 8px; height: 8px;
+            background-color: var(--highlight-color); border-radius: 50%;
+            transform: scale(0); transition: transform 0.25s var(--easing); opacity: 0;
+        }
+        .option-item.selected .selector-box.radio::after { transform: scale(1); opacity: 1; }
+        @keyframes box-pop { 0% { transform: scale(0.8); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        .sub-trigger {
+            height: 32px; padding: 0 10px 0 14px; border-radius: 16px;
+            background: #e0e0e0; display: flex; align-items: center; justify-content: center;
+            margin-left: 10px; cursor: pointer; transition: all var(--transition-speed) var(--easing); flex-shrink: 0;
+            color: var(--text-color); font-size: 12px; font-weight: 500; z-index: 2;
+        }
+        .dark-mode .sub-trigger { background: #444444; }
+        .sub-trigger:hover { background: #bdbdbd; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .dark-mode .sub-trigger:hover { background: #555555; }
+        .sub-trigger:active { transform: scale(0.98); }
+        .sub-trigger.active { background: var(--highlight-color); color: white; }
+        .sub-trigger.active:hover { background: var(--highlight-color); }
+        .sub-trigger svg { width: 16px; height: 16px; margin-left: 6px; fill: currentColor; vertical-align: middle; }
+
+        .toggle-container {
+            display: flex; align-items: center; justify-content: flex-start; gap: 12px;
+            margin-top: 24px; padding: 0 4px;
+        }
+        .toggle-switch { flex-shrink: 0; }
+        .toggle-text-container { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+        .toggle-label {
+            font-size: 14px; color: var(--text-color); font-weight: 500;
+            transition: color var(--transition-speed) var(--easing);
+        }
+        .toggle-description {
+            font-size: 12px; color: var(--label-color); margin-top: 2px;
+            transition: color var(--transition-speed) var(--easing);
+        }
+        .toggle-switch {
+            position: relative; display: inline-block; width: 50px; height: 24px;
+        }
+        .toggle-switch::before {
+            content: ''; position: absolute; top: -3px; left: -3px; right: -3px; bottom: -3px;
+            background-color: var(--border-color); opacity: 0; border-radius: 24px;
+            transition: all var(--transition-speed) var(--easing); z-index: -1;
+        }
+        .toggle-container:hover .toggle-switch::before { opacity: 0.6; background-color: #888888; }
+        :not(.dark-mode) .toggle-container:hover .toggle-switch::before { opacity: 0.4; background-color: #999999; }
+        .toggle-container { cursor: pointer; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--border-color); transition: background-color var(--transition-speed) var(--easing);
+            border-radius: 24px;
+        }
+        .toggle-slider:before {
+            position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px;
+            background-color: white; transition: var(--transition-speed); border-radius: 50%;
+        }
+        input:checked + .toggle-slider { background-color: var(--highlight-color); }
+        input:checked + .toggle-slider:before { transform: translateX(26px); }
+
+        .toggle-ripple {
+            position: absolute; border-radius: 50%; background-color: var(--text-color);
+            opacity: 0.3; transform: scale(0); animation: toggle-ripple 0.6s var(--easing) forwards;
+            pointer-events: none;
+        }
+        @keyframes toggle-ripple { to { transform: scale(3); opacity: 0; } }
+
+        .build-button-container { margin-top: 40px; margin-bottom: 20px; }
+        .build-button {
+            background-color: var(--highlight-color); color: white; border: none;
+            border-radius: 8px; padding: 12px 24px; font-size: 16px; font-weight: 500;
+            cursor: pointer; display: flex; align-items: center;
+            transition: all var(--transition-speed) var(--easing);
+        }
+        .build-button:hover { background-color: #1565c0; }
+        
+        /* 警告区域样式 */
+        .warning-container {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .warning-box {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            border-radius: 8px;
+            transition: all 0.3s var(--easing);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .warning-text {
+            text-align: left;
+        }
+        .warning-box:hover {
+            opacity: 1;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode .warning-box {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark-mode .warning-box:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .warning-box.hidden {
+            display: none;
+        }
+        .warning-box.error {
+            background-color: rgba(244, 67, 54, 0.2);
+        }
+        .warning-box.warning {
+            background-color: rgba(255, 193, 7, 0.2);
+        }
+        .warning-box.info {
+            background-color: rgba(33, 150, 243, 0.2);
+        }
+        .warning-icon {
+            margin-right: 12px;
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .warning-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        .warning-icon.error {
+            color: #f44336;
+        }
+        .warning-icon.warning {
+            color: #ff9800;
+        }
+        .warning-icon.info {
+            color: #2196f3;
+        }
+        .warning-text {
+            flex: 1;
+            color: var(--text-color);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-bar">
+    <div class="header-content">
+        <h1 class="header-title">在线构建</h1>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <button class="theme-toggle" id="themeToggle">
+                <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="top-banner">
+    <div></div>
+    <div class="banner-text">测试页面，不是最终效果！</div>
+    <div class="performance-monitor" id="perfMonitor">FPS: -- | MEM: --</div>
+</div>
+
+<!-- 日志面板 -->
+<div class="log-panel" id="logPanel">
+    <div class="log-panel-header">
+        <span>构建日志</span>
+        <button class="log-panel-close" id="logPanelClose">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </button>
+    </div>
+    <div class="log-content" id="logContent"></div>
+</div>
+
+<!-- 日志面板切换按钮 -->
+<button class="log-toggle-btn hidden" id="logToggleBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+</button>
+
+<!-- 设置面板遮罩层 -->
+<div class="settings-overlay" id="settingsOverlay"></div>
+
+<!-- 设置面板 -->
+<div class="settings-panel" id="settingsPanel">
+    <div class="settings-panel-header">
+        <span>设置</span>
+        <button class="settings-panel-close" id="settingsPanelClose">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </button>
+    </div>
+    <div class="settings-content">
+        <div class="settings-section">
+            <h3 class="settings-section-title">界面设置</h3>
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="settingGlassmorphism" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+                <div class="toggle-text-container">
+                    <span class="toggle-label">毛玻璃效果</span>
+                    <span class="toggle-description">很好看，但是设备不好会卡</span>
+                </div>
+            </div>
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="settingAnimations" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+                <div class="toggle-text-container">
+                    <span class="toggle-label">动画效果</span>
+                    <span class="toggle-description">为什么要关掉它</span>
+                </div>
+            </div>
+        </div>
+        <div class="settings-section">
+            <h3 class="settings-section-title">调试</h3>
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="settingPerformance">
+                    <span class="toggle-slider"></span>
+                </label>
+                <div class="toggle-text-container">
+                    <span class="toggle-label">显示性能监控</span>
+                    <span class="toggle-description">在右下角呢，打开之后要关设置</span>
+                </div>
+            </div>
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="settingLogButton">
+                    <span class="toggle-slider"></span>
+                </label>
+                <div class="toggle-text-container">
+                    <span class="toggle-label">显示日志按钮</span>
+                    <span class="toggle-description">“而不是发送这个窗口的照片或者截图”</span>
+                </div>
+            </div>
+        </div>
+        <div class="settings-section">
+            <h3 class="settings-section-title">关于</h3>
+            <div class="settings-button-container">
+                <button class="settings-button" id="joinQQGroupBtn">
+                    加入QQ群
+                </button>
+                <p class="settings-note">可以反馈任何问题</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="center-container">
+    <div class="mode-selector">
+        <span class="mode-label">模式：</span>
+        <div class="mode-options">
+            <button class="mode-btn active" data-mode="simple">简单</button>
+            <span class="mode-divider">|</span>
+            <button class="mode-btn" data-mode="detailed">详细</button>
+        </div>
+    </div>
+    
+    <!-- 警告区域 -->
+    <div class="warning-container" id="warningContainer">
+        <div class="warning-box error hidden" id="warningBox">
+            <div class="warning-icon error" id="warningIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+            </div>
+            <div class="warning-text" id="warningText">1.20.4版本可能存在兼容性问题，请谨慎使用！</div>
+        </div>
+    </div>
+    
+    <div class="field-grid" id="fieldGrid">
+        <!-- 字段由 JS 动态渲染 -->
+    </div>
+    <div class="toggle-container" id="toggle-shuffle">
+        <label class="toggle-switch">
+            <input type="checkbox" id="modToggle">
+            <span class="toggle-slider"></span>
+        </label>
+        <div class="toggle-text-container">
+            <span class="toggle-label">随机打乱所有文本</span>
+            <span class="toggle-description">每次都有新体验（仅供娱乐）</span>
+        </div>
+    </div>
+    <div class="toggle-container" id="toggle-lang">
+        <label class="toggle-switch">
+            <input type="checkbox" id="languageToggle">
+            <span class="toggle-slider"></span>
+        </label>
+        <div class="toggle-text-container">
+            <span class="toggle-label">添加新语言选项</span>
+            <span class="toggle-description">将语言作为新语言添加到设置界面而不是替换简体中文。但由于mod兼容性，不建议开启这个选项。</span>
+        </div>
+    </div>
+    
+    <div class="build-button-container" id="buildButtonContainer">
+        <button class="build-button" id="buildButton">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right: 8px;">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            开始构建
+        </button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content" id="modalContent">
+        <div class="panes-container">
+            <div class="pane">
+                <div class="modal-header">
+                    <span style="font-weight: bold;" id="modalTitle">选择项目</span>
+                    <button class="header-btn" onclick="closeModal()">
+                        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                    </button>
+                </div>
+                <div class="option-list" id="mainList"></div>
+            </div>
+            <div class="pane pane-secondary">
+                <div class="modal-header">
+                    <button class="header-btn" id="backBtn">
+                        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    </button>
+                    <span id="subTitle" style="font-weight: bold; flex:1; text-align:center; margin-right:40px; transition: opacity var(--transition-speed) var(--easing);"></span>
+                </div>
+                <div class="option-list" id="subList"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ============ 全局状态 ============
+    let dataSources = {};
+    let configData = null;
+    let selections = {};
+    let currentOpt = null;
+    let currentDataSource = null;
+    let currentField = null;
+    let currentPlatform = 'java';
+    let currentMode = 'simple';
+    const targetLang = 'zh-CN';
+
+    const mainList = document.getElementById('mainList');
+    const subList = document.getElementById('subList');
+    const modalContent = document.getElementById('modalContent');
+    const overlay = document.getElementById('modalOverlay');
+    const fieldGrid = document.getElementById('fieldGrid');
+
+    const rightArrowSvg = `<svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>`;
+
+    // ============ 工具函数 ============
+    function getLocalized(localizedObj, lang) {
+        if (!localizedObj || typeof localizedObj !== 'object') return '';
+        return localizedObj[lang] || localizedObj['zh-CN'] || localizedObj['en-US'] || Object.values(localizedObj)[0] || '';
+    }
+
+    function createRipple(e, container) {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const radius = Math.max(Math.hypot(x, y), Math.hypot(rect.width-x, y), Math.hypot(x, rect.height-y), Math.hypot(rect.width-x, rect.height-y));
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.width = ripple.style.height = `${radius * 2}px`;
+        ripple.style.left = `${x - radius}px`;
+        ripple.style.top = `${y - radius}px`;
+        container.appendChild(ripple);
+        ripple.addEventListener('animationend', () => ripple.remove());
+    }
+
+    // ============ 配置解析（核心修正） ============
+    function parseConfig(config, lang = 'zh-CN') {
+        if (!config?.platforms) return {};
+        
+        const result = {
+            meta: parseMeta(config.meta, lang),
+            platforms: {},
+            toggles: {}
+        };
+
+        config.platforms.forEach(platform => {
+            const platformData = {
+                id: platform.id,
+                icon: platform.icon,
+                label: getLocalized(platform.label, lang),
+                categories: {},
+                toggles: []
+            };
+
+            platform.categories?.forEach(category => {
+                const visibleInSimple = category.visibleInSimple !== false;
+                const categoryId = category.id === 'mods' ? 'mod' : category.id;
+                
+                platformData.categories[categoryId] = {
+                    id: category.id,
+                    icon: category.icon,
+                    label: getLocalized(category.label, lang),
+                    description: getLocalized(category.description, lang),
+                    helper: getLocalized(category.helper, lang),
+                    selection: category.selection,
+                    visibleInSimple,
+                    disabledInLegacy: category.disabledInLegacy || false,
+                    items: []
+                };
+
+                category.items?.forEach(item => {
+                    const parsedItem = parseItem(item, lang, category.selection);
+                    platformData.categories[categoryId].items.push(parsedItem);
+                });
+            });
+
+            platform.toggles?.forEach(toggle => {
+                platformData.toggles.push({
+                    id: toggle.id,
+                    icon: toggle.icon,
+                    label: getLocalized(toggle.label, lang),
+                    description: getLocalized(toggle.description, lang),
+                    disabledInLegacy: toggle.disabledInLegacy || false,
+                    visibleInSimple: toggle.visibleInSimple !== false,
+                    defaultEnabled: false
+                });
+            });
+
+            result.platforms[platform.id] = platformData;
+        });
+
+        return result;
+    }
+
+    function parseItem(item, lang, parentSelection) {
+        const label = getLocalized(item.label, lang);
+        const summary = getLocalized(item.summary, lang);
+        const description = getLocalized(item.description, lang);
+        const selectionMode = item.childSelection || parentSelection;
+
+        const parsed = {
+            id: item.id,
+            label,
+            summary,
+            description,
+            type: selectionMode === 'single' ? 'radio' : 'checkbox',
+            defaultSelected: item.defaultSelected || false,
+            legacyOnlyPackage: item.legacyOnlyPackage || false,
+            files: item.files || [],
+            subOptions: null
+        };
+
+        if (item.children?.length > 0) {
+            parsed.subOptions = {
+                multiple: selectionMode === 'multiple',
+                items: item.children.map(child => parseItem(child, lang, selectionMode))
+            };
+        }
+
+        if (item.presetSelection) {
+            parsed.presetSelection = parsePresetSelection(item.presetSelection);
+        }
+
+        return parsed;
+    }
+
+    function parseMeta(meta, lang) {
+        return {
+            qqGroupUrl: meta?.qqGroupUrl || '',
+            pendingBuildNote: getLocalized(meta?.pendingBuildNote, lang)
+        };
+    }
+
+    function parsePresetSelection(preset) {
+        const result = { categories: {}, toggles: {} };
+        if (preset.categories) {
+            Object.entries(preset.categories).forEach(([catId, config]) => {
+                result.categories[catId] = {
+                    selected: config.selected || [],
+                    children: config.children || {}
+                };
+            });
+        }
+        if (preset.toggles) {
+            result.toggles = { ...preset.toggles };
+        }
+        return result;
+    }
+
+    // ============ 数据加载 ============
+    async function loadConfig() {
+        console.log('[CONFIG] 开始加载配置...');
+        
+        // 优先尝试读取本地 config.json
+        console.log('[CONFIG] 尝试读取本地 config.json...');
+        try {
+            const localResponse = await fetch('config.json');
+            if (localResponse.ok) {
+                configData = await localResponse.json();
+                dataSources = parseConfig(configData, targetLang);
+                console.log('[CONFIG] ✓ 本地配置加载成功');
+                console.log(`[CONFIG] 平台数量: ${Object.keys(dataSources.platforms).length}`);
+                return true;
+            } else {
+                console.log(`[CONFIG] ✗ 本地配置读取失败，状态码: ${localResponse.status}`);
+            }
+        } catch (localError) {
+            console.log('[CONFIG] ✗ 本地配置不存在或无法读取');
+        }
+        
+        // 如果本地没有，尝试联网获取
+        console.log('[CONFIG] 尝试联网获取远程配置...');
+        try {
+            const response = await fetch('https://api.nekohouse.cn/config.json');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            configData = await response.json();
+            dataSources = parseConfig(configData, targetLang);
+            console.log('[CONFIG] ✓ 远程配置加载成功');
+            console.log(`[CONFIG] 平台数量: ${Object.keys(dataSources.platforms).length}`);
+            return true;
+        } catch (error) {
+            console.error('[CONFIG] ✗ 远程配置加载失败:', error.message);
+            // 使用备用配置
+            console.log('[CONFIG] 使用内置备用配置...');
+            const fallback = generateFallbackConfig();
+            dataSources = parseConfig(fallback, targetLang);
+            console.log('[CONFIG] ✓ 备用配置已加载');
+            return true;
+        }
+    }
+
+    function generateFallbackConfig() {
+        return {
+            meta: { qqGroupUrl: 'https://qm.qq.com/q/xxxxxx' },
+            platforms: [{
+                id: 'java',
+                icon: 'java',
+                label: { 'zh-CN': 'Java 版', 'en-US': 'Java Edition' },
+                categories: [
+                    {
+                        id: 'gameVersion',
+                        icon: 'version',
+                        label: { 'zh-CN': '游戏版本' },
+                        description: { 'zh-CN': '选择目标游戏版本' },
+                        selection: 'single',
+                        visibleInSimple: true,
+                        items: [
+                            { id: '1.20.4', label: { 'zh-CN': '1.20.4' }, description: { 'zh-CN': '最新稳定版' }, defaultSelected: true },
+                            { id: '1.20.1', label: { 'zh-CN': '1.20.1' }, description: { 'zh-CN': '长期支持版' } },
+                            { id: '1.19.4', label: { 'zh-CN': '1.19.4' }, description: { 'zh-CN': '旧版本' } }
+                        ]
+                    },
+                    {
+                        id: 'mods',
+                        icon: 'mod',
+                        label: { 'zh-CN': 'Mod 内容' },
+                        description: { 'zh-CN': '选择要包含的 Mod' },
+                        selection: 'multiple',
+                        visibleInSimple: true,
+                        items: [
+                            { id: 'optifine', label: { 'zh-CN': 'OptiFine' }, description: { 'zh-CN': '性能优化模组' }, defaultSelected: true },
+                            { id: 'jei', label: { 'zh-CN': 'JEI' }, description: { 'zh-CN': '物品管理器' } },
+                            { id: 'appleskin', label: { 'zh-CN': 'AppleSkin' }, description: { 'zh-CN': '饱食度显示' } }
+                        ]
+                    },
+                    {
+                        id: 'resourcePacks',
+                        icon: 'resource',
+                        label: { 'zh-CN': '资源包' },
+                        description: { 'zh-CN': '选择材质/语言资源包' },
+                        selection: 'multiple',
+                        visibleInSimple: false,
+                        items: [
+                            { id: 'default', label: { 'zh-CN': '默认资源' }, description: { 'zh-CN': '原版资源文件' }, defaultSelected: true },
+                            { id: 'custom', label: { 'zh-CN': '自定义资源' }, description: { 'zh-CN': '社区贡献资源' } }
+                        ]
+                    }
+                ],
+                toggles: [
+                    {
+                        id: 'shuffleText',
+                        icon: 'shuffle',
+                        label: { 'zh-CN': '随机打乱所有文本' },
+                        description: { 'zh-CN': '每次都有新体验（仅供娱乐）' },
+                        visibleInSimple: true
+                    },
+                    {
+                        id: 'addLanguage',
+                        icon: 'language',
+                        label: { 'zh-CN': '添加新语言选项' },
+                        description: { 'zh-CN': '将语言作为新语言添加到设置界面' },
+                        visibleInSimple: false
+                    }
+                ]
+            }]
+        };
+    }
+
+    // ============ 字段渲染 ============
+    function renderFields(platformData, mode) {
+        fieldGrid.innerHTML = '';
+        const fragment = document.createDocumentFragment();
+        
+        Object.entries(platformData.categories).forEach(([fieldKey, category]) => {
+            // 简单模式过滤
+            if (mode === 'simple' && !category.visibleInSimple) return;
+            
+            const fieldItem = document.createElement('div');
+            fieldItem.className = 'field-item';
+            fieldItem.id = `field-${fieldKey}`;
+            fieldItem.style.viewTransitionName = `field_${fieldKey.replace(/-/g, '_')}`;
+            
+            // 根据字段类型选择图标
+            let iconPath = '';
+            switch (fieldKey) {
+                case 'gameVersion':
+                    iconPath = 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z';
+                    break;
+                case 'presets':
+                case 'preset':
+                    iconPath = 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z';
+                    break;
+                case 'vanilla':
+                case 'original':
+                    iconPath = 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z';
+                    break;
+                case 'mods':
+                case 'mod':
+                    iconPath = 'M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z';
+                    break;
+                case 'expansion':
+                case 'expanded':
+                    iconPath = 'M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z';
+                    break;
+                case 'unfinished':
+                    iconPath = 'M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z';
+                    break;
+                default:
+                    iconPath = 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z';
+            }
+            
+            fieldItem.innerHTML = `
+                <div class="field-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path d="${iconPath}"/>
+                    </svg>
+                </div>
+                <div class="field-box" id="${fieldKey}Box">
+                    <span class="field-label">${category.label}</span>
+                    <div class="chip-wrapper"><div class="chip-container" id="${fieldKey}Chips"></div></div>
+                    <div class="ellipsis" id="${fieldKey}Ellipsis">...</div>
+                </div>
+            `;
+            
+            fragment.appendChild(fieldItem);
+        });
+        
+        fieldGrid.appendChild(fragment);
+        
+        // 绑定点击事件
+        Object.keys(platformData.categories).forEach(fieldKey => {
+            const box = document.getElementById(`${fieldKey}Box`);
+            if (box) {
+                box.onclick = () => openFieldModal(fieldKey, platformData.categories[fieldKey]);
+            }
+            // 初始化芯片
+            const container = document.getElementById(`${fieldKey}Chips`);
+            if (container) container.innerHTML = '<span class="placeholder-text">未选择</span>';
+        });
+    }
+
+    // ============ 设置面板逻辑 ============
+    const settingsPanel = document.getElementById('settingsPanel');
+    const settingsOverlay = document.getElementById('settingsOverlay');
+    const menuToggle = document.getElementById('menuToggle');
+    const settingsPanelClose = document.getElementById('settingsPanelClose');
+
+    // 切换设置面板和遮罩层
+    function toggleSettingsPanel() {
+        settingsPanel.classList.toggle('open');
+        settingsOverlay.classList.toggle('show');
+    }
+
+    // 关闭设置面板和遮罩层
+    function closeSettingsPanel() {
+        settingsPanel.classList.remove('open');
+        settingsOverlay.classList.remove('show');
+    }
+
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // 阻止事件冒泡
+        toggleSettingsPanel();
+    });
+
+    settingsPanelClose.addEventListener('click', (e) => {
+        e.stopPropagation(); // 阻止事件冒泡
+        closeSettingsPanel();
+    });
+
+    // 点击遮罩层关闭设置面板
+    settingsOverlay.addEventListener('click', () => {
+        closeSettingsPanel();
+    });
+
+    // 按ESC键关闭设置面板
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && settingsPanel.classList.contains('open')) {
+            closeSettingsPanel();
+        }
+    });
+
+    // ============ 设置选项逻辑 ============
+    const performanceMonitor = document.getElementById('perfMonitor');
+    const logToggleBtn = document.getElementById('logToggleBtn');
+    const settingPerformance = document.getElementById('settingPerformance');
+    const settingLogButton = document.getElementById('settingLogButton');
+    const settingGlassmorphism = document.getElementById('settingGlassmorphism');
+    const settingAnimations = document.getElementById('settingAnimations');
+
+    // 初始化设置状态
+    function initSettings() {
+        // 毛玻璃效果设置
+        if (settingGlassmorphism) {
+            settingGlassmorphism.addEventListener('change', (e) => {
+                const glassElements = document.querySelectorAll('.header-bar, .center-container');
+                glassElements.forEach(element => {
+                    if (e.target.checked) {
+                        element.style.backdropFilter = 'blur(10px)';
+                        element.style.WebkitBackdropFilter = 'blur(10px)';
+                    } else {
+                        element.style.backdropFilter = 'none';
+                        element.style.WebkitBackdropFilter = 'none';
+                    }
+                });
+            });
+            // 应用初始状态
+            if (settingGlassmorphism.checked) {
+                const glassElements = document.querySelectorAll('.header-bar, .center-container');
+                glassElements.forEach(element => {
+                    element.style.backdropFilter = 'blur(10px)';
+                    element.style.WebkitBackdropFilter = 'blur(10px)';
+                });
+            }
+        }
+
+        // 动画效果设置
+        if (settingAnimations) {
+            settingAnimations.addEventListener('change', (e) => {
+                document.documentElement.style.setProperty('--transition-speed', e.target.checked ? '0.3s' : '0s');
+            });
+            // 应用初始状态
+            document.documentElement.style.setProperty('--transition-speed', settingAnimations.checked ? '0.3s' : '0s');
+        }
+
+        // 性能监控设置
+        if (settingPerformance) {
+            settingPerformance.addEventListener('change', (e) => {
+                if (performanceMonitor) {
+                    performanceMonitor.style.display = e.target.checked ? 'block' : 'none';
+                }
+            });
+            // 应用初始状态
+            if (performanceMonitor) {
+                performanceMonitor.style.display = settingPerformance.checked ? 'block' : 'none';
+            }
+        }
+
+        // 日志按钮设置
+        if (settingLogButton) {
+            settingLogButton.addEventListener('change', (e) => {
+                if (logToggleBtn) {
+                    if (e.target.checked) {
+                        logToggleBtn.classList.remove('hidden');
+                    } else {
+                        logToggleBtn.classList.add('hidden');
+                    }
+                }
+            });
+            // 应用初始状态
+            if (logToggleBtn) {
+                if (settingLogButton.checked) {
+                    logToggleBtn.classList.remove('hidden');
+                } else {
+                    logToggleBtn.classList.add('hidden');
+                }
+            }
+        }
+    }
+
+    // 初始化设置
+    initSettings();
+
+    // ============ 窗口尺寸变化处理 ============
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        // 暂停过渡效果
+        const settingsPanel = document.getElementById('settingsPanel');
+        const settingsOverlay = document.getElementById('settingsOverlay');
+        const logPanel = document.getElementById('logPanel');
+        const logToggleBtn = document.getElementById('logToggleBtn');
+        
+        if (settingsPanel) {
+            settingsPanel.style.transition = 'none';
+        }
+        if (settingsOverlay) {
+            settingsOverlay.style.transition = 'none';
+        }
+        if (logPanel) {
+            logPanel.style.transition = 'none';
+        }
+        if (logToggleBtn) {
+            logToggleBtn.style.transition = 'none';
+        }
+        
+        // 清除之前的定时器
+        clearTimeout(resizeTimer);
+        
+        // 300ms后恢复过渡效果
+        resizeTimer = setTimeout(() => {
+            if (settingsPanel) {
+                settingsPanel.style.transition = '';
+            }
+            if (settingsOverlay) {
+                settingsOverlay.style.transition = '';
+            }
+            if (logPanel) {
+                logPanel.style.transition = '';
+            }
+            if (logToggleBtn) {
+                logToggleBtn.style.transition = '';
+            }
+        }, 300);
+    });
+
+    // ============ 关于部分逻辑 ============
+    const joinQQGroupBtn = document.getElementById('joinQQGroupBtn');
+    if (joinQQGroupBtn) {
+        joinQQGroupBtn.addEventListener('click', () => {
+            const qqGroupUrl = configData?.meta?.qqGroupUrl || 'https://qm.qq.com/q/AntBtGj33i';
+            window.open(qqGroupUrl, '_blank');
+        });
+    }
+
+    // ============ 模态框逻辑 ============
+    function openFieldModal(fieldKey, category) {
+        currentField = fieldKey;
+        currentDataSource = category.items;
+        
+        document.getElementById('modalTitle').textContent = category.label;
+        init(category.items);
+        
+        // 应用默认选中
+        applyDefaultSelections(category.items);
+        
+        overlay.classList.add('show');
+        document.addEventListener('keydown', handleTabKey);
+        document.addEventListener('keydown', handleEscKey);
+        
+        // 更新激活状态
+        document.querySelectorAll('.field-box').forEach(b => b.classList.remove('active'));
+        document.getElementById(`${fieldKey}Box`)?.classList.add('active');
+    }
+
+    function applyDefaultSelections(items) {
+        items.forEach(opt => {
+            if (opt.defaultSelected && !selections[opt.label]) {
+                if (opt.subOptions?.multiple) {
+                    selections[opt.label] = new Set([opt.subOptions.items[0]?.label]);
+                } else if (opt.type === 'radio') {
+                    selections[opt.label] = new Set([true]);
+                } else {
+                    selections[opt.label] = new Set([true]);
+                }
+            }
+        });
+    }
+
+    function renderMainItemStatus(item, opt) {
+        const set = selections[opt.label];
+        item.classList.remove('selected', 'indeterminate', 'animate-pop');
+        if (set && set.size > 0) {
+            if (opt.subOptions && opt.subOptions.multiple) {
+                item.classList.add(set.size === opt.subOptions.items.length ? 'selected' : 'indeterminate');
+            } else {
+                item.classList.add('selected');
+            }
+        }
+    }
+
+    function renderSubItems(opt) {
+        subList.innerHTML = '';
+        const itemCount = opt.subOptions.items.length;
+        const delayFactor = itemCount <= 5 ? 0.05 : 0.02;
+        const duration = itemCount <= 5 ? '0.3s' : '0.2s';
+        
+        const fragment = document.createDocumentFragment();
+        
+        opt.subOptions.items.forEach((sub, index) => {
+            const subItem = document.createElement('div');
+            const isSel = selections[opt.label] && selections[opt.label].has(sub.label);
+            const type = opt.subOptions.multiple ? 'checkbox' : 'radio';
+            subItem.className = `option-item ${isSel ? 'selected' : ''}`;
+            subItem.style.opacity = '0';
+            subItem.style.transform = 'translateY(10px)';
+            subItem.style.transition = `opacity ${duration} var(--easing), transform ${duration} var(--easing)`;
+            subItem.style.transitionDelay = `${index * delayFactor}s`;
+            
+            const subText = sub.summary ? `<span class="mod-desc">${sub.summary}</span>` : '';
+            subItem.innerHTML = `
+                <div class="option-item-content">
+                    <div class="selector-box ${type}"></div>
+                    <div class="mod-name-container"><span>${sub.label}</span>${subText}</div>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                subItem.onclick = (e) => {
+                    createRipple(e, subItem);
+                    if (!selections[opt.label]) selections[opt.label] = new Set();
+                    const set = selections[opt.label];
+                    
+                    if (opt.subOptions.multiple) {
+                        set.has(sub.label) ? set.delete(sub.label) : set.add(sub.label);
+                        subItem.classList.toggle('selected');
+                    } else {
+                        subList.querySelectorAll('.option-item').forEach(i => i.classList.remove('selected'));
+                        set.clear();
+                        set.add(sub.label);
+                        subItem.classList.add('selected');
+                    }
+                    if (set.size === 0) delete selections[opt.label];
+                    
+                    const mainItem = mainList.querySelector(`[data-name="${opt.label}"]`);
+                    renderMainItemStatus(mainItem, opt);
+                    setTimeout(updateChips, 50);
+                };
+            }, index * 10);
+            
+            fragment.appendChild(subItem);
+        });
+        
+        subList.appendChild(fragment);
+        
+        setTimeout(() => {
+            subList.querySelectorAll('.option-item').forEach(item => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            });
+        }, 10);
+    }
+
+    function init(dataSource) {
+        mainList.innerHTML = '';
+        const fragment = document.createDocumentFragment();
+        
+        dataSource.forEach(opt => {
+            const item = document.createElement('div');
+            item.className = 'option-item';
+            item.dataset.name = opt.label;
+            const type = opt.type || 'checkbox';
+            const optText = opt.summary ? `<span class="mod-desc">${opt.summary}</span>` : '';
+            
+            item.innerHTML = `
+                <div class="option-item-content">
+                    <div class="selector-box ${type}"></div>
+                    <div class="mod-name-container"><span>${opt.label}</span>${optText}</div>
+                </div>
+                ${opt.subOptions ? `<div class="sub-trigger">配置选项 ${rightArrowSvg}</div>` : ''}
+            `;
+            renderMainItemStatus(item, opt);
+
+            setTimeout(() => {
+                item.onclick = (e) => {
+                    createRipple(e, item);
+                    const name = opt.label;
+                    
+                    if (type === 'radio') {
+                        dataSource.forEach(otherOpt => {
+                            if (otherOpt.type === 'radio' && otherOpt.label !== name) {
+                                delete selections[otherOpt.label];
+                                const otherItem = mainList.querySelector(`[data-name="${otherOpt.label}"]`);
+                                if (otherItem) otherItem.classList.remove('selected');
+                            }
+                        });
+                        selections[name] = new Set([true]);
+                        item.classList.add('selected');
+                    } else {
+                        if (selections[name]) {
+                            delete selections[name];
+                            if (window.innerWidth > 600 && currentOpt === opt) modalContent.classList.remove('expanded');
+                        } else {
+                            const defaults = opt.subOptions ? [opt.subOptions.items[0]?.label] : [true];
+                            selections[name] = new Set(defaults);
+                            if (opt.trigger === 'jump') openSub(opt);
+                            item.classList.add('animate-pop');
+                        }
+                        renderMainItemStatus(item, opt);
+                    }
+                    setTimeout(updateChips, 50);
+                    if (currentOpt === opt && modalContent.classList.contains('expanded')) {
+                        renderSubItems(opt);
+                    }
+                };
+                
+                const btn = item.querySelector('.sub-trigger');
+                if (btn) btn.onclick = (e) => { e.stopPropagation(); openSub(opt); };
+            }, 0);
+            
+            fragment.appendChild(item);
+        });
+        
+        mainList.appendChild(fragment);
+    }
+
+    function openSub(opt) {
+        if (currentOpt && currentOpt.label === opt.label) return;
+        
+        document.querySelectorAll('.sub-trigger').forEach(btn => btn.classList.remove('active'));
+        const currentBtn = mainList.querySelector(`[data-name="${opt.label}"] .sub-trigger`);
+        if (currentBtn) currentBtn.classList.add('active');
+        
+        const subTitle = document.getElementById('subTitle');
+        subTitle.style.opacity = '0';
+        setTimeout(() => {
+            subTitle.innerText = opt.label;
+            subTitle.style.opacity = '1';
+        }, 150);
+        
+        const subItems = subList.querySelectorAll('.option-item');
+        if (subItems.length > 0) {
+            subItems.forEach((item, i) => {
+                item.style.transition = 'opacity 0.15s var(--easing), transform 0.15s var(--easing)';
+                item.style.transitionDelay = `${i * 0.01}s`;
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(10px)';
+            });
+            setTimeout(() => {
+                currentOpt = opt;
+                renderSubItems(opt);
+                if (window.innerWidth >= 901) {
+                    modalContent.classList.add('expanded');
+                } else {
+                    modalContent.classList.add('view-sub');
+                }
+            }, 200);
+        } else {
+            currentOpt = opt;
+            renderSubItems(opt);
+            if (window.innerWidth >= 901) {
+                modalContent.classList.add('expanded');
+            } else {
+                modalContent.classList.add('view-sub');
+            }
+        }
+    }
+
+    function updateChips() {
+        if (!currentField) return;
+        const container = document.getElementById(`${currentField}Chips`);
+        const ellipsis = document.getElementById(`${currentField}Ellipsis`);
+        if (!container || !ellipsis) return;
+        
+        const category = dataSources.platforms?.[currentPlatform]?.categories?.[currentField];
+        if (!category) return;
+        
+        const currentSelections = [];
+        Object.keys(selections).forEach(key => {
+            if (category.items.some(item => item.label === key)) {
+                currentSelections.push(key);
+            }
+        });
+        
+        if (currentSelections.length === 0) {
+            container.innerHTML = '<span class="placeholder-text">未选择</span>';
+        } else {
+            const fragment = document.createDocumentFragment();
+            currentSelections.forEach(name => {
+                const chip = document.createElement('span');
+                chip.className = 'chip';
+                chip.textContent = name;
+                fragment.appendChild(chip);
+            });
+            container.innerHTML = '';
+            container.appendChild(fragment);
+        }
+        
+        setTimeout(() => {
+            ellipsis.style.display = container.scrollWidth > container.parentElement.clientWidth ? 'flex' : 'none';
+        }, 10);
+        
+        // 显示警告逻辑
+        if (currentField === 'gameVersion') {
+            showGameVersionWarning(currentSelections);
+        }
+    }
+    
+    function showGameVersionWarning(selectedVersions) {
+        const warningBox = document.getElementById('warningBox');
+        const warningIcon = document.getElementById('warningIcon');
+        const warningText = document.getElementById('warningText');
+        
+        if (!warningBox || !warningIcon || !warningText) return;
+        
+        // 隐藏之前的警告
+        warningBox.classList.add('hidden');
+        warningBox.className = 'warning-box hidden';
+        
+        if (selectedVersions.length === 0) return;
+        
+        const version = selectedVersions[0];
+        
+        // 根据版本显示不同的警告
+        if (version === '1.20.4') {
+            // 红色错误警告
+            warningBox.className = 'warning-box error';
+            warningIcon.className = 'warning-icon error';
+            warningIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>';
+            warningText.textContent = '1.20.4版本可能存在兼容性问题，请谨慎使用！';
+        } else if (version === '1.20.1') {
+            // 黄色警告
+            warningBox.className = 'warning-box warning';
+            warningIcon.className = 'warning-icon warning';
+            warningIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>';
+            warningText.textContent = '1.20.1版本是长期支持版，稳定性较好。';
+        } else if (version === '1.19.4') {
+            // 蓝色信息警告
+            warningBox.className = 'warning-box info';
+            warningIcon.className = 'warning-icon info';
+            warningIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>';
+            warningText.textContent = '1.19.4版本是旧版本，部分新特性可能不可用。';
+        }
+        
+        // 显示警告
+        warningBox.classList.remove('hidden');
+    }
+
+    function handleTabKey(e) {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+        }
+    }
+
+    function handleEscKey(e) {
+        if (e.key === 'Escape') {
+            // 如果有子选项展开，先收起子选项
+            if (modalContent.classList.contains('expanded') || modalContent.classList.contains('view-sub')) {
+                modalContent.classList.remove('expanded', 'view-sub');
+                document.querySelectorAll('.sub-trigger').forEach(btn => btn.classList.remove('active'));
+                setTimeout(() => { currentOpt = null; }, 400);
+            } else {
+                // 没有子选项展开时，关闭整个菜单
+                closeModal();
+            }
+        }
+    }
+
+    function closeModal() {
+        overlay.classList.remove('show');
+        modalContent.classList.remove('expanded', 'view-sub');
+        document.querySelectorAll('.sub-trigger').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.field-box').forEach(box => box.classList.remove('active'));
+        currentOpt = null;
+        currentDataSource = null;
+        currentField = null;
+        document.removeEventListener('keydown', handleTabKey);
+        document.removeEventListener('keydown', handleEscKey);
+    }
+
+    document.getElementById('backBtn').onclick = () => {
+        modalContent.classList.remove('expanded', 'view-sub');
+        document.querySelectorAll('.sub-trigger').forEach(btn => btn.classList.remove('active'));
+        setTimeout(() => { currentOpt = null; }, 400);
+    };
+    overlay.onclick = (e) => e.target === overlay && closeModal();
+
+    // ============ 构建文件收集 ============
+    function collectBuildFiles(selections, platformData) {
+        const files = [];
+        
+        Object.entries(selections).forEach(([label, selectedSet]) => {
+            const item = findItemByLabel(platformData, label);
+            if (!item) return;
+            
+            item.files?.forEach(file => {
+                files.push({ name: file.name, path: file.path, type: file.type || 'merge' });
+            });
+            
+            if (item.subOptions && selectedSet?.size > 0) {
+                item.subOptions.items.forEach(sub => {
+                    if (selectedSet.has(sub.label)) {
+                        sub.files?.forEach(file => {
+                            files.push({ name: file.name, path: file.path, type: file.type || 'merge' });
+                        });
+                    }
+                });
+            }
+        });
+        
+        return files;
+    }
+
+    function findItemByLabel(platformData, label) {
+        for (const category of Object.values(platformData.categories)) {
+            const found = category.items?.find(item => item.label === label);
+            if (found) return found;
+        }
+        return null;
+    }
+
+    // ============ 构建按钮 ============
+    document.getElementById('buildButton').onclick = async () => {
+        const platformData = dataSources.platforms?.[currentPlatform];
+        if (!platformData) {
+            alert('配置数据未加载完成');
+            return;
+        }
+        
+        const buildPayload = {
+            platform: currentPlatform,
+            selections: {
+                categories: {},
+                toggles: {
+                    shuffleText: document.getElementById('modToggle')?.checked || false,
+                    addLanguage: document.getElementById('languageToggle')?.checked || false
+                }
+            },
+            files: collectBuildFiles(selections, platformData),
+            meta: {
+                timestamp: Date.now(),
+                clientVersion: '1.0.0'
+            }
+        };
+        
+        // 整理分类选择
+        Object.entries(selections).forEach(([label, set]) => {
+            for (const [catId, cat] of Object.entries(platformData.categories)) {
+                if (cat.items.some(i => i.label === label)) {
+                    if (!buildPayload.selections.categories[catId]) {
+                        buildPayload.selections.categories[catId] = [];
+                    }
+                    buildPayload.selections.categories[catId].push(label);
+                    break;
+                }
+            }
+        });
+        
+        console.log('Build Payload:', buildPayload);
+        alert(`构建配置已生成（见控制台）\n\n包含 ${buildPayload.files.length} 个文件`);
+    };
+
+    // ============ 开关逻辑 ============
+    document.querySelectorAll('.toggle-container').forEach(container => {
+        container.addEventListener('click', function(e) {
+            const toggle = this.querySelector('input[type="checkbox"]');
+            toggle.checked = !toggle.checked;
+            toggle.dispatchEvent(new Event('change'));
+            
+            const toggleSwitch = this.querySelector('.toggle-switch');
+            const rect = toggleSwitch.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const ripple = document.createElement('span');
+            ripple.className = 'toggle-ripple';
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            toggleSwitch.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+        });
+    });
+
+    // ============ 警告区域切换逻辑 ============
+    function initWarningToggle() {
+        const warningBox = document.getElementById('warningBox');
+        const warningIcon = document.getElementById('warningIcon');
+        const warningText = document.getElementById('warningText');
+        
+        if (!warningBox || !warningIcon || !warningText) return;
+        
+        let currentWarningIndex = 0;
+        const warnings = [
+            {
+                type: 'error',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+                text: '1.20.4版本可能存在兼容性问题，请谨慎使用！'
+            },
+            {
+                type: 'warning',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+                text: '1.20.1版本是长期支持版，稳定性较好。'
+            },
+            {
+                type: 'info',
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>',
+                text: '1.19.4版本是旧版本，部分新特性可能不可用。'
+            }
+        ];
+        
+        warningBox.addEventListener('click', () => {
+            currentWarningIndex = (currentWarningIndex + 1) % warnings.length;
+            const currentWarning = warnings[currentWarningIndex];
+            
+            warningBox.className = `warning-box ${currentWarning.type}`;
+            warningIcon.className = `warning-icon ${currentWarning.type}`;
+            warningIcon.innerHTML = currentWarning.icon;
+            warningText.textContent = currentWarning.text;
+        });
+    }
+    
+    // ============ 主题切换 ============
+    function initTheme() {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-mode');
+        }
+    }
+
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    // ============ 模式切换 ============
+    function initViewTransitionNames() {
+        document.querySelectorAll('.field-item, .toggle-container, .build-button-container').forEach(el => {
+            el.style.viewTransitionName = el.id?.replace(/-/g, '_') || '';
+        });
+    }
+
+    function switchMode(mode) {
+        const platformData = dataSources.platforms?.[currentPlatform];
+        if (!platformData) return;
+        
+        currentMode = mode;
+        
+        if (document.startViewTransition) {
+            document.startViewTransition(() => {
+                renderFields(platformData, mode);
+                updateChips();
+                // 控制添加新语言选项开关的显示
+                const langToggle = document.getElementById('toggle-lang');
+                if (langToggle) {
+                    langToggle.style.display = mode === 'detailed' ? 'flex' : 'none';
+                }
+            });
+        } else {
+            const allElements = document.querySelectorAll('.field-item, .toggle-container');
+            allElements.forEach(el => {
+                el.style.transition = 'opacity 0.3s var(--easing)';
+                el.style.opacity = '0';
+            });
+            setTimeout(() => {
+                renderFields(platformData, mode);
+                updateChips();
+                // 控制添加新语言选项开关的显示
+                const langToggle = document.getElementById('toggle-lang');
+                if (langToggle) {
+                    langToggle.style.display = mode === 'detailed' ? 'flex' : 'none';
+                }
+                setTimeout(() => {
+                    document.querySelectorAll('.field-item, .toggle-container').forEach(el => {
+                        el.style.opacity = '1';
+                    });
+                }, 50);
+            }, 300);
+        }
+    }
+
+    function initModeSelector() {
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                switchMode(this.dataset.mode);
+            });
+        });
+        initViewTransitionNames();
+    }
+
+    // ============ 性能监控 ============
+    function initPerformanceMonitor() {
+        const perfMonitor = document.getElementById('perfMonitor');
+        if (!perfMonitor) return;
+        let lastTime = performance.now();
+        let frames = 0;
+        function updateFPS() {
+            const now = performance.now();
+            frames++;
+            if (now - lastTime >= 1000) {
+                const fps = Math.round((frames * 1000) / (now - lastTime));
+                let memInfo = '--';
+                if (performance.memory) {
+                    memInfo = Math.round(performance.memory.usedJSHeapSize / 1048576) + 'MB';
+                }
+                perfMonitor.textContent = `FPS: ${fps} | MEM: ${memInfo}`;
+                frames = 0;
+                lastTime = now;
+            }
+            requestAnimationFrame(updateFPS);
+        }
+        requestAnimationFrame(updateFPS);
+    }
+
+    // ============ 初始化 ============
+    async function initPage() {
+        // 先初始化日志面板和拦截器，确保能捕获所有日志
+        initLogPanel();
+        interceptConsoleLogs();
+        
+        await loadConfig();
+        initTheme();
+        initModeSelector();
+        initPerformanceMonitor();
+        initWarningToggle();
+        
+        const platformData = dataSources.platforms?.[currentPlatform];
+        if (platformData) {
+            renderFields(platformData, currentMode);
+            renderPlatformToggles(platformData);
+            // 初始化添加新语言选项开关的显示状态
+            const langToggle = document.getElementById('toggle-lang');
+            if (langToggle) {
+                langToggle.style.display = currentMode === 'detailed' ? 'flex' : 'none';
+            }
+        }
+    }
+
+    // 日志面板初始化
+    function initLogPanel() {
+        const logPanel = document.getElementById('logPanel');
+        const logToggleBtn = document.getElementById('logToggleBtn');
+        const logPanelClose = document.getElementById('logPanelClose');
+        
+        if (!logPanel || !logToggleBtn || !logPanelClose) return;
+        
+        // 打开日志面板
+        logToggleBtn.addEventListener('click', () => {
+            logPanel.classList.add('open');
+            logToggleBtn.classList.add('hidden');
+        });
+        
+        // 关闭日志面板
+        logPanelClose.addEventListener('click', () => {
+            logPanel.classList.remove('open');
+            logToggleBtn.classList.remove('hidden');
+        });
+        
+        // 点击面板外部关闭
+        document.addEventListener('click', (e) => {
+            if (logPanel.classList.contains('open') && 
+                !logPanel.contains(e.target) && 
+                !logToggleBtn.contains(e.target)) {
+                logPanel.classList.remove('open');
+                logToggleBtn.classList.remove('hidden');
+            }
+        });
+    }
+
+    // 拦截 console 日志
+    function interceptConsoleLogs() {
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const message = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+            ).join(' ');
+            addLogEntry(`[LOG] ${message}`);
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            const message = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+            ).join(' ');
+            addLogEntry(`[ERR] ${message}`);
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            const message = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+            ).join(' ');
+            addLogEntry(`[WRN] ${message}`);
+        };
+    }
+
+    // 添加日志条目
+    function addLogEntry(message) {
+        const logContent = document.getElementById('logContent');
+        if (!logContent) return;
+        
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('zh-CN', { hour12: false });
+        
+        const entry = document.createElement('div');
+        entry.className = 'log-entry';
+        entry.innerHTML = `<span class="log-time">[${timeStr}]</span>${message}`;
+        
+        logContent.appendChild(entry);
+        logContent.scrollTop = logContent.scrollHeight;
+    }
+
+    function renderPlatformToggles(platformData) {
+        const shuffleContainer = document.getElementById('toggle-shuffle');
+        const langContainer = document.getElementById('toggle-lang');
+        
+        platformData.toggles.forEach(toggle => {
+            if (toggle.id === 'shuffleText' && shuffleContainer) {
+                shuffleContainer.querySelector('.toggle-label').textContent = toggle.label;
+                shuffleContainer.querySelector('.toggle-description').textContent = toggle.description;
+            }
+            if (toggle.id === 'addLanguage' && langContainer) {
+                langContainer.querySelector('.toggle-label').textContent = toggle.label;
+                langContainer.querySelector('.toggle-description').textContent = toggle.description;
+            }
+        });
+    }
+
+    initPage();
+</script>
+</body>
+</html>
