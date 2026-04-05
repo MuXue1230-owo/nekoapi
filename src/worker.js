@@ -216,18 +216,32 @@ function resolveRequiredPackFormatVersion(type, version) {
   const platform = (config.platforms || []).find((item) => item.id === type);
   const versionCategory = platform?.categories?.find((item) => item.id === "version");
   const versionItem = versionCategory?.items?.find((item) => item.id === version);
-  const packFormatVersion = versionItem?.requiredPackFormat?.version;
+  const rpf = versionItem?.requiredPackFormat;
 
-  if (typeof packFormatVersion !== "number" || Number.isNaN(packFormatVersion)) {
+  if (!rpf || typeof rpf !== "object") {
+    return { ok: false };
+  }
+
+  // New format: versions after 1.21.8 use min_format/max_format
+  if (typeof rpf.min_format === "number" && typeof rpf.max_format === "number") {
     return {
-      ok: false,
+      ok: true,
+      isNewFormat: true,
+      min_format: rpf.min_format,
+      max_format: rpf.max_format,
     };
   }
 
-  return {
-    ok: true,
-    version: packFormatVersion,
-  };
+  // Old format: versions up to 1.21.8 use pack_format
+  if (typeof rpf.version === "number") {
+    return {
+      ok: true,
+      isNewFormat: false,
+      version: rpf.version,
+    };
+  }
+
+  return { ok: false };
 }
 
 function readJsonFile(jsonPath) {
@@ -533,6 +547,68 @@ function findModuleInItems(items, moduleId) {
 }
 
 /**
+ * Fisher-Yates shuffle
+ */
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/**
+ * 收集 JSON 对象中所有叶子节点字符串值
+ */
+function collectStrings(obj) {
+  const values = [];
+  function walk(value) {
+    if (typeof value === "string") {
+      values.push(value);
+    } else if (value !== null && typeof value === "object" && !Array.isArray(value)) {
+      for (const v of Object.values(value)) {
+        walk(v);
+      }
+    }
+  }
+  walk(obj);
+  return values;
+}
+
+/**
+ * 用替换器替换 JSON 对象中的叶子节点字符串值
+ */
+function replaceStringValues(obj, replacer) {
+  function walk(value) {
+    if (typeof value === "string") {
+      return replacer.next();
+    } else if (value !== null && typeof value === "object" && !Array.isArray(value)) {
+      for (const key of Object.keys(value)) {
+        value[key] = walk(value[key]);
+      }
+    }
+    return value;
+  }
+  walk(obj);
+}
+
+/**
+ * 写入合并后的文件内容
+ */
+function writeMergedFile(file, targetPath, options = {}) {
+  if (file.mergeMode === "json" && file.content) {
+    if (options.randomReplacer) {
+      replaceStringValues(file.content, options.randomReplacer);
+    }
+    safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
+  } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
+    safeWriteFileSync(targetPath, file.textContent);
+  } else if (file.sourcePath && existsSync(file.sourcePath)) {
+    safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
+  }
+}
+
+/**
  * 合并 JSON 对象
  */
 function mergeJson(target, source, differType = 'merge') {
@@ -565,7 +641,7 @@ function createBuildWorkspace(buildData) {
     };
   }
 
-  const { type, version, categories } = buildData;
+  const { type, version, categories, random } = buildData;
 
   // 1. 验证基础资源
   if (!existsSync(bundledBaseRoot) || !statSync(bundledBaseRoot).isDirectory()) {
@@ -596,24 +672,25 @@ function createBuildWorkspace(buildData) {
   const tempDir = join("/tmp", `build-${crypto.randomUUID()}`);
   mkdirSync(tempDir, { recursive: true });
   copyDirectoryRecursive(bundledBaseRoot, tempDir);
+  const packMeta = {
+    description: "让你的mc变得更可爱喵！\n作者：XiaoshiTwinkling & 望霂",
+  };
+  if (packFormat.isNewFormat) {
+    packMeta.min_format = packFormat.min_format;
+    packMeta.max_format = packFormat.max_format;
+  } else {
+    packMeta.pack_format = packFormat.version;
+    packMeta.supported_formats = [packFormat.version];
+  }
   safeWriteFileSync(
     join(tempDir, "pack.mcmeta"),
-    JSON.stringify(
-      {
-        pack: {
-          description: "让你的mc变得更可爱喵！\n作者：XiaoshiTwinkling & 望霂",
-          pack_format: packFormat.version,
-        },
-      },
-      null,
-      2,
-    ),
+    JSON.stringify({ pack: packMeta }, null, 2),
   );
 
   // 4. 收集工作区信息
   const workspaceInfo = {
     tempDir,
-    packFormatVersion: packFormat.version,
+    packFormatVersion: packFormat.isNewFormat ? packFormat.min_format : packFormat.version,
     categories: Object.keys(categories),
     modules: {},
     errors: []
@@ -635,64 +712,50 @@ function createBuildWorkspace(buildData) {
       files: result.mergedFiles
     };
 
-    // 根据类别处理文件
-    if (category === "vanilla") {
-      // 合并所有 JSON 文件到 zh_cn.json
-      const mergedLang = {};
-      const zhCnModules = [];
-
+    // 统一处理所有类别的文件
+    if (random) {
+      // 第一遍：收集所有 JSON 文件的字符串
+      const allStrings = [];
       for (const file of result.mergedFiles) {
         if (file.mergeMode === "json" && file.content) {
-          Object.assign(mergedLang, file.content);
-          zhCnModules.push(...file.mergedFrom);
+          allStrings.push(...collectStrings(file.content));
         }
       }
+      // 全局打乱一次
+      const shuffled = shuffleArray(allStrings);
+      let index = 0;
+      const replacer = { next: () => shuffled[index++] };
 
-      const zhCnPath = join(tempDir, "assets", "minecraft", "lang", "zh_cn.json");
-      safeWriteFileSync(zhCnPath, JSON.stringify(mergedLang, null, 2));
-
-      workspaceInfo.zhCnPath = zhCnPath;
-      workspaceInfo.zhCnEntries = Object.keys(mergedLang).length;
-      workspaceInfo.zhCnModules = [...new Set(zhCnModules)];
-
-    } else if (category === "mods") {
-      // 处理 mod 文件
+      // 第二遍：回填 + 写入
       for (const file of result.mergedFiles) {
+        writeMergedFile(file, join(tempDir, file.targetPath), { randomReplacer: replacer });
+      }
+    } else {
+      for (const file of result.mergedFiles) {
+        writeMergedFile(file, join(tempDir, file.targetPath));
+      }
+    }
+
+    // 类别特定的元数据收集
+    for (const file of result.mergedFiles) {
+      if (category === "vanilla") {
+        workspaceInfo.zhCnPath = join(tempDir, file.targetPath);
+        workspaceInfo.zhCnEntries = Object.keys(file.content || {}).length;
+        workspaceInfo.zhCnModules = [...(workspaceInfo.zhCnModules || []), ...file.mergedFrom];
+      }
+
+      if (category === "mods") {
         const match = file.targetPath.match(/assets\/([^/]+)\/lang\/zh_cn\.json$/);
-        if (!match) continue;
-
-        const namespace = match[1];
-        const targetPath = join(tempDir, "assets", namespace, "lang", "zh_cn.json");
-
-        if (file.mergeMode === "json" && file.content) {
-          safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
-        } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
-          safeWriteFileSync(targetPath, file.textContent);
-        } else if (file.sourcePath && existsSync(file.sourcePath)) {
-          safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
-        }
-
-        if (!workspaceInfo.modules[category].namespaces) {
-          workspaceInfo.modules[category].namespaces = [];
-        }
-        workspaceInfo.modules[category].namespaces.push({
-          namespace,
-          entries: Object.keys(file.content || {}),
-          modules: file.mergedFrom || []
-        });
-      }
-
-    } else if (category === "expansion" || category === "extension") {
-      // 处理扩展文件
-      for (const file of result.mergedFiles) {
-        const targetPath = join(tempDir, file.targetPath);
-
-        if (file.mergeMode === "json" && file.content) {
-          safeWriteFileSync(targetPath, JSON.stringify(file.content, null, 2));
-        } else if (file.mergeMode === "text" && typeof file.textContent === "string") {
-          safeWriteFileSync(targetPath, file.textContent);
-        } else if (file.sourcePath && existsSync(file.sourcePath)) {
-          safeWriteFileSync(targetPath, readFileSync(file.sourcePath));
+        if (match) {
+          const namespace = match[1];
+          if (!workspaceInfo.modules[category].namespaces) {
+            workspaceInfo.modules[category].namespaces = [];
+          }
+          workspaceInfo.modules[category].namespaces.push({
+            namespace,
+            entries: Object.keys(file.content || {}),
+            modules: file.mergedFrom || []
+          });
         }
       }
     }
