@@ -1045,7 +1045,6 @@ function handleOptions(pathname) {
   const allowedPaths = [
     "/config.json",
     "/build",
-    "/nlp",
     legacyDirectDownload.pathname,
   ];
 
@@ -1067,25 +1066,6 @@ function handleOptions(pathname) {
       "Access-Control-Max-Age": "86400",
     },
   });
-}
-
-function handleNlpPage() {
-  try {
-    const htmlPath = join("/bundle/pages", "nlp.html");
-    if (!existsSync(htmlPath)) {
-      return errorResponse(404, "NOT_FOUND", "Page not found.");
-    }
-    const htmlContent = readFileSync(htmlPath, "utf8");
-    return new Response(htmlContent, {
-      status: 200,
-      headers: {
-        ...corsHeaders,
-        "Content-Type": "text/html; charset=utf-8",
-      },
-    });
-  } catch (err) {
-    return errorResponse(500, "INTERNAL_ERROR", "Failed to load page.");
-  }
 }
 
 export default {
@@ -1130,14 +1110,6 @@ export default {
       }
 
       return handleGeneratedDownload(request, env);
-    }
-
-    if (pathname === "/nlp") {
-      if (request.method !== "GET") {
-        return errorResponse(405, "METHOD_NOT_ALLOWED", "Only GET is allowed for /nlp.");
-      }
-
-      return handleNlpPage();
     }
 
     return errorResponse(404, "NOT_FOUND", "Route not found.");
