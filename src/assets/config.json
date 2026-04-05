@@ -1187,11 +1187,11 @@
                 "zh-Neko": "原版基础内容喵"
               },
               "summary": {
-                "zh-CN": "原版的大多数东西",
+                "zh-CN": "原版基础内容",
                 "zh-Neko": "原版基础喵"
               },
               "description": {
-                "zh-CN": "",
+                "zh-CN": "原版的大多数东西",
                 "zh-Neko": ""
               },
               "defaultSelected": true,
@@ -1229,11 +1229,11 @@
                 "zh-Neko": "25w14craftmine 喵"
               },
               "summary": {
-                "zh-CN": "2025年愚人节",
+                "zh-CN": "craftmine",
                 "zh-Neko": "craftmine 喵"
               },
               "description": {
-                "zh-CN": "",
+                "zh-CN": "2025年愚人节",
                 "zh-Neko": ""
               },
               "defaultSelected": true,
@@ -1268,11 +1268,11 @@
                 "zh-Neko": "基础 mod 包喵"
               },
               "summary": {
-                "zh-CN": "很多的小 mod",
+                "zh-CN": "基础 mod 包",
                 "zh-Neko": "基础 mod 喵"
               },
               "description": {
-                "zh-CN": "",
+                "zh-CN": "很多的小 mod",
                 "zh-Neko": ""
               },
               "children": [
@@ -1507,7 +1507,7 @@
                 "zh-Neko": "create"
               },
               "description": {
-                "zh-CN": "会保持持续更新，请及时下载最新构建版本。",
+                "zh-CN": "更多mod覆盖正在推进中...",
                 "zh-Neko": "我们会一直更新这块内容喵，主人要用的话，要及时更新哟喵~"
               },
               "defaultSelected": true,
@@ -1542,11 +1542,11 @@
                 "zh-Neko": "附魔名喵"
               },
               "summary": {
-                "zh-CN": "建议搭配物品描述mod",
+                "zh-CN": "附魔名",
                 "zh-Neko": "附魔名喵"
               },
               "description": {
-                "zh-CN": "覆盖原版附魔名称文本。",
+                "zh-CN": "建议搭配物品描述mod",
                 "zh-Neko": "覆盖原版附魔名称文本喵。"
               },
               "files": [
@@ -1563,11 +1563,11 @@
                 "zh-Neko": "颜文字喵"
               },
               "summary": {
-                "zh-CN": "建议打开语言设置里的强制显示unicode字体或现代化字体",
+                "zh-CN": "颜文字",
                 "zh-Neko": "颜文字喵"
               },
               "description": {
-                "zh-CN": "建议开启 Unicode 强制字体或使用现代字体以获得最佳显示效果。",
+                "zh-CN": "建议打开语言设置里的强制显示unicode字体或用现代化字体",
                 "zh-Neko": "建议开启 Unicode 强制字体或使用现代字体，显示效果会更好喵。"
               },
               "defaultSelected": true,
@@ -1585,11 +1585,11 @@
                 "zh-Neko": "给我变喵！"
               },
               "summary": {
-                "zh-CN": "都变成猫娘！",
+                "zh-CN": "给我变",
                 "zh-Neko": "给我变喵"
               },
               "description": {
-                "zh-CN": "聊天结尾、皮肤与玩家文本替换。",
+                "zh-CN": "都变成猫娘！",
                 "zh-Neko": "聊天结尾、皮肤和玩家文本替换喵。"
               },
               "children": [
@@ -1600,7 +1600,7 @@
                     "zh-Neko": "聊天结尾喵"
                   },
                   "description": {
-                    "zh-CN": "在聊天结尾统一附加一个“喵”。",
+                    "zh-CN": "在聊天结尾统一附加一个“喵”，在服务器可能失效",
                     "zh-Neko": "将聊天结尾替换成喵喵喵。"
                   },
                   "files": [
@@ -1813,11 +1813,11 @@
                 "zh-Neko": "标题栏喵"
               },
               "summary": {
-                "zh-CN": "游戏窗口化时候有的标题栏，可能会被启动器覆盖",
+                "zh-CN": "标题栏相关文本",
                 "zh-Neko": "标题栏喵"
               },
               "description": {
-                "zh-CN": "替换标题栏相关文本。",
+                "zh-CN": "游戏窗口化时候有的标题栏，可能会被启动器覆盖",
                 "zh-Neko": "替换标题栏相关文本喵。"
               },
               "defaultSelected": true,
@@ -1835,11 +1835,11 @@
                 "zh-Neko": "去除黄段子补丁喵"
               },
               "summary": {
-                "zh-CN": "如果你介意的话...",
+                "zh-CN": "去除黄段子的补丁",
                 "zh-Neko": "去黄段子喵"
               },
               "description": {
-                "zh-CN": "覆盖少量不适文本。",
+                "zh-CN": "如果你介意的话",
                 "zh-Neko": "覆盖少量不适文本喵。"
               },
               "files": [
@@ -1856,7 +1856,7 @@
                 "zh-Neko": "其他文本喵"
               },
               "summary": {
-                "zh-CN": "闪烁标语之类的其他地方",
+                "zh-CN": "其他文本喵",
                 "zh-Neko": "其他文本喵"
               },
               "description": {
@@ -1982,11 +1982,11 @@
                 "zh-Neko": "彩蛋喵"
               },
               "summary": {
-                "zh-CN": "或许运气好能发现",
+                "zh-CN": "彩蛋",
                 "zh-Neko": "彩蛋喵"
               },
               "description": {
-                "zh-CN": "云层贴图按版本分流。",
+                "zh-CN": "或许运气好能发现",
                 "zh-Neko": "云层贴图按版本分流喵。"
               },
               "defaultSelected": true,

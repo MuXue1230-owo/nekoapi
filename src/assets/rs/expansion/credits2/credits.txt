@@ -1,0 +1,241 @@
+[C]§f=======================================
+[C]§eNeko Language Pack for Java Edition
+[C]§f=======================================
+
+§7§7我把mojang的名单删了哈哈哈哈
+§f          最后更新时间
+§f          2026年3月27日
+§f          Neko Language Pack 简称
+§f          NLP
+§f          你老婆（中文译名）
+§f          猫娘头头（你老婆，吉祥物，偶尔发个视频）
+§f          XiaoshiTwinkling
+§f          古希腊掌管猫猫包的神（实际管事的以及最终审核，有事找他）
+§f          Rainwhisper（望霂）
+§f          QQ 2635650784
+§f          你老婆编辑组（实际上在运作这个包的组）
+§f          Rainwhisper
+§f          Hikaritsu
+§f          吃个硝酸uwu
+§f          原版文本
+§f          XiaoshiTwinkling
+§f          Rainwhisper
+§f          机械动力等模组文本
+§f          Rainwhisper
+§f          XiaoshiTwinkling
+§f          25w14craftmine文本
+§f          Georgome.
+§f          物品描述文本（还在做...）
+§f          MUXUE1230
+§f          KUSSA
+§f          Hikaritsu
+§f          吃个硝酸uwu
+§f          没了
+§f          就这么几个人直接参与
+§f          特别鸣谢
+§f          lolcat
+§f          布吉岛
+§f          梗体中文 - teahouse
+§f          Paratranz
+§f          
+§f          Visual Studio Code
+§f          MT管理器
+§f          地球
+§f          我用掉的电
+§f          我吃掉的饭
+§f          香港本地化包（图一乐）等扩展包
+§f          KUSSA_LTSC
+§f          终末之诗
+§f          文案：模板出处无从考证，由Gemini改写
+§f          配音：elevenlabs
+§f          本来想xiaoshi来配的，但是孩子太不自信了
+§f          如果有人愿意来写个更正经的终末之诗
+§f          或者来配音的话，很希望能来owo
+§f          期望薪资：一只猫娘，可送猫粮
+§f          反馈漏洞
+§f          零值null
+§f          YT_XueLian
+§f          aurarokl
+§f          Hikaritsu
+§f          吃个硝酸uwu <-- 兼“你老婆”译名提出者
+§f          毕加索の橙
+§f          提供想法
+§f          2q7y
+§f          莜鱼
+§f          KUSSA_LTSC
+§f          闪烁标语
+§f          灰色部分为QQ号，均为自愿提供
+§f           
+§f          Dictators.
+§f          ganji_o
+§f          Dr.迷の人类
+§f          白c羽
+§f          洛柠Naloveyuki
+§f          白屿
+§f          2q7y
+§f          YT_XueLian
+§f          星光坠入爱河§7（2896652979）
+§f          貓屋敷猫屋
+§f          UID:3493104613067521(真的会有人无聊到来找我吗)
+§f          拉普兰德•西格蒙德(重伤)
+§f          佚名喵喵
+§f          可耐的小伙纸
+§f          Aumnkenrn§7（4488924）
+§f          ほし§7（2541471791）
+§f          BEX
+§f          量产猫娘10086号
+§f          南喵北喵§7（1750502909）
+§f          Tachibana.§7（1283750945）
+§f          Preference§7（3830289844）
+§f          FL.阿白§7（1250298160）
+§f          柿子§7（3038988263）
+§f          ༼༾零值null༿༽§7（2889013380）
+§f          EP南极洲异教
+§f          Aaron§7（177436529）
+§f          Georgome.
+§f          。。。
+§f          胡一言～
+§f          千梦一心Neva
+§f          yingpan_cn
+§f          ClassIsBand§7（2441500679）
+§f          木雪 1230
+§f          Chasing1145
+§f          Hikaritsu和他的猫
+§f          ActualVessel504
+§f          ichi§7（2125669788）
+§f          1355喵
+§f          创造马达烧锅炉§7（3937254493）
+§f          wzc_ikun§7（1522802600）
+§f          某人
+§f          头像本人，再问跳楼
+§f          Cx300
+§f          kadmiel
+§f          ALook4384亻尔 女子§7（3845152839）
+§f          Geabal
+§f          烊咩
+§f          十一号酱
+§f          ⑨§7（3159038105）
+§f          其他一些人
+§f          柿子
+§f          莜鱼
+§f          koimiaori
+§f          孤火
+§f          洛柠Naloveyuki
+§f          MengMeng_pwp
+§f          群猫娘
+§f          露露
+§f          一切脚本
+§f          Deepseek
+§f          Gemini <-- 主力
+§f          ChatGPT
+§f          望霂改脚本的时候旁边看着的两个人
+§f          吃个硝酸uwu
+§f          Hikaritsu
+§f          脚本用的语言和依赖库
+§f          python
+§f          requests
+§f          脚本是用来干什么的
+§f          给那个该死的物品描述mod的该死的
+§f          没事干™瞎jb改键名玩喜欢把color改成colour
+§f          结果正文里是color，早期是键名color正文colour
+§f          还喜欢改该死的命名方式的该死的作者
+§f          而且它自己别的语言都没跟上
+§f          猫猫语更新的比它自己还快
+§f          写的兼容脚本和线上构建脚本
+§f          如果你在资源包里找到了build_info.txt
+§f          说明我们成功了！
+§f          友商
+§f          Moe Chinses(萌体中文) - CrystalNeko
+§f          https://modrinth.com/project/5SOLUcG8
+§f          https://space.bilibili.com/3461580710742160
+§f          我知道你想看什么
+§f          来了
+§f          AND YOU
+§f          Thanks for using!
+§f          为什么这句话一定要用英文啊
+§f          不知道反正别的游戏都这么写
+§f          我喜欢你
+§f          
+§f          外部链接
+§f          QQ群：249663464
+§f          modrinth：https://modrinth.com/project/YzCQisiC
+§f          
+§f          广告位招租
+§f          参与社区投票
+§f          这里的名字直接使用参与投票时使用的QQ账户名
+§f          
+§f          ~(*・_・)ノ⌒*丢出去
+§f          6
+§f          绝望少年
+§f          萌萌的皮卡丘
+§f          Icerainboww
+§f          pppppppppp
+§f          无埃
+§f          逐·风
+§f          破胆の甲亢
+§f          竹喧
+§f          NDFK9400
+§f          哈之何
+§f          ICE-CREAM
+§f          零
+§f          小羊驼
+§f          想念
+§f          华夫
+§f          L
+§f          Miyako
+§f          rain
+§f          ʕ̯•͡˔•̯侬依_醤㋡
+§f          Y
+§f          yingpan_cn
+§f          梅角羊
+§f          Shimizu清水川一
+§f          丞
+§f          Icy-White-Cat
+§f          我有绝望综合症.jpg
+§f          天童 アリス
+§f          浔浔
+§f          咖啡
+§f          杯里的小猫
+§f          迴
+§f          Xiaoshi_
+§f          嘿嘿
+§f          莉可
+§f          不知道该起啥名
+§f          江念梓
+§f          芯子
+§f          洛柠Naloveyuki
+§f          白屿
+§f          喵宕七 喵～
+§f          Omagari Hare
+§f          Firstlove.阿白
+§f          喵喵~喵
+§f          ༄༊࿆凌霄未落࿐   ⸙
+§f          乄_﹏柒ぐ.汐
+§f          玖月无解
+§f          星光与爱河
+§f          bdndf
+§f          你许与我同研墨
+§f          天坑烟小柳
+§f          Dictators.
+§f          Yolo
+§f          gwdsir
+§f          sᴇᴠᴇɴ~♡
+§f          MerryzzB99
+§f          Dr.迷の人类
+§f          哈哈哈
+§f          语晴
+§f          星
+§f          就说瞎话
+§f          张少
+§f          Binah
+§f          chestnut
+§f          木雪 1230
+§f          ༼༾零值null༿༽
+§f          普卤柿大蒂●█▀█▄
+§f          Lingfei233
+§f          井米甜承
+§f          谢谢所有人
+§f          
+
+
+§f"哈基米哦南北绿豆，啊洗嘎纳哈呀库。欧曼吉里叮咚鸡，叮咚叮咚哈基米。大勾一段带一段，曼波越打越难捋。哈呀酷哦哈基米，曼波基米带段一。 ——佚名
